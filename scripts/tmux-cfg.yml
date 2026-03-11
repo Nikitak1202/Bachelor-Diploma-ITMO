@@ -1,0 +1,25 @@
+# tmuxp configuration for the simulation session
+session_name: apartment_sim
+windows:
+  - window_name: control
+    panes:
+      - shell_command: bash
+
+  - window_name: gazebo
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Starting Gazebo ==='
+            source /ros2_ws/install/setup.bash
+            ros2 launch gazebo_ros gazebo.launch.py world:=/worlds/apartment.world 2>&1 | tee -a "/ros2_ws/logs/gz.log"
+          "
+
+  - window_name: controller
+    panes:
+      - shell_command: |
+          bash -c "
+            source /ros2_ws/install/setup.bash
+            echo 'Waiting for Gazebo to be ready...'
+            sleep 5   
+            ros2 run apartment_sim obstacles_controller 2>&1 | tee -a "/ros2_ws/logs/controller.log"
+          "

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  apartment_sim:
+    build: .
+    container_name: apartment_sim
+    network_mode: host
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - LIBGL_ALWAYS_SOFTWARE=0
+      - GAZEBO_MODEL_PATH=/aws-robomaker-small-house-world/models:${GAZEBO_MODEL_PATH}
+      - RCUTILS_COLORIZED_OUTPUT=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /dev/dri:/dev/dri:rw
+      - ./src:/ros2_ws/src
+      - ./worlds:/ros2_ws/worlds
+      - ./scripts:/ros2_ws/scripts
+      - ./logs:/ros2_ws/logs
+    stdin_open: true
+    tty: true
