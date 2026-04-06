@@ -1,0 +1,18 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-04-06-09-11-18-950858-albatros-LOQ-15IAX9-559
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [xacro-1]: process started with pid [561]
+[INFO] [robot_state_publisher-2]: process started with pid [563]
+[INFO] [spawn_entity.py-3]: process started with pid [565]
+[robot_state_publisher-2] [33m[WARN] [1775466679.040882803] [robot_state_publisher]: No robot_description parameter, but command-line argument available.  Assuming argument is name of URDF file.  This backwards compatibility fallback will be removed in the future.[0m
+[robot_state_publisher-2] [31m[FATAL] [1775466679.041324315] [robot_state_publisher]: Failed to open URDF file: /tmp/omni_robot.urdf: No such file or directory[0m
+[robot_state_publisher-2] terminate called after throwing an instance of 'std::system_error'
+[robot_state_publisher-2]   what():  Failed to open URDF file: /tmp/omni_robot.urdf: No such file or directory
+[INFO] [xacro-1]: process has finished cleanly [pid 561]
+[ERROR] [robot_state_publisher-2]: process has died [pid 563, exit code -6, cmd '/opt/ros/humble/lib/robot_state_publisher/robot_state_publisher /tmp/omni_robot.urdf --ros-args'].
+[spawn_entity.py-3] [0m[INFO] [1775466679.459092771] [spawn_entity]: Spawn Entity started[0m
+[spawn_entity.py-3] [0m[INFO] [1775466679.459590768] [spawn_entity]: Loading entity XML from file /tmp/omni_robot.urdf[0m
+[spawn_entity.py-3] [0m[INFO] [1775466679.460671752] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30[0m
+[spawn_entity.py-3] [0m[INFO] [1775466679.460925257] [spawn_entity]: Waiting for service /spawn_entity[0m
+[spawn_entity.py-3] [0m[INFO] [1775466679.466857153] [spawn_entity]: Calling service /spawn_entity[0m
+[spawn_entity.py-3] [0m[INFO] [1775466681.996060827] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [omni_robot][0m
+[INFO] [spawn_entity.py-3]: process has finished cleanly [pid 565]

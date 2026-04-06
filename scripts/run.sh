@@ -16,6 +16,7 @@ fi
 echo "Stopping any existing apartment_sim container..."
 docker-compose down
 
+xhost +local:docker
 # Build the Docker image
 echo "Building Docker image..."
 docker-compose build

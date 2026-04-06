@@ -1,0 +1,41 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-04-06-09-11-10-694157-albatros-LOQ-15IAX9-224
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gzserver-1]: process started with pid [353]
+[INFO] [gzclient-2]: process started with pid [355]
+[gzserver-1] ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+[gzserver-1] ALSA lib conf.c:5178:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+[gzserver-1] ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+[gzserver-1] ALSA lib conf.c:5178:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+[gzserver-1] ALSA lib confmisc.c:1334:(snd_func_refer) error evaluating name
+[gzserver-1] ALSA lib conf.c:5178:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+[gzserver-1] ALSA lib conf.c:5701:(snd_config_expand) Evaluate error: No such file or directory
+[gzserver-1] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM default
+[gzserver-1] AL lib: (EE) ALCplaybackAlsa_open: Could not open playback device 'default': No such file or directory
+[gzserver-1] [0m[INFO] [1775466676.373706670] [target.planar_move]: Subscribed to [/target/cmd_vel][0m
+[gzserver-1] [0m[INFO] [1775466676.377736986] [target.planar_move]: Advertise odometry on [/target/odom][0m
+[gzserver-1] [0m[INFO] [1775466676.382537515] [target.planar_move]: Publishing odom transforms between [odom] and [base_footprint][0m
+[gzserver-1] [0m[INFO] [1775466677.224367509] [obstacle_0.planar_move]: Subscribed to [/obstacle_0/cmd_vel][0m
+[gzserver-1] [0m[INFO] [1775466677.225509733] [obstacle_0.planar_move]: Advertise odometry on [/obstacle_0/odom][0m
+[gzserver-1] [0m[INFO] [1775466677.225945044] [obstacle_0.planar_move]: Publishing odom transforms between [odom] and [base_footprint][0m
+[gzserver-1] [0m[INFO] [1775466678.271799747] [obstacle_1.planar_move]: Subscribed to [/obstacle_1/cmd_vel][0m
+[gzserver-1] [0m[INFO] [1775466678.272026190] [obstacle_1.planar_move]: Advertise odometry on [/obstacle_1/odom][0m
+[gzserver-1] [0m[INFO] [1775466678.272334338] [obstacle_1.planar_move]: Publishing odom transforms between [odom] and [base_footprint][0m
+[gzserver-1] [0m[INFO] [1775466679.328067988] [obstacle_2.planar_move]: Subscribed to [/obstacle_2/cmd_vel][0m
+[gzserver-1] [0m[INFO] [1775466679.328472726] [obstacle_2.planar_move]: Advertise odometry on [/obstacle_2/odom][0m
+[gzserver-1] [0m[INFO] [1775466679.330600182] [obstacle_2.planar_move]: Publishing odom transforms between [odom] and [base_footprint][0m
+[gzserver-1] Warning: link 'base_link' material 'blue' undefined.
+[gzserver-1]          at line 84 in ./urdf_parser/src/model.cpp
+[gzserver-1] Warning: link 'base_link' material 'blue' undefined.
+[gzserver-1]          at line 84 in ./urdf_parser/src/model.cpp
+[gzserver-1] [0m[INFO] [1775466679.949341329] [omni_robot.gazebo_ros_camera]: Publishing camera info to [/omni_robot/camera/camera_info][0m
+[gzserver-1] [33m[WARN] [1775466679.970467204] [omni_robot.gazebo_ros_laser]: missing <output_type>, defaults to sensor_msgs/PointCloud2[0m
+[gzserver-1] [0m[INFO] [1775466680.058171256] [omni_robot.planar_move]: Subscribed to [/omni_robot/cmd_vel][0m
+[gzserver-1] [0m[INFO] [1775466680.058337206] [omni_robot.planar_move]: Advertise odometry on [/omni_robot/odom][0m
+[gzserver-1] [0m[INFO] [1775466680.059060415] [omni_robot.planar_move]: Publishing odom transforms between [odom] and [base_footprint][0m
+[gzserver-1] [0m[INFO] [1775466680.297389108] [obstacle_3.planar_move]: Subscribed to [/obstacle_3/cmd_vel][0m
+[gzserver-1] [0m[INFO] [1775466680.297681536] [obstacle_3.planar_move]: Advertise odometry on [/obstacle_3/odom][0m
+[gzserver-1] [0m[INFO] [1775466680.298454237] [obstacle_3.planar_move]: Publishing odom transforms between [odom] and [base_footprint][0m
+[gzserver-1] [0m[INFO] [1775466681.359327677] [obstacle_4.planar_move]: Subscribed to [/obstacle_4/cmd_vel][0m
+[gzserver-1] [0m[INFO] [1775466681.360468290] [obstacle_4.planar_move]: Advertise odometry on [/obstacle_4/odom][0m
+[gzserver-1] [0m[INFO] [1775466681.361654846] [obstacle_4.planar_move]: Publishing odom transforms between [odom] and [base_footprint][0m
+[INFO] [gzclient-2]: process has finished cleanly [pid 355]

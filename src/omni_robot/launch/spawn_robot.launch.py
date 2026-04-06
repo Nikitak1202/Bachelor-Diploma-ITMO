@@ -1,0 +1,56 @@
+from launch import LaunchDescription
+from launch_ros.actions import Node
+from launch.substitutions import LaunchConfiguration
+from launch_ros.substitutions import FindPackageShare
+from launch.actions import DeclareLaunchArgument, ExecuteProcess
+import os
+
+def generate_launch_description():
+    pkg_omni_robot = FindPackageShare('omni_robot').find('omni_robot')
+    xacro_file = os.path.join(pkg_omni_robot, 'urdf', 'omni_robot.urdf.xacro')
+    
+    # Generate URDF file in /tmp (writeable inside container)
+    urdf_file = '/tmp/omni_robot.urdf'
+    generate_urdf = ExecuteProcess(
+        cmd=['xacro', xacro_file, '-o', urdf_file],
+        output='screen'
+    )
+
+    spawn_x = LaunchConfiguration('spawn_x', default='2.0')
+    spawn_y = LaunchConfiguration('spawn_y', default='2.0')
+    spawn_z = LaunchConfiguration('spawn_z', default='0.1')
+    spawn_yaw = LaunchConfiguration('spawn_yaw', default='0.0')
+
+    # Robot state publisher using the generated URDF file
+    rsp_node = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        arguments=[urdf_file],
+        output='screen'
+    )
+
+    # Spawn entity in Gazebo using the generated URDF file
+    spawn_entity = Node(
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        arguments=[
+            '-entity', 'omni_robot',
+            '-file', urdf_file,
+            '-x', spawn_x,
+            '-y', spawn_y,
+            '-z', spawn_z,
+            '-Y', spawn_yaw,
+            '-robot_namespace', 'omni_robot'
+        ],
+        output='screen'
+    )
+
+    return LaunchDescription([
+        DeclareLaunchArgument('spawn_x', default_value='2.0'),
+        DeclareLaunchArgument('spawn_y', default_value='2.0'),
+        DeclareLaunchArgument('spawn_z', default_value='0.1'),
+        DeclareLaunchArgument('spawn_yaw', default_value='0.0'),
+        generate_urdf,
+        rsp_node,
+        spawn_entity
+    ])

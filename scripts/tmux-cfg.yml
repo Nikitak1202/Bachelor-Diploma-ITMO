@@ -11,15 +11,45 @@ windows:
           bash -c "
             echo '=== Starting Gazebo ==='
             source /ros2_ws/install/setup.bash
-            ros2 launch gazebo_ros gazebo.launch.py world:=/worlds/apartment.world 2>&1 | tee -a "/ros2_ws/logs/gz.log"
+            ros2 launch gazebo_ros gazebo.launch.py world:=/worlds/apartment.world 2>&1 | tee -a '/ros2_ws/logs/gazebo.log'
           "
 
-  - window_name: controller
+  - window_name: obstacles
     panes:
       - shell_command: |
           bash -c "
+            echo '=== Starting Obstacles Controller ==='
             source /ros2_ws/install/setup.bash
-            echo 'Waiting for Gazebo to be ready...'
-            sleep 5   
-            ros2 run apartment_sim obstacles_controller 2>&1 | tee -a "/ros2_ws/logs/controller.log"
+            sleep 5
+            ros2 run apartment_sim obstacles_controller 2>&1 | tee -a '/ros2_ws/logs/obstacles.log'
+          "
+
+  - window_name: robot_spawn
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Spawning Omnidirectional Robot ==='
+            source /ros2_ws/install/setup.bash
+            sleep 8
+            ros2 launch omni_robot spawn_robot.launch.py spawn_x:=2.0 spawn_y:=2.0 2>&1 | tee -a '/ros2_ws/logs/robot_spawn.log'
+          "
+
+  - window_name: robot_control
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Starting Robot Controller (dummy) ==='
+            source /ros2_ws/install/setup.bash
+            sleep 9
+            /ros2_ws/install/omni_robot/bin/dummy_controller 2>&1 | tee -a '/ros2_ws/logs/robot_control.log'
+          "
+
+  - window_name: rviz
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Starting Rviz2 ==='
+            source /ros2_ws/install/setup.bash
+            sleep 10   # Wait for robot and sensors
+            rviz2 2>&1 | tee -a '/ros2_ws/logs/rviz.log'
           "

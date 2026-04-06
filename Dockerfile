@@ -1,10 +1,11 @@
 # ROS2 Humble base image
 FROM ros:humble-ros-base
 
-# Install system dependencies: Gazebo, tmux, git, etc.
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     gazebo \
     ros-humble-gazebo-ros-pkgs \
+    ros-humble-xacro \
     python3-pip \
     tmux \
     tmuxp \
@@ -29,6 +30,9 @@ RUN cp /tmp/aws-robomaker-small-house-world/worlds/small_house.world /worlds/apa
 # Create workspace and copy source code
 WORKDIR /ros2_ws
 COPY src/ ./src/
+
+# Create logs directory
+RUN mkdir -p /ros2_ws/logs
 
 # Build the ROS2 package
 RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install
