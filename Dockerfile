@@ -1,16 +1,21 @@
-# ROS2 Humble base image
-FROM ros:humble-ros-base
+# ROS2 Humble base image — amd64
+FROM --platform=linux/amd64 ros:humble-ros-base
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     gazebo \
     ros-humble-gazebo-ros-pkgs \
     ros-humble-xacro \
+    ros-humble-rviz2 \ 
     python3-pip \
     tmux \
     tmuxp \
+    xvfb \
+    x11vnc \
+    novnc \
     git \
     vim \
+    && pip3 install --no-cache-dir websockify \
     && rm -rf /var/lib/apt/lists/*
 
 # Clone the apartment world repository (models and world)
@@ -41,6 +46,11 @@ RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install
 COPY scripts/ /scripts/
 COPY scripts/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh /scripts/*.sh
+
+RUN apt-get update && apt-get install -y \
+    openbox \
+    xdotool \
+    && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["tmuxp", "load", "/scripts/tmux-cfg.yml"]

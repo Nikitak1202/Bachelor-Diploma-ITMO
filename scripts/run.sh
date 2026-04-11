@@ -12,15 +12,12 @@ else
     rm -rf "$LOGS_DIR"/*
 fi
 
-# Stop any running container with the same name
 echo "Stopping any existing apartment_sim container..."
 docker-compose down
 
-xhost +local:docker
-# Build the Docker image
 echo "Building Docker image..."
-docker-compose build
+docker-compose build || exit 1
 
-# Run the container interactively (attaches to tmux)
 echo "Starting container with tmux session..."
-docker-compose run --rm apartment_sim
+echo "Open Gazebo in the browser: http://localhost:6080/vnc.html"
+docker-compose run --rm --service-ports apartment_sim || exit 1

@@ -6,12 +6,12 @@ from geometry_msgs.msg import Twist
 import random
 import time
 
+
 class ObstaclesController(Node):
     """
     ROS2 node that spawns cylindrical obstacles and a target in Gazebo,
     then makes them wander randomly using the planar_move plugin.
     """
-
     def __init__(self):
         super().__init__('obstacles_controller')
 

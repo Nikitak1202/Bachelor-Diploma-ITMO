@@ -1,18 +1,22 @@
-[INFO] [launch]: All log files can be found below /root/.ros/log/2026-04-06-09-11-18-950858-albatros-LOQ-15IAX9-559
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-04-11-20-15-34-126362-7d873c3ddfb6-427
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [xacro-1]: process started with pid [561]
-[INFO] [robot_state_publisher-2]: process started with pid [563]
-[INFO] [spawn_entity.py-3]: process started with pid [565]
-[robot_state_publisher-2] [33m[WARN] [1775466679.040882803] [robot_state_publisher]: No robot_description parameter, but command-line argument available.  Assuming argument is name of URDF file.  This backwards compatibility fallback will be removed in the future.[0m
-[robot_state_publisher-2] [31m[FATAL] [1775466679.041324315] [robot_state_publisher]: Failed to open URDF file: /tmp/omni_robot.urdf: No such file or directory[0m
-[robot_state_publisher-2] terminate called after throwing an instance of 'std::system_error'
-[robot_state_publisher-2]   what():  Failed to open URDF file: /tmp/omni_robot.urdf: No such file or directory
-[INFO] [xacro-1]: process has finished cleanly [pid 561]
-[ERROR] [robot_state_publisher-2]: process has died [pid 563, exit code -6, cmd '/opt/ros/humble/lib/robot_state_publisher/robot_state_publisher /tmp/omni_robot.urdf --ros-args'].
-[spawn_entity.py-3] [0m[INFO] [1775466679.459092771] [spawn_entity]: Spawn Entity started[0m
-[spawn_entity.py-3] [0m[INFO] [1775466679.459590768] [spawn_entity]: Loading entity XML from file /tmp/omni_robot.urdf[0m
-[spawn_entity.py-3] [0m[INFO] [1775466679.460671752] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30[0m
-[spawn_entity.py-3] [0m[INFO] [1775466679.460925257] [spawn_entity]: Waiting for service /spawn_entity[0m
-[spawn_entity.py-3] [0m[INFO] [1775466679.466857153] [spawn_entity]: Calling service /spawn_entity[0m
-[spawn_entity.py-3] [0m[INFO] [1775466681.996060827] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [omni_robot][0m
-[INFO] [spawn_entity.py-3]: process has finished cleanly [pid 565]
+[INFO] [xacro-1]: process started with pid [430]
+[INFO] [robot_state_publisher-2]: process started with pid [432]
+[INFO] [spawn_entity.py-3]: process started with pid [434]
+[INFO] [xacro-1]: process has finished cleanly [pid 430]
+[robot_state_publisher-2] [33m[WARN] [1775938534.418914169] [robot_state_publisher]: No robot_description parameter, but command-line argument available.  Assuming argument is name of URDF file.  This backwards compatibility fallback will be removed in the future.[0m
+[robot_state_publisher-2] Warning: link 'base_link' material 'blue' undefined.
+[robot_state_publisher-2]          at line 84 in ./urdf_parser/src/model.cpp
+[robot_state_publisher-2] Warning: link 'base_link' material 'blue' undefined.
+[robot_state_publisher-2]          at line 84 in ./urdf_parser/src/model.cpp
+[robot_state_publisher-2] [33m[WARN] [1775938534.437818669] [kdl_parser]: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.[0m
+[robot_state_publisher-2] [0m[INFO] [1775938534.438405460] [robot_state_publisher]: got segment base_link[0m
+[robot_state_publisher-2] [0m[INFO] [1775938534.438451960] [robot_state_publisher]: got segment camera_link[0m
+[robot_state_publisher-2] [0m[INFO] [1775938534.438461585] [robot_state_publisher]: got segment lidar_link[0m
+[spawn_entity.py-3] [0m[INFO] [1775938534.717928585] [spawn_entity]: Spawn Entity started[0m
+[spawn_entity.py-3] [0m[INFO] [1775938534.719382960] [spawn_entity]: Loading entity XML from file /tmp/omni_robot.urdf[0m
+[spawn_entity.py-3] [0m[INFO] [1775938534.726235127] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30[0m
+[spawn_entity.py-3] [0m[INFO] [1775938534.726427169] [spawn_entity]: Waiting for service /spawn_entity[0m
+[spawn_entity.py-3] [0m[INFO] [1775938534.734365627] [spawn_entity]: Calling service /spawn_entity[0m
+[spawn_entity.py-3] [0m[INFO] [1775938535.232799252] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [omni_robot][0m
+[INFO] [spawn_entity.py-3]: process has finished cleanly [pid 434]

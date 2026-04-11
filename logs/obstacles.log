@@ -1,7 +1,7 @@
-[0m[INFO] [1775466675.892109454] [obstacles_controller]: ObstaclesController started[0m
-[0m[INFO] [1775466676.147350637] [obstacles_controller]: Spawning target at (4.14, 3.34)[0m
-[0m[INFO] [1775466677.149403675] [obstacles_controller]: Spawning obstacle_0 at (3.14, -4.79)[0m
-[0m[INFO] [1775466678.151685373] [obstacles_controller]: Spawning obstacle_1 at (-1.31, -2.37)[0m
-[0m[INFO] [1775466679.154035367] [obstacles_controller]: Spawning obstacle_2 at (4.55, -3.81)[0m
-[0m[INFO] [1775466680.156635967] [obstacles_controller]: Spawning obstacle_3 at (2.19, 3.17)[0m
-[0m[INFO] [1775466681.158904415] [obstacles_controller]: Spawning obstacle_4 at (-0.67, -4.65)[0m
+[0m[INFO] [1775938531.052184709] [obstacles_controller]: ObstaclesController started[0m
+[0m[INFO] [1775938531.337922667] [obstacles_controller]: Spawning target at (-3.71, -4.55)[0m
+[0m[INFO] [1775938532.339524334] [obstacles_controller]: Spawning obstacle_0 at (-3.00, 2.25)[0m
+[0m[INFO] [1775938533.342275918] [obstacles_controller]: Spawning obstacle_1 at (3.52, 4.77)[0m
+[0m[INFO] [1775938534.350844710] [obstacles_controller]: Spawning obstacle_2 at (-3.97, 4.62)[0m
+[0m[INFO] [1775938535.353504336] [obstacles_controller]: Spawning obstacle_3 at (-3.67, -1.42)[0m
+[0m[INFO] [1775938536.355201503] [obstacles_controller]: Spawning obstacle_4 at (3.09, -4.58)[0m
