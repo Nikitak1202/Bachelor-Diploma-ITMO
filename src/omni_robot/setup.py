@@ -26,6 +26,12 @@ setup(
     entry_points={
         'console_scripts': [
             'dummy_controller = omni_robot.dummy_controller:main',
+            'target_detector = omni_robot.target_detector:main',
+            'target_behavior_layer = omni_robot.target_behavior_layer:main',
+            'target_nav_bridge = omni_robot.target_nav_bridge:main',
+            'cmd_vel_bridge = omni_robot.cmd_vel_bridge:main',
+            'scan_bridge = omni_robot.scan_bridge:main',
+            'odom_tf_bridge = omni_robot.odom_tf_bridge:main',
         ],
     },
 )

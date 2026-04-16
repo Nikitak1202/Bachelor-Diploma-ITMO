@@ -1,22 +1,22 @@
-[INFO] [launch]: All log files can be found below /root/.ros/log/2026-04-11-20-15-34-126362-7d873c3ddfb6-427
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-04-16-18-49-35-773602-1c7a0ad43e3e-535
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [xacro-1]: process started with pid [430]
-[INFO] [robot_state_publisher-2]: process started with pid [432]
-[INFO] [spawn_entity.py-3]: process started with pid [434]
-[INFO] [xacro-1]: process has finished cleanly [pid 430]
-[robot_state_publisher-2] [33m[WARN] [1775938534.418914169] [robot_state_publisher]: No robot_description parameter, but command-line argument available.  Assuming argument is name of URDF file.  This backwards compatibility fallback will be removed in the future.[0m
+[INFO] [xacro-1]: process started with pid [538]
+[INFO] [robot_state_publisher-2]: process started with pid [540]
+[INFO] [spawn_entity.py-3]: process started with pid [542]
+[INFO] [xacro-1]: process has finished cleanly [pid 538]
+[robot_state_publisher-2] [33m[WARN] [1776365376.342573338] [robot_state_publisher]: No robot_description parameter, but command-line argument available.  Assuming argument is name of URDF file.  This backwards compatibility fallback will be removed in the future.[0m
 [robot_state_publisher-2] Warning: link 'base_link' material 'blue' undefined.
 [robot_state_publisher-2]          at line 84 in ./urdf_parser/src/model.cpp
 [robot_state_publisher-2] Warning: link 'base_link' material 'blue' undefined.
 [robot_state_publisher-2]          at line 84 in ./urdf_parser/src/model.cpp
-[robot_state_publisher-2] [33m[WARN] [1775938534.437818669] [kdl_parser]: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.[0m
-[robot_state_publisher-2] [0m[INFO] [1775938534.438405460] [robot_state_publisher]: got segment base_link[0m
-[robot_state_publisher-2] [0m[INFO] [1775938534.438451960] [robot_state_publisher]: got segment camera_link[0m
-[robot_state_publisher-2] [0m[INFO] [1775938534.438461585] [robot_state_publisher]: got segment lidar_link[0m
-[spawn_entity.py-3] [0m[INFO] [1775938534.717928585] [spawn_entity]: Spawn Entity started[0m
-[spawn_entity.py-3] [0m[INFO] [1775938534.719382960] [spawn_entity]: Loading entity XML from file /tmp/omni_robot.urdf[0m
-[spawn_entity.py-3] [0m[INFO] [1775938534.726235127] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30[0m
-[spawn_entity.py-3] [0m[INFO] [1775938534.726427169] [spawn_entity]: Waiting for service /spawn_entity[0m
-[spawn_entity.py-3] [0m[INFO] [1775938534.734365627] [spawn_entity]: Calling service /spawn_entity[0m
-[spawn_entity.py-3] [0m[INFO] [1775938535.232799252] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [omni_robot][0m
-[INFO] [spawn_entity.py-3]: process has finished cleanly [pid 434]
+[robot_state_publisher-2] [33m[WARN] [1776365376.391248838] [kdl_parser]: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.[0m
+[robot_state_publisher-2] [0m[INFO] [1776365376.392648046] [robot_state_publisher]: got segment base_link[0m
+[robot_state_publisher-2] [0m[INFO] [1776365376.392734171] [robot_state_publisher]: got segment camera_link[0m
+[robot_state_publisher-2] [0m[INFO] [1776365376.392754129] [robot_state_publisher]: got segment lidar_link[0m
+[spawn_entity.py-3] [0m[INFO] [1776365377.138914588] [spawn_entity]: Spawn Entity started[0m
+[spawn_entity.py-3] [0m[INFO] [1776365377.141758630] [spawn_entity]: Loading entity XML from file /tmp/omni_robot.urdf[0m
+[spawn_entity.py-3] [0m[INFO] [1776365377.156468338] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30[0m
+[spawn_entity.py-3] [0m[INFO] [1776365377.156960130] [spawn_entity]: Waiting for service /spawn_entity[0m
+[spawn_entity.py-3] [0m[INFO] [1776365377.173162130] [spawn_entity]: Calling service /spawn_entity[0m
+[spawn_entity.py-3] [0m[INFO] [1776365378.019537922] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [omni_robot][0m
+[INFO] [spawn_entity.py-3]: process has finished cleanly [pid 542]

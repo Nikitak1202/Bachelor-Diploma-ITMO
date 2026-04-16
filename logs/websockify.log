@@ -3,6 +3,6 @@ WebSocket server settings:
   - Web server. Web root: /usr/share/novnc
   - No SSL/TLS support (no cert file)
   - proxying from 0.0.0.0:6080 to localhost:5900
-192.168.65.1 - - [11/Apr/2026 20:15:32] 192.168.65.1: Plain non-SSL (ws://) WebSocket connection
-192.168.65.1 - - [11/Apr/2026 20:15:32] 192.168.65.1: Path: '/websockify'
-192.168.65.1 - - [11/Apr/2026 20:15:32] connecting to: localhost:5900
+192.168.65.1 - - [16/Apr/2026 18:50:00] 192.168.65.1: Plain non-SSL (ws://) WebSocket connection
+192.168.65.1 - - [16/Apr/2026 18:50:00] 192.168.65.1: Path: '/websockify'
+192.168.65.1 - - [16/Apr/2026 18:50:00] connecting to: localhost:5900

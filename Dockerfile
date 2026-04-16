@@ -6,8 +6,18 @@ RUN apt-get update && apt-get install -y \
     gazebo \
     ros-humble-gazebo-ros-pkgs \
     ros-humble-xacro \
-    ros-humble-rviz2 \ 
+    ros-humble-rviz2 \
+    ros-humble-nav2-bringup \
+    ros-humble-nav2-msgs \
+    ros-humble-slam-toolbox \
+    ros-humble-cv-bridge \
+    python3-opencv \
+    ros-humble-tf2-geometry-msgs \
+    ros-humble-tf-transformations \
+    ros-humble-gazebo-msgs \
     python3-pip \
+    openbox \
+    xdotool \
     tmux \
     tmuxp \
     xvfb \
@@ -18,14 +28,14 @@ RUN apt-get update && apt-get install -y \
     && pip3 install --no-cache-dir websockify \
     && rm -rf /var/lib/apt/lists/*
 
-# Clone the apartment world repository (models and world)
+# Clone the apartment world repository
 RUN git clone https://github.com/aws-robotics/aws-robomaker-small-house-world.git /tmp/aws-robomaker-small-house-world
 
-# Copy all models to Gazebo's user model directory (ensures they are found)
+# Copy all models to Gazebo's user model directory
 RUN mkdir -p /root/.gazebo/models && \
     cp -r /tmp/aws-robomaker-small-house-world/models/* /root/.gazebo/models/
 
-# Set Gazebo model path to include the cloned models (as fallback)
+# Set Gazebo model path to include the cloned models
 ENV GAZEBO_MODEL_PATH=/tmp/aws-robomaker-small-house-world/models:$GAZEBO_MODEL_PATH
 
 # Copy the world file to /worlds (will be overridden by mount, but serves as fallback)
@@ -46,11 +56,6 @@ RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install
 COPY scripts/ /scripts/
 COPY scripts/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh /scripts/*.sh
-
-RUN apt-get update && apt-get install -y \
-    openbox \
-    xdotool \
-    && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["tmuxp", "load", "/scripts/tmux-cfg.yml"]

@@ -15,28 +15,32 @@ class ObstaclesController(Node):
     def __init__(self):
         super().__init__('obstacles_controller')
 
-        # Declare configurable parameters
-        self.declare_parameter('number_of_obstacles', 5)
+        # Dynamic behavior parameters.
+        self.declare_parameter('number_of_obstacles', 3)
         self.declare_parameter('target_speed', 1)
         self.declare_parameter('obstacle_speed', 1)
         self.declare_parameter('update_rate', 0.1)
-        self.declare_parameter('spawn_area_min_x', -5.0)
-        self.declare_parameter('spawn_area_max_x', 5.0)
-        self.declare_parameter('spawn_area_min_y', -5.0)
-        self.declare_parameter('spawn_area_max_y', 5.0)
-        self.declare_parameter('cylinder_height', 0.2)       
-        self.declare_parameter('cylinder_radius', 0.3)       
+        self.declare_parameter('cylinder_height', 0.2)
+        self.declare_parameter('cylinder_radius', 0.3)
+
+        # Deterministic spawn parameters.
+        self.declare_parameter('target_spawn_x', 3.2)
+        self.declare_parameter('target_spawn_y', 2.0)
+        self.declare_parameter(
+            'obstacle_spawn_positions',
+            [0.8, 0.8, 0.8, 3.2, -0.8, 2.0]
+        )
 
         self.num_obstacles = self.get_parameter('number_of_obstacles').value
         self.target_speed = self.get_parameter('target_speed').value
         self.obstacle_speed = self.get_parameter('obstacle_speed').value
         self.update_rate = self.get_parameter('update_rate').value
-        self.spawn_min_x = self.get_parameter('spawn_area_min_x').value
-        self.spawn_max_x = self.get_parameter('spawn_area_max_x').value
-        self.spawn_min_y = self.get_parameter('spawn_area_min_y').value
-        self.spawn_max_y = self.get_parameter('spawn_area_max_y').value
         self.cylinder_height = self.get_parameter('cylinder_height').value
         self.cylinder_radius = self.get_parameter('cylinder_radius').value
+        self.target_spawn_x = self.get_parameter('target_spawn_x').value
+        self.target_spawn_y = self.get_parameter('target_spawn_y').value
+        raw_positions = self.get_parameter('obstacle_spawn_positions').value
+        self.obstacle_spawn_positions = self._parse_obstacle_positions(raw_positions)
 
         self.get_logger().info('ObstaclesController started')
 
@@ -48,18 +52,24 @@ class ObstaclesController(Node):
         self.model_names = []
         self.vel_publishers = {}
 
-        self.spawn_cylinder('target', color='Blue')
+        self.spawn_cylinder(
+            'target',
+            x=self.target_spawn_x,
+            y=self.target_spawn_y,
+            color='Blue'
+        )
         self.model_names.append('target')
         time.sleep(1.0)  # allow plugin to load
 
-        # Spawn obstacles (red)
+        # Spawn obstacles (red) using deterministic positions.
         for i in range(self.num_obstacles):
             name = f'obstacle_{i}'
-            self.spawn_cylinder(name, color='Red')
+            x, y = self._obstacle_pose(i)
+            self.spawn_cylinder(name, x=x, y=y, color='Red')
             self.model_names.append(name)
             time.sleep(1.0)
 
-        # Create publishers for cmd_vel topics (correct topic: /<model_name>/cmd_vel)
+        # Create publishers for cmd_vel topics
         for name in self.model_names:
             topic = f'/{name}/cmd_vel'
             self.vel_publishers[name] = self.create_publisher(Twist, topic, 10)
@@ -67,19 +77,39 @@ class ObstaclesController(Node):
         # Start periodic velocity updates
         self.timer = self.create_timer(1.0 / self.update_rate, self.update_velocities)
 
-    def spawn_cylinder(self, model_name, color='Gray'):
+    def _parse_obstacle_positions(self, raw_positions):
+        points = []
+        if len(raw_positions) % 2 != 0:
+            self.get_logger().warn(
+                'obstacle_spawn_positions must contain an even number of values; '
+                'the last value will be ignored.'
+            )
+        usable_len = len(raw_positions) - (len(raw_positions) % 2)
+        for i in range(0, usable_len, 2):
+            points.append((float(raw_positions[i]), float(raw_positions[i + 1])))
+        if not points:
+            points = [(0.8, 0.8), (0.8, 3.2), (-0.8, 2.0)]
+        return points
+
+    def _obstacle_pose(self, index):
+        if index < len(self.obstacle_spawn_positions):
+            return self.obstacle_spawn_positions[index]
+
+        # Deterministic fallback if more obstacles than configured points.
+        row = index // len(self.obstacle_spawn_positions)
+        base_x, base_y = self.obstacle_spawn_positions[index % len(self.obstacle_spawn_positions)]
+        return base_x + 0.7 * row, base_y
+
+    def spawn_cylinder(self, model_name, x, y, color='Gray'):
         """
-        Spawn a cylinder model with planar_move plugin at a random position.
-        Uses wider, shorter dimensions to prevent tipping.
-        Inertia computed for a solid cylinder (disk-like).
+        Spawn a cylinder model with planar_move plugin at a fixed position.
         """
-        x = random.uniform(self.spawn_min_x, self.spawn_max_x)
-        y = random.uniform(self.spawn_min_y, self.spawn_max_y)
         z = self.cylinder_height / 2.0  # base on ground
 
         mass = 1.0
         r = self.cylinder_radius
         h = self.cylinder_height
+
         # Inertia for solid cylinder about principal axes
         ixx = (1.0/12.0) * mass * (3*r*r + h*h)
         iyy = ixx
@@ -146,7 +176,6 @@ class ObstaclesController(Node):
 
         future = self.client.call_async(request)
         self.get_logger().info(f'Spawning {model_name} at ({x:.2f}, {y:.2f})')
-        # Do not wait for future – model appears asynchronously
 
     def update_velocities(self):
         """Publish random velocities to each model."""

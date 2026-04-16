@@ -4,16 +4,16 @@ windows:
     panes:
       - shell_command: bash
 
-  # - window_name: rviz
-  #   panes:
-  #     - shell_command: |
-  #         bash -c "
-  #           echo '=== Starting Rviz2 ==='
-  #           source /ros2_ws/install/setup.bash
+  - window_name: rviz
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Starting Rviz2 ==='
+            source /ros2_ws/install/setup.bash
             
-  #           sleep 10   # Wait for robot and sensors
-  #           rviz2 2>&1 | tee -a '/ros2_ws/logs/rviz.log'
-  #         "
+            sleep 10   # Wait for robot and sensors
+            rviz2 2>&1 | tee -a '/ros2_ws/logs/rviz.log'
+          "
 
   - window_name: gazebo
     panes:
@@ -24,7 +24,7 @@ windows:
 
             export DISPLAY=:99
             mkdir -p /tmp/.X11-unix
-            Xvfb :99 -screen 0 1920x1080x24 -nolisten tcp > /ros2_ws/logs/xvfb.log 2>&1 &
+            Xvfb :99 -screen 0 1280x1024x24 -nolisten tcp > /ros2_ws/logs/xvfb.log 2>&1 &
             
             sleep 1
             x11vnc -display :99 -rfbport 5900 -nopw -localhost > /ros2_ws/logs/x11vnc.log 2>&1 &
@@ -36,10 +36,8 @@ windows:
             ros2 launch gazebo_ros gazebo.launch.py world:=/worlds/apartment.world 2>&1 | tee -a '/ros2_ws/logs/gazebo.log'&
             GAZEBOPID=\$!
 
-            # Wait for Gazebo window (search by class or title)
             sleep 8
-            export DISPLAY=:99
-            # Try to maximize Gazebo window
+            # Set Gazebo window to full screen (may not work sometimes)
             xdotool search --onlyvisible --class 'gazebo' windowactivate --sync
             xdotool search --onlyvisible --class 'gazebo' windowsize %@ 1920 1080
             xdotool search --onlyvisible --class 'gazebo' windowmove %@ 0 0
@@ -73,9 +71,23 @@ windows:
     panes:
       - shell_command: |
           bash -c "
-            echo '=== Starting Robot Controller (dummy) ==='
+            echo '=== Nav2 + MPPI + target stack ==='
             source /ros2_ws/install/setup.bash
 
-            sleep 9
-            /ros2_ws/install/omni_robot/bin/dummy_controller 2>&1 | tee -a '/ros2_ws/logs/robot_control.log'
+            sleep 14
+            ros2 launch omni_robot omni_nav2.launch.py use_composition:=False 2>&1 | tee -a '/ros2_ws/logs/nav2.log'
+          "
+
+  - window_name: target_tracker
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Target detector + nav bridge ==='
+            source /ros2_ws/install/setup.bash
+
+            sleep 18
+            ros2 run omni_robot target_detector 2>&1 | tee -a '/ros2_ws/logs/target_detector.log' &
+            
+            sleep 2
+            ros2 run omni_robot target_nav_bridge 2>&1 | tee -a '/ros2_ws/logs/target_nav_bridge.log'
           "

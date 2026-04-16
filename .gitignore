@@ -1,0 +1,5 @@
+docs/
+logs/
+.cfg
+.dockerignore
+MPC_Plan.md

@@ -1,6 +1,4 @@
 #!/bin/bash
-# Script to start the simulation: cleans logs, stops old containers, builds, and runs
-
 LOGS_DIR="./logs"
 
 # Create or clean logs directory
@@ -14,6 +12,16 @@ fi
 
 echo "Stopping any existing apartment_sim container..."
 docker-compose down
+
+echo "Removing stale one-off apartment_sim containers..."
+STALE_CONTAINERS=$(docker ps -aq --filter "name=apartment_sim-run-")
+if [ -n "$STALE_CONTAINERS" ]; then
+    docker rm -f $STALE_CONTAINERS >/dev/null
+    echo "Removed stale containers:"
+    echo "$STALE_CONTAINERS"
+else
+    echo "No stale one-off containers found."
+fi
 
 echo "Building Docker image..."
 docker-compose build || exit 1
