@@ -1,5 +1,5 @@
 docs/
 logs/
-.cfg
+*.cfg
 .dockerignore
-MPC_Plan.md
+.DS_Store
