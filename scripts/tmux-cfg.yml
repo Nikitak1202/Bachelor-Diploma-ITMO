@@ -4,17 +4,6 @@ windows:
     panes:
       - shell_command: bash
 
-  - window_name: rviz
-    panes:
-      - shell_command: |
-          bash -c "
-            echo '=== Starting Rviz2 ==='
-            source /ros2_ws/install/setup.bash
-            
-            sleep 10   # Wait for robot and sensors
-            rviz2 2>&1 | tee -a '/ros2_ws/logs/rviz.log'
-          "
-
   - window_name: gazebo
     panes:
       - shell_command: |
@@ -24,7 +13,7 @@ windows:
 
             export DISPLAY=:99
             mkdir -p /tmp/.X11-unix
-            Xvfb :99 -screen 0 1280x1024x24 -nolisten tcp > /ros2_ws/logs/xvfb.log 2>&1 &
+            Xvfb :99 -screen 0 1920x1080x24 -nolisten tcp > /ros2_ws/logs/xvfb.log 2>&1 &
             
             sleep 1
             x11vnc -display :99 -rfbport 5900 -nopw -localhost > /ros2_ws/logs/x11vnc.log 2>&1 &
@@ -36,13 +25,49 @@ windows:
             ros2 launch gazebo_ros gazebo.launch.py world:=/worlds/apartment.world 2>&1 | tee -a '/ros2_ws/logs/gazebo.log'&
             GAZEBOPID=\$!
 
+            # Wait for Gazebo window and maximize it
             sleep 8
-            # Set Gazebo window to full screen (may not work sometimes)
             xdotool search --onlyvisible --class 'gazebo' windowactivate --sync
-            xdotool search --onlyvisible --class 'gazebo' windowsize %@ 1920 1080
+            xdotool search --onlyvisible --class 'gazebo' windowsize %@ 1500 800
             xdotool search --onlyvisible --class 'gazebo' windowmove %@ 0 0
 
             wait \$GAZEBOPID
+          "
+
+  - window_name: rviz
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Starting Rviz2 ==='
+            source /ros2_ws/install/setup.bash
+
+            RVIZ_DISPLAY=:100
+            RVIZ_VNC_PORT=5901
+            RVIZ_WEB_PORT=8080
+            SCREEN_RESOLUTION=\${SCREEN_RESOLUTION:-1500x800}
+            SCREEN_DEPTH=24
+
+            export DISPLAY=\$RVIZ_DISPLAY
+            mkdir -p /tmp/.X11-unix
+            Xvfb \$RVIZ_DISPLAY -screen 0 \${SCREEN_RESOLUTION}x\${SCREEN_DEPTH} -nolisten tcp > /ros2_ws/logs/xvfb_rviz.log 2>&1 &
+
+            sleep 1
+            x11vnc -display \$RVIZ_DISPLAY -rfbport \$RVIZ_VNC_PORT -nopw -localhost > /ros2_ws/logs/x11vnc_rviz.log 2>&1 &
+
+            sleep 1
+            websockify --web=/usr/share/novnc/ 0.0.0.0:\$RVIZ_WEB_PORT localhost:\$RVIZ_VNC_PORT > /ros2_ws/logs/websockify_rviz.log 2>&1 &
+
+            sleep 7   # Wait for robot and sensors
+            rviz2 2>&1 | tee -a '/ros2_ws/logs/rviz.log' &
+            RVIZPID=\$!
+
+            # Wait for Rviz window and maximize it
+            sleep 5
+            xdotool search --onlyvisible --class 'rviz2' windowactivate --sync
+            xdotool search --onlyvisible --class 'rviz2' windowsize %@ 1500 800
+            xdotool search --onlyvisible --class 'rviz2' windowmove %@ 0 0
+
+            wait \$RVIZPID
           "
 
   - window_name: obstacles

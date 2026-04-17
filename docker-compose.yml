@@ -5,6 +5,7 @@ services:
     container_name: apartment_sim
     ports:
       - "6080:6080"
+      - "8080:8080"
     environment:
       - DISPLAY=:99
       - QT_X11_NO_MITSHM=1

@@ -26,10 +26,12 @@ This file is the top-level navigation map for AI agents and links to package-lev
 2. `docker-compose.yml` mounts `src`, `worlds`, `scripts`, and `logs` into `/ros2_ws`.
 3. `scripts/tmux-cfg.yml` launches:
    - Gazebo with apartment world,
+   - isolated Gazebo and RViz visualization stacks (separate Xvfb/x11vnc/noVNC endpoints),
    - dynamic obstacles/target controller,
    - robot spawn,
    - Nav2 + MPPI stack,
    - target detector + navigation bridge.
+   - Browser access: Gazebo at `http://localhost:6080/vnc.html`, RViz at `http://localhost:8080/vnc.html`.
 4. Navigation commands flow through topic/TF bridges in `omni_robot`.
 5. MPPI controller from `nav2_mppi_controller` computes local trajectories in Nav2.
 
