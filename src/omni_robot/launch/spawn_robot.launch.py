@@ -1,13 +1,19 @@
-from launch import LaunchDescription
-from launch_ros.actions import Node
-from launch.substitutions import LaunchConfiguration
-from launch_ros.substitutions import FindPackageShare
-from launch.actions import DeclareLaunchArgument, ExecuteProcess
 import os
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, ExecuteProcess
+from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     pkg_omni_robot = FindPackageShare('omni_robot').find('omni_robot')
     xacro_file = os.path.join(pkg_omni_robot, 'urdf', 'omni_robot.urdf.xacro')
+
+    # Single source of truth for default spawn pose.
+    default_spawn_x = '2.0'
+    default_spawn_y = '0.0'
+    default_spawn_z = '0.1'
+    default_spawn_yaw = '0.0'
     
     # Generate URDF file in /tmp (writeable inside container)
     urdf_file = '/tmp/omni_robot.urdf'
@@ -16,10 +22,10 @@ def generate_launch_description():
         output='screen'
     )
 
-    spawn_x = LaunchConfiguration('spawn_x', default='2.0')
-    spawn_y = LaunchConfiguration('spawn_y', default='2.0')
-    spawn_z = LaunchConfiguration('spawn_z', default='0.1')
-    spawn_yaw = LaunchConfiguration('spawn_yaw', default='0.0')
+    spawn_x = LaunchConfiguration('spawn_x')
+    spawn_y = LaunchConfiguration('spawn_y')
+    spawn_z = LaunchConfiguration('spawn_z')
+    spawn_yaw = LaunchConfiguration('spawn_yaw')
 
     # Robot state publisher using the generated URDF file
     rsp_node = Node(
@@ -46,10 +52,10 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        DeclareLaunchArgument('spawn_x', default_value='2.0'),
-        DeclareLaunchArgument('spawn_y', default_value='2.0'),
-        DeclareLaunchArgument('spawn_z', default_value='0.1'),
-        DeclareLaunchArgument('spawn_yaw', default_value='0.0'),
+        DeclareLaunchArgument('spawn_x', default_value=default_spawn_x),
+        DeclareLaunchArgument('spawn_y', default_value=default_spawn_y),
+        DeclareLaunchArgument('spawn_z', default_value=default_spawn_z),
+        DeclareLaunchArgument('spawn_yaw', default_value=default_spawn_yaw),
         generate_urdf,
         rsp_node,
         spawn_entity

@@ -24,8 +24,8 @@ class ObstaclesController(Node):
         self.declare_parameter('cylinder_radius', 0.3)
 
         # Deterministic spawn parameters.
-        self.declare_parameter('target_spawn_x', 3.2)
-        self.declare_parameter('target_spawn_y', 2.0)
+        self.declare_parameter('target_spawn_x', 3.0)
+        self.declare_parameter('target_spawn_y', 0.0)
         self.declare_parameter(
             'obstacle_spawn_positions',
             [0.8, 0.8, 0.8, 3.2, -0.8, 2.0]
