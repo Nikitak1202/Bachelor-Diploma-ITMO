@@ -36,8 +36,10 @@ class TargetDetector(Node):
         self.declare_parameter('camera_frame', 'base_link')
         self.declare_parameter('min_blue_area_px', 220)
         self.declare_parameter('min_visible_blue_pixels', 100)
-        self.declare_parameter('hsv_blue_lower', [100, 120, 60])
-        self.declare_parameter('hsv_blue_upper', [132, 255, 255])
+        self.declare_parameter('hsv_blue_lower', [112, 170, 70])
+        self.declare_parameter('hsv_blue_upper', [128, 255, 255])
+        self.declare_parameter('blue_channel_min', 120)
+        self.declare_parameter('blue_channel_dominance_min', 60)
         self.declare_parameter('mask_open_kernel_px', 3)
         self.declare_parameter('image_timeout_sec', 0.4)
         self.declare_parameter('camera_hfov_rad', 1.047)
@@ -61,6 +63,8 @@ class TargetDetector(Node):
         self._mask_open_kernel_px = max(1, int(self.get_parameter('mask_open_kernel_px').value))
         if self._mask_open_kernel_px % 2 == 0:
             self._mask_open_kernel_px += 1
+        self._blue_channel_min = int(self.get_parameter('blue_channel_min').value)
+        self._blue_dominance_min = int(self.get_parameter('blue_channel_dominance_min').value)
         self._image_timeout_ns = int(float(self.get_parameter('image_timeout_sec').value) * 1e9)
         self._hfov = float(self.get_parameter('camera_hfov_rad').value)
         self._range_min = float(self.get_parameter('range_min_m').value)
@@ -112,33 +116,44 @@ class TargetDetector(Node):
             return
 
         hsv = cv2.cvtColor(cv_image, cv2.COLOR_BGR2HSV)
-        mask = cv2.inRange(hsv, self._hsv_lo, self._hsv_hi)
+        hsv_mask = cv2.inRange(hsv, self._hsv_lo, self._hsv_hi)
+        b, g, r = cv2.split(cv_image)
+        dominant_rg = cv2.max(r, g)
+        dominant_blue = cv2.subtract(b, dominant_rg)
+        blue_min_mask = cv2.inRange(b, self._blue_channel_min, 255)
+        blue_dom_mask = cv2.inRange(dominant_blue, self._blue_dominance_min, 255)
+        mask = cv2.bitwise_and(hsv_mask, blue_min_mask)
+        mask = cv2.bitwise_and(mask, blue_dom_mask)
         kernel = np.ones((self._mask_open_kernel_px, self._mask_open_kernel_px), dtype=np.uint8)
         mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
+        contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         _h, width = cv_image.shape[:2]
         visible = False
         bearing = 0.0
-        center_px = None
+        bbox = None
 
         # Visibility criterion is intentionally simple:
         # if this frame contains blue pixels above a tiny threshold, target is visible.
         blue_pixels = int(cv2.countNonZero(mask))
-        visible = blue_pixels >= self._min_visible_blue_pixels
+        visible = blue_pixels >= self._min_visible_blue_pixels and len(contours) > 0
 
         if visible:
-            moments = cv2.moments(mask, binaryImage=True)
+            target_contour = max(contours, key=cv2.contourArea)
+            x, y, w, h = cv2.boundingRect(target_contour)
+            bbox = (x, y, w, h)
+            moments = cv2.moments(target_contour)
             if moments['m00'] > 1e-6:
                 cx = float(moments['m10'] / moments['m00'])
                 x_norm = (cx - (width / 2.0)) / (width / 2.0)
                 bearing = x_norm * (self._hfov / 2.0)
-                center_px = int(round(cx))
             else:
                 visible = False
 
         indicator_color = (0, 255, 0) if visible else (0, 0, 255)
         cv2.circle(cv_image, (18, 18), 10, indicator_color, -1)
-        if center_px is not None:
-            cv2.line(cv_image, (center_px, 0), (center_px, 32), (255, 0, 0), 2)
+        if visible and bbox is not None:
+            x, y, w, h = bbox
+            cv2.rectangle(cv_image, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
         out_img = self._bridge.cv2_to_imgmsg(cv_image, encoding='bgr8')
         out_img.header = msg.header

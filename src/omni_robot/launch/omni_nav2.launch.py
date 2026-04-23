@@ -61,8 +61,10 @@ def generate_launch_description():
         parameters=[{
             'min_blue_area_px': 220,
             'min_visible_blue_pixels': 100,
-            'hsv_blue_lower': [100, 120, 60],
-            'hsv_blue_upper': [132, 255, 255],
+            'hsv_blue_lower': [112, 170, 70],
+            'hsv_blue_upper': [128, 255, 255],
+            'blue_channel_min': 120,
+            'blue_channel_dominance_min': 60,
             'mask_open_kernel_px': 5,
             'image_timeout_sec': 0.4,
             'scan_index_window': 10,
