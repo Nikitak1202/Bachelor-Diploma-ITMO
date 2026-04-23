@@ -12,6 +12,7 @@ def generate_launch_description():
     bringup_dir = get_package_share_directory('nav2_bringup')
     pkg_omni = get_package_share_directory('omni_robot')
     params_file = os.path.join(pkg_omni, 'config', 'omni_nav2_params.yaml')
+    slam_params_file = os.path.join(pkg_omni, 'config', 'slam.yaml')
 
     declare_use_composition = DeclareLaunchArgument(
         'use_composition',
@@ -26,6 +27,7 @@ def generate_launch_description():
             'map': '',
             'use_sim_time': 'True',
             'params_file': params_file,
+            'slam_params_file': slam_params_file,
             'use_composition': LaunchConfiguration('use_composition'),
             'autostart': 'True',
         }.items(),
@@ -52,6 +54,30 @@ def generate_launch_description():
         output='screen',
     )
 
+    target_detector = Node(
+        package='omni_robot',
+        executable='target_detector',
+        name='target_detector',
+        parameters=[{
+            'min_blue_area_px': 220,
+            'min_visible_blue_pixels': 100,
+            'hsv_blue_lower': [100, 120, 60],
+            'hsv_blue_upper': [132, 255, 255],
+            'mask_open_kernel_px': 5,
+            'image_timeout_sec': 0.4,
+            'scan_index_window': 10,
+            'scan_fallback_window': 80,
+        }],
+        output='screen',
+    )
+
+    target_nav_bridge = Node(
+        package='omni_robot',
+        executable='target_nav_bridge',
+        name='target_nav_bridge',
+        output='screen',
+    )
+
     # SLAM Toolbox defaults use base_footprint; Gazebo robot only has base_link.
     base_alias = Node(
         package='tf2_ros',
@@ -65,6 +91,8 @@ def generate_launch_description():
         base_alias,
         scan_bridge,
         odom_tf_bridge,
+        target_detector,
+        target_nav_bridge,
         bringup,
         cmd_vel_bridge,
     ])

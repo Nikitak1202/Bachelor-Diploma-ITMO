@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Blue target detection from camera with simple odom-frame target estimation."""
+"""Blue target detection with lidar-assisted map-frame localization."""
 
 import math
 import threading
@@ -7,19 +7,19 @@ import threading
 import cv2
 import numpy as np
 import rclpy
+import tf2_geometry_msgs  # noqa: F401  (registers geometry message transforms)
 from cv_bridge import CvBridge
+from geometry_msgs.msg import PointStamped
 from geometry_msgs.msg import PoseStamped
-from nav_msgs.msg import Odometry
+from rclpy.duration import Duration
 from rclpy.node import Node
 from sensor_msgs.msg import Image
+from sensor_msgs.msg import LaserScan
 from std_msgs.msg import Bool
-from std_msgs.msg import Float32
-
-
-def yaw_from_quaternion(q) -> float:
-    siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
-    cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
-    return math.atan2(siny_cosp, cosy_cosp)
+from tf2_ros import Buffer
+from tf2_ros import TransformException
+from tf2_ros import TransformListener
+from visualization_msgs.msg import Marker
 
 
 class TargetDetector(Node):
@@ -27,137 +27,225 @@ class TargetDetector(Node):
         super().__init__('target_detector')
 
         self.declare_parameter('camera_topic', '/omni_robot/camera/image_raw')
-        self.declare_parameter('odom_topic', '/omni_robot/odom')
-        self.declare_parameter('output_frame', 'odom')
-        self.declare_parameter('min_blue_area_px', 30)
-        self.declare_parameter('hsv_blue_lower', [90, 50, 50])
-        self.declare_parameter('hsv_blue_upper', [140, 255, 255])
+        self.declare_parameter('scan_topic', '/scan')
+        self.declare_parameter('target_pose_topic', '/target_pose')
+        self.declare_parameter('target_visible_topic', '/target_visible')
+        self.declare_parameter('target_marker_topic', '/target_marker')
+        self.declare_parameter('annotated_image_topic', '/omni_robot/camera/image_raw/target_status')
+        self.declare_parameter('output_frame', 'map')
+        self.declare_parameter('camera_frame', 'base_link')
+        self.declare_parameter('min_blue_area_px', 220)
+        self.declare_parameter('min_visible_blue_pixels', 100)
+        self.declare_parameter('hsv_blue_lower', [100, 120, 60])
+        self.declare_parameter('hsv_blue_upper', [132, 255, 255])
+        self.declare_parameter('mask_open_kernel_px', 3)
+        self.declare_parameter('image_timeout_sec', 0.4)
         self.declare_parameter('camera_hfov_rad', 1.047)
-        self.declare_parameter('range_gain', 70.0)
-        self.declare_parameter('range_min_m', 0.6)
-        self.declare_parameter('range_max_m', 6.0)
+        self.declare_parameter('range_min_m', 0.4)
+        self.declare_parameter('range_max_m', 10.0)
+        self.declare_parameter('scan_angle_offset_rad', 0.0)
+        self.declare_parameter('scan_index_window', 10)
+        self.declare_parameter('scan_fallback_window', 80)
+        self.declare_parameter('marker_scale_m', 0.22)
 
         self._camera_topic = self.get_parameter('camera_topic').value
-        self._odom_topic = self.get_parameter('odom_topic').value
+        self._scan_topic = self.get_parameter('scan_topic').value
+        self._target_pose_topic = self.get_parameter('target_pose_topic').value
+        self._target_visible_topic = self.get_parameter('target_visible_topic').value
+        self._target_marker_topic = self.get_parameter('target_marker_topic').value
+        self._annotated_image_topic = self.get_parameter('annotated_image_topic').value
         self._output_frame = self.get_parameter('output_frame').value
+        self._default_camera_frame = self.get_parameter('camera_frame').value
         self._min_area = int(self.get_parameter('min_blue_area_px').value)
+        self._min_visible_blue_pixels = max(1, int(self.get_parameter('min_visible_blue_pixels').value))
+        self._mask_open_kernel_px = max(1, int(self.get_parameter('mask_open_kernel_px').value))
+        if self._mask_open_kernel_px % 2 == 0:
+            self._mask_open_kernel_px += 1
+        self._image_timeout_ns = int(float(self.get_parameter('image_timeout_sec').value) * 1e9)
         self._hfov = float(self.get_parameter('camera_hfov_rad').value)
-        self._range_gain = float(self.get_parameter('range_gain').value)
         self._range_min = float(self.get_parameter('range_min_m').value)
         self._range_max = float(self.get_parameter('range_max_m').value)
+        self._scan_angle_offset = float(self.get_parameter('scan_angle_offset_rad').value)
+        self._scan_window = max(0, int(self.get_parameter('scan_index_window').value))
+        self._scan_fallback_window = max(self._scan_window, int(self.get_parameter('scan_fallback_window').value))
+        self._marker_scale = float(self.get_parameter('marker_scale_m').value)
+
         lo = self.get_parameter('hsv_blue_lower').value
         hi = self.get_parameter('hsv_blue_upper').value
         self._hsv_lo = np.array(lo, dtype=np.uint8)
         self._hsv_hi = np.array(hi, dtype=np.uint8)
 
         self._bridge = CvBridge()
+        self._tf_buffer = Buffer(cache_time=Duration(seconds=10.0))
+        self._tf_listener = TransformListener(self._tf_buffer, self)
         self._lock = threading.Lock()
+
         self._visible_cam = False
         self._bearing = 0.0
-        self._range_est = self._range_max
-        self._robot_x = 0.0
-        self._robot_y = 0.0
-        self._robot_yaw = 0.0
-        self._has_odom = False
+        self._camera_frame = self._default_camera_frame
+        self._last_scan = None
+        self._last_image_ns = 0
         self._prev_visible = False
 
-        self._pub_pose = self.create_publisher(PoseStamped, '/target_tracker/target_pose', 10)
-        self._pub_vis = self.create_publisher(Bool, '/target_tracker/target_visible', 10)
-        self._pub_range = self.create_publisher(Float32, '/target_tracker/range_m', 10)
-        self._pub_horizontal_err = self.create_publisher(Float32, '/target_tracker/horizontal_error', 10)
+        self._pub_pose = self.create_publisher(PoseStamped, self._target_pose_topic, 10)
+        self._pub_vis = self.create_publisher(Bool, self._target_visible_topic, 10)
+        self._pub_marker = self.create_publisher(Marker, self._target_marker_topic, 10)
+        self._pub_annotated = self.create_publisher(Image, self._annotated_image_topic, 10)
 
-        self._img_sub = self.create_subscription(
-            Image, self._camera_topic, self._on_image, 10)
-        self._odom_sub = self.create_subscription(
-            Odometry, self._odom_topic, self._on_odom, 20)
+        self.create_subscription(Image, self._camera_topic, self._on_image, 10)
+        self.create_subscription(LaserScan, self._scan_topic, self._on_scan, 20)
+        self.create_timer(1.0 / 20.0, self._tick)
+        self.get_logger().info(
+            'target_detector ready (camera=%s scan=%s frame=%s)'
+            % (self._camera_topic, self._scan_topic, self._output_frame)
+        )
 
-        self._timer = self.create_timer(1.0 / 20.0, self._tick)
-        self.get_logger().info('target_detector ready (camera=%s)' % self._camera_topic)
+    def _on_scan(self, msg: LaserScan):
+        with self._lock:
+            self._last_scan = msg
 
     def _on_image(self, msg: Image):
         try:
             cv_image = self._bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
-        except Exception as e:
-            self.get_logger().warn('cv_bridge: %s' % str(e))
+        except Exception as exc:
+            self.get_logger().warn('cv_bridge: %s' % str(exc))
             return
 
         hsv = cv2.cvtColor(cv_image, cv2.COLOR_BGR2HSV)
         mask = cv2.inRange(hsv, self._hsv_lo, self._hsv_hi)
-        contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        _h, w = cv_image.shape[:2]
+        kernel = np.ones((self._mask_open_kernel_px, self._mask_open_kernel_px), dtype=np.uint8)
+        mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
+        _h, width = cv_image.shape[:2]
         visible = False
         bearing = 0.0
-        range_est = self._range_max
-        if contours:
-            c = max(contours, key=cv2.contourArea)
-            area = cv2.contourArea(c)
-            if area >= self._min_area:
-                M = cv2.moments(c)
-                if M['m00'] > 1e-6:
-                    cx = float(M['m10'] / M['m00'])
-                    x_norm = (cx - (w / 2.0)) / (w / 2.0)
-                    bearing = x_norm * (self._hfov / 2.0)
-                    range_est = self._range_gain / math.sqrt(max(area, 1.0))
-                    range_est = max(self._range_min, min(self._range_max, range_est))
-                    visible = True
+        center_px = None
+
+        # Visibility criterion is intentionally simple:
+        # if this frame contains blue pixels above a tiny threshold, target is visible.
+        blue_pixels = int(cv2.countNonZero(mask))
+        visible = blue_pixels >= self._min_visible_blue_pixels
+
+        if visible:
+            moments = cv2.moments(mask, binaryImage=True)
+            if moments['m00'] > 1e-6:
+                cx = float(moments['m10'] / moments['m00'])
+                x_norm = (cx - (width / 2.0)) / (width / 2.0)
+                bearing = x_norm * (self._hfov / 2.0)
+                center_px = int(round(cx))
+            else:
+                visible = False
+
+        indicator_color = (0, 255, 0) if visible else (0, 0, 255)
+        cv2.circle(cv_image, (18, 18), 10, indicator_color, -1)
+        if center_px is not None:
+            cv2.line(cv_image, (center_px, 0), (center_px, 32), (255, 0, 0), 2)
+
+        out_img = self._bridge.cv2_to_imgmsg(cv_image, encoding='bgr8')
+        out_img.header = msg.header
+        self._pub_annotated.publish(out_img)
 
         with self._lock:
             self._visible_cam = visible
             self._bearing = bearing
-            self._range_est = range_est
+            self._last_image_ns = self.get_clock().now().nanoseconds
+            if msg.header.frame_id:
+                self._camera_frame = msg.header.frame_id
 
-    def _on_odom(self, msg: Odometry):
-        with self._lock:
-            self._robot_x = msg.pose.pose.position.x
-            self._robot_y = msg.pose.pose.position.y
-            self._robot_yaw = yaw_from_quaternion(msg.pose.pose.orientation)
-            self._has_odom = True
+    def _estimate_range_from_scan(self, bearing: float, scan: LaserScan):
+        if scan is None or not scan.ranges:
+            return None
+        angle = bearing + self._scan_angle_offset
+        idx = int(round((angle - scan.angle_min) / scan.angle_increment))
+        candidates = self._scan_window_candidates(scan, idx, self._scan_window)
+        if not candidates:
+            candidates = self._scan_window_candidates(scan, idx, self._scan_fallback_window)
+        if not candidates:
+            return None
+        return float(np.median(np.array(candidates, dtype=float)))
+
+    def _scan_window_candidates(self, scan: LaserScan, idx: int, window: int):
+        start = max(0, idx - window)
+        stop = min(len(scan.ranges) - 1, idx + window)
+        if start > stop:
+            return []
+        candidates = []
+        for i in range(start, stop + 1):
+            r = scan.ranges[i]
+            if math.isfinite(r) and self._range_min <= r <= self._range_max:
+                candidates.append(r)
+        return candidates
+
+    def _publish_marker(self, pose: PoseStamped):
+        marker = Marker()
+        marker.header = pose.header
+        marker.ns = 'target'
+        marker.id = 0
+        marker.type = Marker.SPHERE
+        marker.action = Marker.ADD
+        marker.pose = pose.pose
+        marker.scale.x = self._marker_scale
+        marker.scale.y = self._marker_scale
+        marker.scale.z = self._marker_scale
+        marker.color.r = 0.0
+        marker.color.g = 0.0
+        marker.color.b = 1.0
+        marker.color.a = 0.95
+        self._pub_marker.publish(marker)
 
     def _tick(self):
         with self._lock:
             visible = self._visible_cam
             bearing = self._bearing
-            range_est = self._range_est
-            has_odom = self._has_odom
-            rx = self._robot_x
-            ry = self._robot_y
-            ryaw = self._robot_yaw
+            camera_frame = self._camera_frame
+            scan = self._last_scan
+            last_image_ns = self._last_image_ns
 
-        vis_msg = Bool()
-        vis_msg.data = visible
-        self._pub_vis.publish(vis_msg)
+        now_ns = self.get_clock().now().nanoseconds
+        image_is_fresh = (now_ns - last_image_ns) <= self._image_timeout_ns if last_image_ns > 0 else False
+        visible = visible and image_is_fresh
+
+        self._pub_vis.publish(Bool(data=visible))
 
         if visible != self._prev_visible:
-            if visible:
-                self.get_logger().info('target acquired')
-            else:
-                self.get_logger().info('target lost')
+            self.get_logger().info('target acquired' if visible else 'target lost')
         self._prev_visible = visible
 
-        if not visible or not has_odom:
-            if visible and not has_odom:
-                self.get_logger().warn('target visible but odom not received yet', throttle_duration_sec=5.0)
+        if not visible:
             return
 
-        range_msg = Float32()
-        range_msg.data = range_est
-        self._pub_range.publish(range_msg)
-        bearing_msg = Float32()
-        bearing_msg.data = bearing
-        self._pub_horizontal_err.publish(bearing_msg)
+        range_m = self._estimate_range_from_scan(bearing, scan)
+        if range_m is None:
+            self.get_logger().warn('target visible but no valid lidar range on bearing', throttle_duration_sec=2.0)
+            return
 
-        target_yaw = ryaw + bearing
-        target_x = rx + range_est * math.cos(target_yaw)
-        target_y = ry + range_est * math.sin(target_yaw)
+        point_cam = PointStamped()
+        point_cam.header.stamp = self.get_clock().now().to_msg()
+        point_cam.header.frame_id = camera_frame
+        point_cam.point.x = range_m * math.cos(bearing)
+        point_cam.point.y = range_m * math.sin(bearing)
+        point_cam.point.z = 0.0
+
+        try:
+            point_map = self._tf_buffer.transform(
+                point_cam, self._output_frame, timeout=Duration(seconds=0.15)
+            )
+        except TransformException as exc:
+            self.get_logger().warn(
+                'failed to transform target point %s -> %s: %s'
+                % (camera_frame, self._output_frame, str(exc)),
+                throttle_duration_sec=2.0,
+            )
+            return
 
         pose = PoseStamped()
         pose.header.stamp = self.get_clock().now().to_msg()
         pose.header.frame_id = self._output_frame
-        pose.pose.position.x = target_x
-        pose.pose.position.y = target_y
+        pose.pose.position.x = point_map.point.x
+        pose.pose.position.y = point_map.point.y
         pose.pose.position.z = 0.0
         pose.pose.orientation.w = 1.0
         self._pub_pose.publish(pose)
+        self._publish_marker(pose)
 
 
 def main(args=None):
