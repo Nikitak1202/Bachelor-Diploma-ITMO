@@ -1,0 +1,36 @@
+<!--
+  Target-chase Behavior Tree.
+
+  Behavior:
+    * While /target_visible is true: re-plan A* path to /target_pose (refreshed
+      via GoalUpdater) and execute it with the MPPI FollowPath controller.
+    * If /target_visible becomes false (no target detected): rotate in place
+      with the Spin behavior, keeping FollowPath alive toward the last known
+      target pose only as a recovery attempt before spinning again.
+-->
+<root main_tree_to_execute="ChaseTarget">
+  <BehaviorTree ID="ChaseTarget">
+    <RecoveryNode number_of_retries="100" name="MainRecovery">
+      <PipelineSequence name="VisibleChase">
+        <TargetVisibleCondition topic="/target_visible"/>
+        <RateController hz="2.0">
+          <GoalUpdater input_goal="{goal}" output_goal="{updated_goal}" goal_topic="/target_pose">
+            <ComputePathToPose
+              goal="{updated_goal}"
+              path="{path}"
+              planner_id="GridBased"/>
+          </GoalUpdater>
+        </RateController>
+        <FollowPath
+          path="{path}"
+          controller_id="FollowPath"
+          goal_checker_id="general_goal_checker"/>
+      </PipelineSequence>
+
+      <ReactiveFallback name="SearchRecovery">
+        <TargetVisibleCondition topic="/target_visible"/>
+        <Spin spin_dist="6.28"/>
+      </ReactiveFallback>
+    </RecoveryNode>
+  </BehaviorTree>
+</root>

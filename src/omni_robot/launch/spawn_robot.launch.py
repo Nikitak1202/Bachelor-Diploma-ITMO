@@ -1,6 +1,7 @@
 import os
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, ExecuteProcess
+from launch.substitutions import Command
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
@@ -11,7 +12,7 @@ def generate_launch_description():
 
     # Single source of truth for default spawn pose.
     default_spawn_x = '2.0'
-    default_spawn_y = '0.0'
+    default_spawn_y = '0.5'
     default_spawn_z = '0.1'
     default_spawn_yaw = '0.0'
     
@@ -31,7 +32,10 @@ def generate_launch_description():
     rsp_node = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
-        arguments=[urdf_file],
+        parameters=[{
+            'robot_description': Command(['xacro ', xacro_file]),
+            'use_sim_time': True,
+        }],
         output='screen'
     )
 

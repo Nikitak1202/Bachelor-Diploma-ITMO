@@ -38,6 +38,7 @@ This file is the top-level navigation map for AI agents and links to package-lev
 ## Package Interaction Contracts
 - `apartment_sim` provides moving entities in Gazebo using `/spawn_entity` and per-entity `/cmd_vel`.
 - `omni_robot` bridges simulator-specific topics to Nav2-friendly interfaces (`/cmd_vel`, `/scan`, TF), detects the target, and sends `NavigateToPose` goals.
+  Canonical target-tracking topics are `/target_visible` and `/target_pose`; RViz/debug outputs are `/target_marker` and `/omni_robot/camera/image_raw/target_status`.
 - `nav2_mppi_controller` implements the `nav2_core::Controller` plugin used by `omni_robot/config/omni_nav2_params.yaml`.
 
 ## Working Rules for AI Agents
@@ -46,6 +47,7 @@ This file is the top-level navigation map for AI agents and links to package-lev
   - robot I/O bridges and pursuit logic in `omni_robot`,
   - local planner algorithm internals in `nav2_mppi_controller`.
 - Preserve topic and frame consistency (`odom`, `base_link`, `/scan`, `/cmd_vel`, `/omni_robot/*`) unless the change explicitly includes full migration updates.
+- For planning architecture, keep global planning map-centric (`map`) and local control odom-centric (`odom`) unless explicitly re-scoping the full stack.
 - Prefer parameterized behavior changes over hardcoded constants.
 - Validate changes from the package where they were made, then validate end-to-end launch composition.
 

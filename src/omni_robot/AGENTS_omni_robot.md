@@ -21,23 +21,25 @@ Back to root guide: [`../../AGENTS.md`](../../AGENTS.md)
 - `config/omni_nav2_params.yaml`
   - Nav2/SLAM/server parameters,
   - configures `FollowPath` plugin as `nav2_mppi_controller::MPPIController`.
+- `config/slam.yaml`
+  - slam_toolbox online mapping parameters (`/scan` -> `/map`, TF `map -> odom`).
 - `omni_robot/*.py` runtime nodes:
-  - `scan_bridge.py`: `/omni_robot/scan -> /scan`
+  - `scan_bridge.py`: `/omni_robot/scan -> /scan` (best-effort input, reliable output)
   - `cmd_vel_bridge.py`: `/cmd_vel -> /omni_robot/cmd_vel`
   - `odom_tf_bridge.py`: TF `odom -> base_link` from `/omni_robot/odom`
-  - `target_detector.py`: camera-based blue-target detection and pose estimation
-  - `target_nav_bridge.py`: sends/cancels `NavigateToPose` goals based on visibility
+  - `target_detector.py`: camera + lidar blue-target localization in map frame
+  - `target_nav_bridge.py`: updates `NavigateToPose` goals and triggers Nav2 Spin action for search
 
 ## Key Interfaces and Dataflow
 - **Sensor/nav adaptation**
   - Gazebo topics are adapted to Nav2-default topics and TF tree.
 - **Target tracking**
   - `target_detector` publishes:
-    - `/target_tracker/target_visible`,
-    - `/target_tracker/target_pose`,
-    - `/target_tracker/range_m`,
-    - `/target_tracker/horizontal_error`.
-  - `target_nav_bridge` consumes visibility + pose and drives `/navigate_to_pose` action goals.
+    - `/target_visible`,
+    - `/target_pose`,
+    - `/target_marker` (blue RViz marker),
+    - `/omni_robot/camera/image_raw/target_status` (red/green visibility indicator overlay).
+  - `target_nav_bridge` consumes `/target_visible` + `/target_pose`, updates `/navigate_to_pose` continuously while visible, and requests `/spin` behavior when target is lost and no active navigation goal remains.
 
 ## Dependencies on Other Packages
 - Consumes moving entities produced by `apartment_sim`.
@@ -47,7 +49,8 @@ Back to root guide: [`../../AGENTS.md`](../../AGENTS.md)
 ## Change Guidelines
 - Keep topic/frame contracts stable unless all related launch/config/node files are updated together.
 - Prefer launch arguments and ROS parameters over hardcoded runtime constants.
-- For target-tracking logic updates, maintain robustness to temporary target loss (`target_nav_bridge` cancellation behavior).
+- For target-tracking logic updates, maintain robustness to temporary target loss.
+  The simplified loop is: chase while visible -> continue to last known pose on loss -> trigger search spin until reacquired.
 - If changing robot frames or odometry topics, update:
   - bridges,
   - Nav2 parameter file,

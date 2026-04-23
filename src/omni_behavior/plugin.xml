@@ -1,0 +1,9 @@
+<class_libraries>
+  <library path="omni_target_visible_condition_bt_node">
+    <class name="TargetVisibleCondition"
+           type="omni_behavior::TargetVisibleCondition"
+           base_class_type="BT::TreeNode">
+      <description>Returns SUCCESS while /target_visible is latched true.</description>
+    </class>
+  </library>
+</class_libraries>
