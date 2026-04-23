@@ -57,8 +57,8 @@ windows:
             sleep 1
             websockify --web=/usr/share/novnc/ 0.0.0.0:\$RVIZ_WEB_PORT localhost:\$RVIZ_VNC_PORT > /ros2_ws/logs/websockify_rviz.log 2>&1 &
 
-            sleep 7   # Wait for robot and sensors
-            rviz2 2>&1 | tee -a '/ros2_ws/logs/rviz.log' &
+            sleep 7 
+            rviz2 -d /ros2_ws/src/omni_robot/config/layout.rviz 2>&1 | tee -a '/ros2_ws/logs/rviz.log' &
             RVIZPID=\$!
 
             # Wait for Rviz window and maximize it
@@ -96,7 +96,7 @@ windows:
     panes:
       - shell_command: |
           bash -c "
-            echo '=== Nav2 + SLAM + MPPI + target_detector ==='
+            echo '=== Nav2 (A*) + MPPI + SLAM + target chase pipeline ==='
             source /ros2_ws/install/setup.bash
 
             sleep 14
