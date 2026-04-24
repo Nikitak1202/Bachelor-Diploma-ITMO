@@ -11,7 +11,7 @@ def generate_launch_description():
             parameters=[{
                 'number_of_obstacles': 3,
                 'target_speed': 0.5,
-                'obstacle_speed': 0.3,
+                'obstacle_speed': 0.5,
                 'update_rate': 2.0,
                 'target_spawn_x': 2.0,
                 'target_spawn_y': 0.0,
