@@ -48,7 +48,8 @@ class TargetDetector(Node):
         self.declare_parameter('scan_angle_offset_rad', 0.0)
         self.declare_parameter('scan_index_window', 10)
         self.declare_parameter('scan_fallback_window', 80)
-        self.declare_parameter('marker_scale_m', 0.22)
+        self.declare_parameter('marker_scale_m', 0.44)
+        self.declare_parameter('marker_alpha', 1.0)
 
         self._camera_topic = self.get_parameter('camera_topic').value
         self._scan_topic = self.get_parameter('scan_topic').value
@@ -73,6 +74,7 @@ class TargetDetector(Node):
         self._scan_window = max(0, int(self.get_parameter('scan_index_window').value))
         self._scan_fallback_window = max(self._scan_window, int(self.get_parameter('scan_fallback_window').value))
         self._marker_scale = float(self.get_parameter('marker_scale_m').value)
+        self._marker_alpha = float(self.get_parameter('marker_alpha').value)
 
         lo = self.get_parameter('hsv_blue_lower').value
         hi = self.get_parameter('hsv_blue_upper').value
@@ -145,7 +147,9 @@ class TargetDetector(Node):
             if moments['m00'] > 1e-6:
                 cx = float(moments['m10'] / moments['m00'])
                 x_norm = (cx - (width / 2.0)) / (width / 2.0)
-                bearing = x_norm * (self._hfov / 2.0)
+                # In camera image, x grows to the right; in base_link, +y is left.
+                # Negating maps image-right to negative yaw (robot right).
+                bearing = -x_norm * (self._hfov / 2.0)
             else:
                 visible = False
 
@@ -163,8 +167,8 @@ class TargetDetector(Node):
             self._visible_cam = visible
             self._bearing = bearing
             self._last_image_ns = self.get_clock().now().nanoseconds
-            if msg.header.frame_id:
-                self._camera_frame = msg.header.frame_id
+            # Keep projection frame fixed (base_link by default) because
+            # lidar range is measured from robot body frame, not camera origin.
 
     def _estimate_range_from_scan(self, bearing: float, scan: LaserScan):
         if scan is None or not scan.ranges:
@@ -204,7 +208,7 @@ class TargetDetector(Node):
         marker.color.r = 0.0
         marker.color.g = 0.0
         marker.color.b = 1.0
-        marker.color.a = 0.95
+        marker.color.a = self._marker_alpha
         self._pub_marker.publish(marker)
 
     def _tick(self):
@@ -234,23 +238,32 @@ class TargetDetector(Node):
             return
 
         point_cam = PointStamped()
-        point_cam.header.stamp = self.get_clock().now().to_msg()
         point_cam.header.frame_id = camera_frame
         point_cam.point.x = range_m * math.cos(bearing)
         point_cam.point.y = range_m * math.sin(bearing)
         point_cam.point.z = 0.0
 
+        # Prefer scan timestamp to stay synchronized with TF generated in sim time.
+        point_cam.header.stamp = scan.header.stamp
         try:
             point_map = self._tf_buffer.transform(
                 point_cam, self._output_frame, timeout=Duration(seconds=0.15)
             )
-        except TransformException as exc:
-            self.get_logger().warn(
-                'failed to transform target point %s -> %s: %s'
-                % (camera_frame, self._output_frame, str(exc)),
-                throttle_duration_sec=2.0,
-            )
-            return
+        except TransformException:
+            # Fallback to latest available transform if exact timestamp is unavailable.
+            point_cam.header.stamp.sec = 0
+            point_cam.header.stamp.nanosec = 0
+            try:
+                point_map = self._tf_buffer.transform(
+                    point_cam, self._output_frame, timeout=Duration(seconds=0.15)
+                )
+            except TransformException as exc:
+                self.get_logger().warn(
+                    'failed to transform target point %s -> %s: %s'
+                    % (camera_frame, self._output_frame, str(exc)),
+                    throttle_duration_sec=2.0,
+                )
+                return
 
         pose = PoseStamped()
         pose.header.stamp = self.get_clock().now().to_msg()

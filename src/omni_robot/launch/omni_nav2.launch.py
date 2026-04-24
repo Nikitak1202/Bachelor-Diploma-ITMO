@@ -59,6 +59,7 @@ def generate_launch_description():
         executable='target_detector',
         name='target_detector',
         parameters=[{
+            'use_sim_time': True,
             'min_blue_area_px': 220,
             'min_visible_blue_pixels': 100,
             'hsv_blue_lower': [112, 170, 70],
@@ -77,6 +78,23 @@ def generate_launch_description():
         package='omni_robot',
         executable='target_nav_bridge',
         name='target_nav_bridge',
+        parameters=[{
+            'use_sim_time': True,
+            'target_pose_topic': '/target_pose',
+            'map_topic': '/map',
+            'follow_path_action_name': '/follow_path',
+            'path_topic': '/target_global_path',
+            'robot_frame': 'base_link',
+            'map_frame': 'map',
+            'target_standoff_distance_m': 0.9,
+            'target_standoff_tolerance_m': 0.25,
+            'occupied_threshold': 50,
+            'allow_unknown': False,
+            'replan_period_sec': 0.25,
+            'target_update_min_dist_m': 0.08,
+            'goal_update_min_dist_m': 0.10,
+            'publish_debug_logs': False,
+        }],
         output='screen',
     )
 
