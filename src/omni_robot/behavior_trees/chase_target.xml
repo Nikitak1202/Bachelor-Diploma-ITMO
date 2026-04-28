@@ -4,7 +4,7 @@
   Behavior:
     * While /target_visible is true: re-plan A* path to /target_pose (refreshed
       via GoalUpdater) and execute it with the MPPI FollowPath controller.
-    * If /target_visible becomes false (no target detected): rotate in place
+    * If /target_visible becomes false: rotate in place
       with the Spin behavior, keeping FollowPath alive toward the last known
       target pose only as a recovery attempt before spinning again.
 -->

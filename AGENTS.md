@@ -19,7 +19,10 @@ This file is the top-level navigation map for AI agents and links to package-lev
 - `worlds`: Gazebo world files (`apartment.world`).
 - `scripts`: Local orchestration (`run.sh`, `tmux-cfg.yml`) for Docker + tmux runtime.
 - `logs`: Runtime logs written by tmux panes and ROS/Gazebo processes.
-- `docs`: LaTeX report sources (project documentation).
+- `docs`: LaTeX report sources.
+  - `docs/diploma_report`: final ВКР (bachelor thesis) sources, built with `pdflatex + bibtex` (`main.tex`, `include/`, `parts/`, `references.bib`, `gost71u.bst`). Compilation: `pdflatex main && bibtex main && pdflatex main && pdflatex main`. Images are referenced from `../images/` via `\graphicspath`. Sections currently marked as placeholders (experimental metrics, title-page metadata such as направление/программа) must be filled from ИСУ/ИТМО data before submission.
+  - `docs/practice_reports`: earlier practice reports used as a source of theory and implementation descriptions for the diploma.
+  - `docs/images`, `docs/literature`: shared figures and cited literature.
 
 ## Runtime Orchestration Flow
 1. `scripts/run.sh` cleans logs, rebuilds containers, and starts `docker-compose`.
