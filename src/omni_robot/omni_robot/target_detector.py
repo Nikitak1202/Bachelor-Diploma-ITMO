@@ -16,6 +16,7 @@ from rclpy.node import Node
 from sensor_msgs.msg import Image
 from sensor_msgs.msg import LaserScan
 from std_msgs.msg import Bool
+from std_msgs.msg import String
 from tf2_ros import Buffer
 from tf2_ros import TransformException
 from tf2_ros import TransformListener
@@ -32,6 +33,7 @@ class TargetDetector(Node):
         self.declare_parameter('target_visible_topic', '/target_visible')
         self.declare_parameter('target_marker_topic', '/target_marker')
         self.declare_parameter('annotated_image_topic', '/omni_robot/camera/image_raw/target_status')
+        self.declare_parameter('nav_mode_topic', '/target_nav_mode')
         self.declare_parameter('output_frame', 'map')
         self.declare_parameter('camera_frame', 'base_link')
         self.declare_parameter('min_blue_area_px', 220)
@@ -57,6 +59,7 @@ class TargetDetector(Node):
         self._target_visible_topic = self.get_parameter('target_visible_topic').value
         self._target_marker_topic = self.get_parameter('target_marker_topic').value
         self._annotated_image_topic = self.get_parameter('annotated_image_topic').value
+        self._nav_mode_topic = self.get_parameter('nav_mode_topic').value
         self._output_frame = self.get_parameter('output_frame').value
         self._default_camera_frame = self.get_parameter('camera_frame').value
         self._min_area = int(self.get_parameter('min_blue_area_px').value)
@@ -92,6 +95,7 @@ class TargetDetector(Node):
         self._last_scan = None
         self._last_image_ns = 0
         self._prev_visible = False
+        self._nav_mode = 'Chase target'
 
         self._pub_pose = self.create_publisher(PoseStamped, self._target_pose_topic, 10)
         self._pub_vis = self.create_publisher(Bool, self._target_visible_topic, 10)
@@ -100,6 +104,7 @@ class TargetDetector(Node):
 
         self.create_subscription(Image, self._camera_topic, self._on_image, 10)
         self.create_subscription(LaserScan, self._scan_topic, self._on_scan, 20)
+        self.create_subscription(String, self._nav_mode_topic, self._on_nav_mode, 10)
         self.create_timer(1.0 / 20.0, self._tick)
         self.get_logger().info(
             'target_detector ready (camera=%s scan=%s frame=%s)'
@@ -153,11 +158,38 @@ class TargetDetector(Node):
             else:
                 visible = False
 
-        indicator_color = (0, 255, 0) if visible else (0, 0, 255)
-        cv2.circle(cv_image, (18, 18), 10, indicator_color, -1)
         if visible and bbox is not None:
             x, y, w, h = bbox
             cv2.rectangle(cv_image, (x, y), (x + w, y + h), (0, 255, 0), 2)
+
+        # Show current navigation mode in top-left corner for debugging.
+        mode_text = self._nav_mode
+        mode_colors = {
+            'Chase target': ((35, 35, 35), (0, 255, 0)),
+            "Go to last target's pose": ((35, 35, 35), (0, 220, 255)),
+            'Spining': ((35, 35, 35), (0, 140, 255)),
+        }
+        bg_color, text_color = mode_colors.get(mode_text, ((35, 35, 35), (255, 255, 255)))
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        scale = 0.58
+        thickness = 2
+        (tw, th), _ = cv2.getTextSize(mode_text, font, scale, thickness)
+        pad = 6
+        x0 = 8
+        y0 = 8
+        x1 = x0 + tw + 2 * pad
+        y1 = y0 + th + 2 * pad + 2
+        cv2.rectangle(cv_image, (x0, y0), (x1, y1), bg_color, -1)
+        cv2.putText(
+            cv_image,
+            mode_text,
+            (x0 + pad, y0 + th + pad),
+            font,
+            scale,
+            text_color,
+            thickness,
+            cv2.LINE_AA,
+        )
 
         out_img = self._bridge.cv2_to_imgmsg(cv_image, encoding='bgr8')
         out_img.header = msg.header
@@ -169,6 +201,10 @@ class TargetDetector(Node):
             self._last_image_ns = self.get_clock().now().nanoseconds
             # Keep projection frame fixed (base_link by default) because
             # lidar range is measured from robot body frame, not camera origin.
+
+    def _on_nav_mode(self, msg: String):
+        if msg.data:
+            self._nav_mode = msg.data
 
     def _estimate_range_from_scan(self, bearing: float, scan: LaserScan):
         if scan is None or not scan.ranges:

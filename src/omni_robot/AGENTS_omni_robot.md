@@ -20,7 +20,8 @@ Back to root guide: [`../../AGENTS.md`](../../AGENTS.md)
   - publishes static alias `base_link -> base_footprint`.
 - `config/omni_nav2_params.yaml`
   - Nav2/SLAM/server parameters,
-  - configures `FollowPath` plugin as `nav2_mppi_controller::MPPIController`.
+  - configures `FollowPath` plugin as `nav2_mppi_controller::MPPIController`,
+  - enables `TargetCameraCritic` to bias local heading toward keeping `/target_pose` centered in view while target updates are fresh.
 - `config/slam.yaml`
   - slam_toolbox online mapping parameters (`/scan` -> `/map`, TF `map -> odom`).
 - `omni_robot/*.py` runtime nodes:

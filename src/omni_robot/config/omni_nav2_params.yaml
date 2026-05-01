@@ -87,11 +87,11 @@ controller_server:
       batch_size: 2000
       vx_std: 0.2
       vy_std: 0.2
-      wz_std: 0.4
+      wz_std: 0.8
       vx_max: 0.5
       vx_min: -0.35
       vy_max: 0.5
-      wz_max: 1.9
+      wz_max: 2.6
       iteration_count: 1
       temperature: 0.3
       gamma: 0.015
@@ -112,6 +112,7 @@ controller_server:
         - ObstaclesCritic
         - GoalCritic
         - GoalAngleCritic
+        - TargetCameraCritic
         - PathAlignCritic
         - PathFollowCritic
         - PathAngleCritic
@@ -145,10 +146,25 @@ controller_server:
         cost_weight: 5.0
         threshold_to_consider: 1.4
       GoalAngleCritic:
-        enabled: true
+        enabled: false
         cost_power: 1
         cost_weight: 3.0
         threshold_to_consider: 0.5
+      TargetCameraCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 90.0
+        target_pose_topic: "/target_pose"
+        target_timeout: 0.6
+        use_stale_target: true
+        camera_yaw_offset: 0.0
+        angular_deadband: 0.001
+        terminal_weight: 0.5
+        max_cost: 60.0
+        publish_debug_markers: true
+        debug_markers_topic: "/target_camera_critic/markers"
+        debug_publish_rate_hz: 10.0
+        debug_arrow_length: 0.4
       PathAlignCritic:
         enabled: true
         cost_power: 1
@@ -161,11 +177,11 @@ controller_server:
       PathFollowCritic:
         enabled: true
         cost_power: 1
-        cost_weight: 5.0
+        cost_weight: 12.0
         offset_from_furthest: 6
         threshold_to_consider: 1.4
       PathAngleCritic:
-        enabled: true
+        enabled: false
         cost_power: 1
         cost_weight: 2.0
         offset_from_furthest: 4
@@ -300,7 +316,7 @@ behavior_server:
     transform_tolerance: 0.2
     use_sim_time: true
     simulate_ahead_time: 2.0
-    max_rotational_vel: 1.0
+    max_rotational_vel: 2.0
     min_rotational_vel: 0.3
     rotational_acc_lim: 2.5
 

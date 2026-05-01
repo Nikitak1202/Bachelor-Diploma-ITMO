@@ -17,6 +17,10 @@
       <description>mppi critic for achieving the goal heading angle</description>
     </class>
 
+    <class type="mppi::critics::TargetCameraCritic" base_class_type="mppi::critics::CriticFunction">
+      <description>mppi critic for keeping tracked target centered in camera frame</description>
+    </class>
+
     <class type="mppi::critics::PathAlignCritic" base_class_type="mppi::critics::CriticFunction">
       <description>mppi critic for aligning to path</description>
     </class>

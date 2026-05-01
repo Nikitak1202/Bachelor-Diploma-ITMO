@@ -16,9 +16,9 @@ class ObstaclesController(Node):
         super().__init__('obstacles_controller')
 
         # Dynamic behavior parameters.
-        self.declare_parameter('number_of_obstacles', 3)
-        self.declare_parameter('target_speed', 0.5)
-        self.declare_parameter('obstacle_speed', 0.5)
+        self.declare_parameter('number_of_obstacles', 5)
+        self.declare_parameter('target_speed', 1)
+        self.declare_parameter('obstacle_speed', 1)
         self.declare_parameter('update_rate', 0.1)
         self.declare_parameter('cylinder_height', 0.2)
         self.declare_parameter('cylinder_radius', 0.3)

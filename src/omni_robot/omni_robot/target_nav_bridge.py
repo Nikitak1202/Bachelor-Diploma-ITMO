@@ -11,6 +11,7 @@ from rclpy.node import Node
 from nav2_msgs.action import NavigateToPose
 from nav2_msgs.action import Spin
 from std_msgs.msg import Bool
+from std_msgs.msg import String
 from tf2_ros import Buffer
 from tf2_ros import TransformException
 from tf2_ros import TransformListener
@@ -24,8 +25,11 @@ class TargetNavBridge(Node):
         self.declare_parameter('spin_action_name', '/spin')
         self.declare_parameter('goal_period_sec', 0.5)
         self.declare_parameter('goal_update_distance_m', 0.15)
+        self.declare_parameter('last_pose_goal_tolerance_m', 0.5)
+        self.declare_parameter('lost_visibility_timeout_sec', 0.8)
         self.declare_parameter('goal_pose_topic', '/target_pose')
         self.declare_parameter('target_visible_topic', '/target_visible')
+        self.declare_parameter('nav_mode_topic', '/target_nav_mode')
         self.declare_parameter('map_topic', '/map')
         self.declare_parameter('robot_frame', 'base_link')
         self.declare_parameter('map_frame', 'map')
@@ -42,8 +46,13 @@ class TargetNavBridge(Node):
         self._period = float(self.get_parameter('goal_period_sec').value)
         self._goal_update_distance = float(
             self.get_parameter('goal_update_distance_m').value)
+        self._last_pose_goal_tolerance = float(
+            self.get_parameter('last_pose_goal_tolerance_m').value)
+        self._lost_visibility_timeout_ns = int(
+            float(self.get_parameter('lost_visibility_timeout_sec').value) * 1e9)
         self._goal_pose_topic = self.get_parameter('goal_pose_topic').value
         self._visible_topic = self.get_parameter('target_visible_topic').value
+        self._nav_mode_topic = self.get_parameter('nav_mode_topic').value
         self._map_topic = self.get_parameter('map_topic').value
         self._robot_frame = self.get_parameter('robot_frame').value
         self._map_frame = self.get_parameter('map_frame').value
@@ -61,17 +70,22 @@ class TargetNavBridge(Node):
         self._spin_client = ActionClient(self, Spin, self._spin_action)
         self._tf_buffer = Buffer()
         self._tf_listener = TransformListener(self._tf_buffer, self)
-        self._visible = False
+        self._visible_raw = False
+        self._last_seen_ns = 0
         self._last_pose = None
         self._last_map = None
         self._last_sent_pose = None
         self._goal_handle = None
         self._goal_pending = False
+        self._active_goal_mode = ''
         self._spin_handle = None
+        self._spin_pending = False
+        self._mode = ''
 
         self.create_subscription(Bool, self._visible_topic, self._on_vis, 10)
         self.create_subscription(PoseStamped, self._goal_pose_topic, self._on_pose, 10)
         self.create_subscription(OccupancyGrid, self._map_topic, self._on_map, 10)
+        self._mode_pub = self.create_publisher(String, self._nav_mode_topic, 10)
         self._goal_pub = self.create_publisher(PoseStamped, self._selected_goal_topic, 10)
         self._goal_marker_pub = self.create_publisher(Marker, self._selected_goal_marker_topic, 10)
         self.create_timer(self._period, self._tick)
@@ -81,15 +95,38 @@ class TargetNavBridge(Node):
         )
 
     def _on_vis(self, msg: Bool):
-        was_visible = self._visible
-        self._visible = msg.data
-        if self._visible and not was_visible:
+        was_effective_visible = self._is_effectively_visible()
+        self._visible_raw = msg.data
+        if self._visible_raw:
+            self._last_seen_ns = self.get_clock().now().nanoseconds
+        if self._is_effectively_visible() and not was_effective_visible:
             self._cancel_spin()
             self.get_logger().info('target visible -> chase mode')
-        if (not self._visible) and was_visible:
+        if (not self._is_effectively_visible()) and was_effective_visible:
             self.get_logger().info('target lost -> continue to last known pose')
-            if self._goal_handle is None and not self._goal_pending:
-                self._start_search_spin()
+
+    def _is_effectively_visible(self) -> bool:
+        if self._visible_raw:
+            return True
+        if self._last_seen_ns <= 0:
+            return False
+        now_ns = self.get_clock().now().nanoseconds
+        return (now_ns - self._last_seen_ns) <= self._lost_visibility_timeout_ns
+
+    def _set_mode(self, mode: str):
+        if mode == self._mode:
+            return
+        self._mode = mode
+        self._mode_pub.publish(String(data=mode))
+
+    def _resolve_mode(self) -> str:
+        if self._spin_handle is not None or self._spin_pending:
+            return "Spining"
+        if self._is_effectively_visible():
+            return "Chase target"
+        if self._goal_handle is not None or self._goal_pending or self._last_pose is not None:
+            return "Go to last target's pose"
+        return "Spining"
 
     def _on_pose(self, msg: PoseStamped):
         self._last_pose = msg
@@ -217,7 +254,7 @@ class TargetNavBridge(Node):
         goal_handle = future.result() if future is not None else None
         if goal_handle is None or not goal_handle.accepted:
             self.get_logger().warn('NavigateToPose goal rejected')
-            if not self._visible:
+            if not self._is_effectively_visible() and self._last_pose is None:
                 self._start_search_spin()
             return
         self._goal_handle = goal_handle
@@ -227,15 +264,21 @@ class TargetNavBridge(Node):
     def _on_goal_result(self, _future):
         self._goal_handle = None
         self._goal_pending = False
-        if not self._visible:
+        # Spin only when last-known-pose navigation is completed and target is still absent.
+        if (
+            self._active_goal_mode == "Go to last target's pose" and
+            not self._is_effectively_visible()
+        ):
             self._start_search_spin()
 
     def _cancel_spin(self):
         if self._spin_handle is not None:
             self._spin_handle.cancel_goal_async()
             self._spin_handle = None
+        self._spin_pending = False
 
     def _on_spin_response(self, future):
+        self._spin_pending = False
         goal_handle = future.result() if future is not None else None
         if goal_handle is None or not goal_handle.accepted:
             self.get_logger().warn('Spin goal rejected')
@@ -246,11 +289,11 @@ class TargetNavBridge(Node):
 
     def _on_spin_result(self, _future):
         self._spin_handle = None
-        if not self._visible and self._goal_handle is None and not self._goal_pending:
+        if not self._is_effectively_visible() and self._goal_handle is None and not self._goal_pending:
             self._start_search_spin()
 
     def _start_search_spin(self):
-        if self._spin_handle is not None:
+        if self._spin_handle is not None or self._spin_pending:
             return
         if not self._spin_client.wait_for_server(timeout_sec=0.5):
             return
@@ -258,16 +301,20 @@ class TargetNavBridge(Node):
         spin_goal.target_yaw = self._spin_dist
         spin_goal.time_allowance.sec = int(self._spin_time_allowance)
         spin_goal.time_allowance.nanosec = int((self._spin_time_allowance % 1.0) * 1e9)
+        self._spin_pending = True
         send_future = self._spin_client.send_goal_async(spin_goal)
         send_future.add_done_callback(self._on_spin_response)
 
     def _tick(self):
-        if self._visible:
+        if self._spin_handle is not None or self._spin_pending:
+            pass
+        elif self._is_effectively_visible():
             self._tick_chase()
-            return
-
-        if self._goal_handle is None and not self._goal_pending:
+        elif self._last_pose is not None:
+            self._tick_last_known_pose()
+        elif self._goal_handle is None and not self._goal_pending:
             self._start_search_spin()
+        self._set_mode(self._resolve_mode())
 
     def _tick_chase(self):
         if self._last_pose is None:
@@ -289,6 +336,7 @@ class TargetNavBridge(Node):
         goal.pose = selected_goal
         self._last_sent_pose = selected_goal
         self._goal_pending = True
+        self._active_goal_mode = "Chase target"
         send_future = self._client.send_goal_async(goal)
         send_future.add_done_callback(self._on_goal_response)
         self.get_logger().info(
@@ -300,6 +348,37 @@ class TargetNavBridge(Node):
                 self._last_pose.pose.position.y,
             )
         )
+
+    def _tick_last_known_pose(self):
+        if self._last_pose is None:
+            return
+        self._cancel_spin()
+        selected_goal = self._select_approach_goal(self._last_pose)
+        self._publish_selected_goal_viz(selected_goal)
+        robot_xy = self._get_robot_xy()
+        if robot_xy is not None:
+            goal_dx = selected_goal.pose.position.x - robot_xy[0]
+            goal_dy = selected_goal.pose.position.y - robot_xy[1]
+            goal_dist = math.sqrt(goal_dx * goal_dx + goal_dy * goal_dy)
+            if goal_dist <= self._last_pose_goal_tolerance:
+                self._cancel_current_goal()
+                self._start_search_spin()
+                return
+        if not self._client.wait_for_server(timeout_sec=0.5):
+            return
+        if self._last_sent_pose is not None:
+            if self._distance(selected_goal, self._last_sent_pose) < self._goal_update_distance:
+                return
+        if self._goal_handle is not None and self._goal_handle.accepted:
+            return
+
+        goal = NavigateToPose.Goal()
+        goal.pose = selected_goal
+        self._last_sent_pose = selected_goal
+        self._goal_pending = True
+        self._active_goal_mode = "Go to last target's pose"
+        send_future = self._client.send_goal_async(goal)
+        send_future.add_done_callback(self._on_goal_response)
 
 
 def main(args=None):

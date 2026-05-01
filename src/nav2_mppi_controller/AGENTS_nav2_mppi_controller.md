@@ -16,6 +16,8 @@ Back to root guide: [`../../AGENTS.md`](../../AGENTS.md)
   - critic lifecycle and scoring orchestration.
 - `src/critics/*.cpp` + `include/nav2_mppi_controller/critics/*.hpp`
   - pluggable cost terms (goal, path, obstacles, constraints, etc.).
+  - includes `TargetCameraCritic` for target-bearing alignment against `/target_pose`.
+  - `TargetCameraCritic` can publish RViz debug arrows (`/target_camera_critic/markers`) for current vs desired heading.
 - `src/path_handler.cpp`, `src/trajectory_visualizer.cpp`, `src/noise_generator.cpp`
   - support modules for path preparation, debug visualization, and sampling noise.
 - `mppic.xml` and `critics.xml`
@@ -26,6 +28,7 @@ Back to root guide: [`../../AGENTS.md`](../../AGENTS.md)
   - `plugin: "nav2_mppi_controller::MPPIController"`
 - Configured in this repository via:
   - `src/omni_robot/config/omni_nav2_params.yaml` under `controller_server.FollowPath`.
+  - camera-centering weights and timeout are tuned under `FollowPath.TargetCameraCritic`.
 
 ## Tests and Benchmarks
 - Unit/integration tests in `test/*.cpp`.
