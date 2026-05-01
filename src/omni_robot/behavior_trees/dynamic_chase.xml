@@ -1,0 +1,56 @@
+<!--
+  Navigate-to-pose BT tuned for dynamic-obstacle avoidance.
+
+  Differences vs nav2_bringup default:
+    * RateController hz raised to PLANNER_REPLAN_HZ so the global path is
+      rebuilt fast enough to react to moving obstacles even when the robot
+      itself does not move.
+    * RecoveryFallback drops the blind Spin recovery: rotating in place under
+      the legacy behavior_server cannot dodge moving obstacles in real time,
+      while the target_nav_bridge already provides an MPPI-controlled
+      lookout-orbit search when the chase target is lost.
+    * Costmap clearing remains as the safe local recovery so stale dynamic
+      readings do not block planning.
+
+  All other semantics (recovery counts, controller/planner selectors, goal
+  tracking) match the upstream navigate_to_pose_w_replanning_and_recovery.xml
+  contract expected by Nav2's bt_navigator.
+-->
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <RecoveryNode number_of_retries="6" name="NavigateRecovery">
+      <PipelineSequence name="NavigateWithReplanning">
+        <ControllerSelector selected_controller="{selected_controller}" default_controller="FollowPath" topic_name="controller_selector"/>
+        <PlannerSelector selected_planner="{selected_planner}" default_planner="GridBased" topic_name="planner_selector"/>
+        <RateController hz="8.0">
+          <RecoveryNode number_of_retries="1" name="ComputePathToPose">
+            <ComputePathToPose goal="{goal}" path="{path}" planner_id="{selected_planner}"/>
+            <ReactiveFallback name="ComputePathToPoseRecoveryFallback">
+              <GoalUpdated/>
+              <ClearEntireCostmap name="ClearGlobalCostmap-Context" service_name="global_costmap/clear_entirely_global_costmap"/>
+            </ReactiveFallback>
+          </RecoveryNode>
+        </RateController>
+
+        <RecoveryNode number_of_retries="1" name="FollowPath">
+          <FollowPath path="{path}" controller_id="{selected_controller}" goal_checker_id="general_goal_checker"/>
+          <ReactiveFallback name="FollowPathRecoveryFallback">
+            <GoalUpdated/>
+            <ClearEntireCostmap name="ClearLocalCostmap-Context" service_name="local_costmap/clear_entirely_local_costmap"/>
+          </ReactiveFallback>
+        </RecoveryNode>
+      </PipelineSequence>
+
+      <ReactiveFallback name="RecoveryFallback">
+        <GoalUpdated/>
+        <RoundRobin name="RecoveryActions">
+          <Sequence name="RecoveryActionsSequence">
+            <ClearEntireCostmap name="ClearLocalCostmap-Subtree" service_name="local_costmap/clear_entirely_local_costmap"/>
+            <ClearEntireCostmap name="ClearGlobalCostmap-Subtree" service_name="global_costmap/clear_entirely_global_costmap"/>
+          </Sequence>
+          <Wait wait_duration="1.0"/>
+        </RoundRobin>
+      </ReactiveFallback>
+    </RecoveryNode>
+  </BehaviorTree>
+</root>

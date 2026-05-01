@@ -70,6 +70,8 @@ def generate_launch_description():
             'image_timeout_sec': 0.4,
             'scan_index_window': 10,
             'scan_fallback_window': 80,
+            'collision_distance_threshold_m': 0.23,
+            'collision_min_points': 3,
             'nav_mode_topic': '/target_nav_mode',
         }],
         output='screen',

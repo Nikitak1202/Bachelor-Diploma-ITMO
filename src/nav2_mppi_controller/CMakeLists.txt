@@ -60,6 +60,7 @@ add_library(mppi_controller SHARED
 
 add_library(mppi_critics SHARED
   src/critics/obstacles_critic.cpp
+  src/critics/potential_field_critic.cpp
   src/critics/cost_critic.cpp
   src/critics/goal_critic.cpp
   src/critics/goal_angle_critic.cpp

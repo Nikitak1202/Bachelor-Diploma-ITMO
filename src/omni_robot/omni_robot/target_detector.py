@@ -50,6 +50,8 @@ class TargetDetector(Node):
         self.declare_parameter('scan_angle_offset_rad', 0.0)
         self.declare_parameter('scan_index_window', 10)
         self.declare_parameter('scan_fallback_window', 80)
+        self.declare_parameter('collision_distance_threshold_m', 0.23)
+        self.declare_parameter('collision_min_points', 3)
         self.declare_parameter('marker_scale_m', 0.44)
         self.declare_parameter('marker_alpha', 1.0)
 
@@ -76,6 +78,10 @@ class TargetDetector(Node):
         self._scan_angle_offset = float(self.get_parameter('scan_angle_offset_rad').value)
         self._scan_window = max(0, int(self.get_parameter('scan_index_window').value))
         self._scan_fallback_window = max(self._scan_window, int(self.get_parameter('scan_fallback_window').value))
+        self._collision_distance_threshold = max(
+            0.01, float(self.get_parameter('collision_distance_threshold_m').value)
+        )
+        self._collision_min_points = max(1, int(self.get_parameter('collision_min_points').value))
         self._marker_scale = float(self.get_parameter('marker_scale_m').value)
         self._marker_alpha = float(self.get_parameter('marker_alpha').value)
 
@@ -93,6 +99,7 @@ class TargetDetector(Node):
         self._bearing = 0.0
         self._camera_frame = self._default_camera_frame
         self._last_scan = None
+        self._is_collision = False
         self._last_image_ns = 0
         self._prev_visible = False
         self._nav_mode = 'Chase target'
@@ -112,8 +119,16 @@ class TargetDetector(Node):
         )
 
     def _on_scan(self, msg: LaserScan):
+        collision_hits = 0
+        for value in msg.ranges:
+            if math.isfinite(value) and value <= self._collision_distance_threshold:
+                collision_hits += 1
+                if collision_hits >= self._collision_min_points:
+                    break
+        is_collision = collision_hits >= self._collision_min_points
         with self._lock:
             self._last_scan = msg
+            self._is_collision = is_collision
 
     def _on_image(self, msg: Image):
         try:
@@ -190,6 +205,31 @@ class TargetDetector(Node):
             thickness,
             cv2.LINE_AA,
         )
+
+        # Show collision alert in top-right while robot touches an object.
+        with self._lock:
+            is_collision = self._is_collision
+        if is_collision:
+            collision_text = 'Collision'
+            c_scale = 0.9
+            c_thickness = 3
+            (cw, ch), _ = cv2.getTextSize(collision_text, font, c_scale, c_thickness)
+            c_pad = 8
+            cx1 = cv_image.shape[1] - 10
+            cy0 = 10
+            cx0 = max(0, cx1 - (cw + 2 * c_pad))
+            cy1 = cy0 + ch + 2 * c_pad + 2
+            cv2.rectangle(cv_image, (cx0, cy0), (cx1, cy1), (20, 20, 20), -1)
+            cv2.putText(
+                cv_image,
+                collision_text,
+                (cx0 + c_pad, cy0 + ch + c_pad),
+                font,
+                c_scale,
+                (0, 0, 255),
+                c_thickness,
+                cv2.LINE_AA,
+            )
 
         out_img = self._bridge.cv2_to_imgmsg(cv_image, encoding='bgr8')
         out_img.header = msg.header

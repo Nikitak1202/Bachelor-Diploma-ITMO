@@ -5,6 +5,10 @@
       <description>mppi critic for obstacle avoidance</description>
     </class>
 
+    <class type="mppi::critics::PotentialFieldCritic" base_class_type="mppi::critics::CriticFunction">
+      <description>mppi critic for potential-field directional obstacle avoidance</description>
+    </class>
+
     <class type="mppi::critics::CostCritic" base_class_type="mppi::critics::CriticFunction">
       <description>mppi critic for obstacle avoidance using costmap score</description>
     </class>

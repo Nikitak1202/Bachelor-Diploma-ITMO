@@ -3,8 +3,7 @@ Panels:
     Help Height: 0
     Name: Displays
     Property Tree Widget:
-      Expanded:
-        - /Image1
+      Expanded: ~
       Splitter Ratio: 0.41137856245040894
     Tree Height: 322
   - Class: rviz_common/Selection
@@ -207,13 +206,25 @@ Visualization Manager:
       Enabled: true
       Name: Angle Error
       Namespaces:
-        target_camera_critic: true
+        {}
       Topic:
         Depth: 5
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /target_camera_critic/markers
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Potential Field
+      Namespaces:
+        {}
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /potential_field_critic/markers
       Value: true
   Enabled: true
   Global Options:

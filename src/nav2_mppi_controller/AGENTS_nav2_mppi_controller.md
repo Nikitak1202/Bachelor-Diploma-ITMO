@@ -18,6 +18,7 @@ Back to root guide: [`../../AGENTS.md`](../../AGENTS.md)
   - pluggable cost terms (goal, path, obstacles, constraints, etc.).
   - includes `TargetCameraCritic` for target-bearing alignment against `/target_pose`.
   - `TargetCameraCritic` can publish RViz debug arrows (`/target_camera_critic/markers`) for current vs desired heading.
+  - includes `PotentialFieldCritic` for local potential-field directional avoidance from costmap obstacles with debug arrow output (`/potential_field_critic/markers`).
 - `src/path_handler.cpp`, `src/trajectory_visualizer.cpp`, `src/noise_generator.cpp`
   - support modules for path preparation, debug visualization, and sampling noise.
 - `mppic.xml` and `critics.xml`
@@ -29,6 +30,7 @@ Back to root guide: [`../../AGENTS.md`](../../AGENTS.md)
 - Configured in this repository via:
   - `src/omni_robot/config/omni_nav2_params.yaml` under `controller_server.FollowPath`.
   - camera-centering weights and timeout are tuned under `FollowPath.TargetCameraCritic`.
+  - potential-field force/direction tuning is under `FollowPath.PotentialFieldCritic`.
 
 ## Tests and Benchmarks
 - Unit/integration tests in `test/*.cpp`.

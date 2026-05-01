@@ -22,6 +22,7 @@ Back to root guide: [`../../AGENTS.md`](../../AGENTS.md)
   - Nav2/SLAM/server parameters,
   - configures `FollowPath` plugin as `nav2_mppi_controller::MPPIController`,
   - enables `TargetCameraCritic` to bias local heading toward keeping `/target_pose` centered in view while target updates are fresh.
+  - enables `PotentialFieldCritic` to add directional obstacle-repulsion bias with debug markers on `/potential_field_critic/markers`.
 - `config/slam.yaml`
   - slam_toolbox online mapping parameters (`/scan` -> `/map`, TF `map -> odom`).
 - `omni_robot/*.py` runtime nodes:
@@ -39,7 +40,7 @@ Back to root guide: [`../../AGENTS.md`](../../AGENTS.md)
     - `/target_visible`,
     - `/target_pose`,
     - `/target_marker` (blue RViz marker),
-    - `/omni_robot/camera/image_raw/target_status` (red/green visibility indicator overlay).
+    - `/omni_robot/camera/image_raw/target_status` (navigation mode overlay + red `Collision` alert when scan indicates contact).
   - `target_nav_bridge` consumes `/target_visible` + `/target_pose`, updates `/navigate_to_pose` continuously while visible, and requests `/spin` behavior when target is lost and no active navigation goal remains.
 
 ## Dependencies on Other Packages
