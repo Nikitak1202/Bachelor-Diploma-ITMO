@@ -102,3 +102,39 @@ windows:
             sleep 14
             ros2 launch omni_robot omni_nav2.launch.py use_composition:=False 2>&1 | tee -a '/ros2_ws/logs/nav2.log'
           "
+
+  - window_name: ground_truth
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Gazebo Ground-Truth Publisher ==='
+            source /ros2_ws/install/setup.bash
+
+            sleep 10
+            ros2 run apartment_sim gazebo_truth_publisher 2>&1 | tee -a '/ros2_ws/logs/ground_truth.log'
+          "
+
+  - window_name: bag_record
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Rosbag2 recording for offline statistics ==='
+            source /ros2_ws/install/setup.bash
+
+            BAG_ROOT=/ros2_ws/logs/rosbag
+            BAG_DIR=\$BAG_ROOT/run_\$(TZ=Europe/Moscow date +%Y%m%d_%H%M%S)
+            mkdir -p \$BAG_ROOT
+
+            sleep 8
+            ros2 bag record \
+              -o \$BAG_DIR \
+              /target_nav_mode \
+              /target_visible \
+              /target_pose \
+              /ground_truth/target_pose \
+              /ground_truth/robot_pose \
+              /cmd_vel \
+              /scan \
+              /plan \
+              2>&1 | tee -a '/ros2_ws/logs/bag_record.log'
+          "

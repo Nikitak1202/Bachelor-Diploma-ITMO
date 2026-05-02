@@ -14,6 +14,14 @@ Back to root guide: [`../../AGENTS.md`](../../AGENTS.md)
   - ROS 2 node that calls `/spawn_entity`,
   - generates SDF cylinders for target and obstacles,
   - publishes random planar velocities to each entity namespace.
+- `apartment_sim/gazebo_truth_publisher.py`
+  - ROS 2 node that subscribes to `/gazebo/model_states`,
+  - re-publishes target and robot poses in the SLAM `map` frame
+    (`/ground_truth/target_pose`, `/ground_truth/robot_pose`),
+  - applies a static `world -> map` offset matching SLAM init at the
+    robot spawn pose (parameters `robot_spawn_x/y/yaw`),
+  - matches entities by the **last** `::` segment of `model_states` names so Gazebo-scoped
+    names still resolve to `target` / `omni_robot`.
 - `launch/launch.py`
   - launches `obstacles_controller` with deterministic spawn/behavior parameters.
 - `setup.py` / `package.xml`
@@ -22,11 +30,18 @@ Back to root guide: [`../../AGENTS.md`](../../AGENTS.md)
 ## Interfaces Owned by This Package
 - **Service dependency**
   - `/spawn_entity` (`gazebo_msgs/srv/SpawnEntity`) provided by Gazebo.
+- **Subscribed topics**
+  - `/gazebo/model_states` (`gazebo_msgs/msg/ModelStates`) consumed by
+    `gazebo_truth_publisher`.
 - **Published topics**
   - `/<entity_name>/cmd_vel` (`geometry_msgs/msg/Twist`) for each spawned model.
+  - `/ground_truth/target_pose`, `/ground_truth/robot_pose`
+    (`geometry_msgs/msg/PoseStamped`) by `gazebo_truth_publisher`,
+    used by offline statistics in `scripts/statistics.py`.
 - **Entity conventions**
   - target model name: `target` (blue),
-  - obstacle model names: `obstacle_0..N` (red).
+  - obstacle model names: `obstacle_0..N` (red),
+  - robot model name: `omni_robot` (matched by ground-truth publisher).
 
 ## Interaction With Other Packages
 - `omni_robot/target_detector` relies on visual detectability of the blue `target` in camera frames.

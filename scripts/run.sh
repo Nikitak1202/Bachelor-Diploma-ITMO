@@ -1,13 +1,16 @@
 #!/bin/bash
-LOGS_DIR="./logs"
+set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+LOGS_DIR="$PROJECT_ROOT/logs"
 
-# Create or clean logs directory
+# Remove only loose files under logs/ (keep rosbag/, stats/, and other subdirs).
 if [ ! -d "$LOGS_DIR" ]; then
     mkdir -p "$LOGS_DIR"
     echo "Created logs directory."
 else
-    echo "Cleaning logs directory..."
-    rm -rf "$LOGS_DIR"/*
+    echo "Removing loose files in logs/ (subdirectories kept)..."
+    find "$LOGS_DIR" -maxdepth 1 -type f -delete
 fi
 
 echo "Stopping any existing apartment_sim container..."

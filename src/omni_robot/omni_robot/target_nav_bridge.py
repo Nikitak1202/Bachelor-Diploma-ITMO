@@ -30,6 +30,7 @@ class TargetNavBridge(Node):
         self.declare_parameter('goal_pose_topic', '/target_pose')
         self.declare_parameter('target_visible_topic', '/target_visible')
         self.declare_parameter('nav_mode_topic', '/target_nav_mode')
+        self.declare_parameter('mode_publish_period_sec', 0.5)
         self.declare_parameter('map_topic', '/map')
         self.declare_parameter('robot_frame', 'base_link')
         self.declare_parameter('map_frame', 'map')
@@ -53,6 +54,7 @@ class TargetNavBridge(Node):
         self._goal_pose_topic = self.get_parameter('goal_pose_topic').value
         self._visible_topic = self.get_parameter('target_visible_topic').value
         self._nav_mode_topic = self.get_parameter('nav_mode_topic').value
+        self._mode_publish_period = float(self.get_parameter('mode_publish_period_sec').value)
         self._map_topic = self.get_parameter('map_topic').value
         self._robot_frame = self.get_parameter('robot_frame').value
         self._map_frame = self.get_parameter('map_frame').value
@@ -89,6 +91,7 @@ class TargetNavBridge(Node):
         self._goal_pub = self.create_publisher(PoseStamped, self._selected_goal_topic, 10)
         self._goal_marker_pub = self.create_publisher(Marker, self._selected_goal_marker_topic, 10)
         self.create_timer(self._period, self._tick)
+        self.create_timer(self._mode_publish_period, self._publish_mode_heartbeat)
         self.get_logger().info(
             'target_nav_bridge: %s target=%s visible=%s map=%s'
             % (self._action, self._goal_pose_topic, self._visible_topic, self._map_topic)
@@ -116,6 +119,11 @@ class TargetNavBridge(Node):
     def _set_mode(self, mode: str):
         if mode == self._mode:
             return
+        self._mode = mode
+        self._mode_pub.publish(String(data=mode))
+
+    def _publish_mode_heartbeat(self):
+        mode = self._resolve_mode()
         self._mode = mode
         self._mode_pub.publish(String(data=mode))
 
