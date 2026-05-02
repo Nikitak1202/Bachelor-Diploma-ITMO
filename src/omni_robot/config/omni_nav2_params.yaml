@@ -85,12 +85,12 @@ controller_server:
       time_steps: 56
       model_dt: 0.05
       batch_size: 2000
-      vx_std: 0.2
-      vy_std: 0.2
+      vx_std: 0.24
+      vy_std: 0.24
       wz_std: 0.8
-      vx_max: 0.85
+      vx_max: 0.95
       vx_min: -0.65
-      vy_max: 0.85
+      vy_max: 0.95
       wz_max: 3.8
       iteration_count: 1
       temperature: 0.3
@@ -143,18 +143,21 @@ controller_server:
         inflation_radius: 0.55
       PotentialFieldCritic:
         enabled: true
-        cost_power: 1
-        cost_weight: 140.0
-        influence_distance: 2.8
-        gradient_sample_distance: 0.08
+        cost_power: 2
+        cost_weight: 152.0
+        dominance_scale: 14.0
+        activation_cost_threshold: 32.0
+        activation_sample_radius: 0.2
+        influence_distance: 3.6
+        gradient_sample_distance: 0.06
         min_obstacle_cost: 1.0
-        preferred_distance: 0.45
-        proximity_weight: 55.0
-        direction_weight: 3.0
+        preferred_distance: 0.62
+        proximity_weight: 115.0
+        direction_weight: 8.5
         cost_scaling_factor: 10.0
         inflation_radius: 0.55
-        near_goal_distance: 0.5
-        max_force_cost: 220.0
+        near_goal_distance: 0.28
+        max_force_cost: 1800.0
         publish_debug_markers: true
         debug_markers_topic: "/potential_field_critic/markers"
         debug_publish_rate_hz: 15.0
@@ -172,7 +175,7 @@ controller_server:
       TargetCameraCritic:
         enabled: true
         cost_power: 1
-        cost_weight: 90.0
+        cost_weight: 110.0
         target_pose_topic: "/target_pose"
         target_timeout: 0.6
         use_stale_target: true
@@ -187,7 +190,7 @@ controller_server:
       PathAlignCritic:
         enabled: true
         cost_power: 1
-        cost_weight: 12.0
+        cost_weight: 22.0
         max_path_occupancy_ratio: 0.07
         trajectory_point_step: 4
         threshold_to_consider: 0.5
@@ -196,8 +199,8 @@ controller_server:
       PathFollowCritic:
         enabled: true
         cost_power: 1
-        cost_weight: 12.0
-        offset_from_furthest: 6
+        cost_weight: 26.0
+        offset_from_furthest: 10
         threshold_to_consider: 1.4
       PathAngleCritic:
         enabled: false

@@ -34,6 +34,9 @@ void PotentialFieldCritic::initialize()
   getParam(inflation_radius_, "inflation_radius", 0.55f);
   getParam(near_goal_distance_, "near_goal_distance", 0.5f);
   getParam(max_force_cost_, "max_force_cost", 50.0f);
+  getParam(activation_cost_threshold_, "activation_cost_threshold", 30.0f);
+  getParam(activation_sample_radius_, "activation_sample_radius", 0.0f);
+  getParam(dominance_scale_, "dominance_scale", 8.0f);
   getParam(publish_debug_markers_, "publish_debug_markers", true);
   getParam(
     debug_markers_topic_, "debug_markers_topic",
@@ -52,6 +55,9 @@ void PotentialFieldCritic::initialize()
   inflation_scale_factor_ = std::max(1e-4f, inflation_scale_factor_);
   inflation_radius_ = std::max(0.05f, inflation_radius_);
   max_force_cost_ = std::max(1.0f, max_force_cost_);
+  activation_cost_threshold_ = std::clamp(activation_cost_threshold_, 0.0f, 252.0f);
+  activation_sample_radius_ = std::max(0.0f, activation_sample_radius_);
+  dominance_scale_ = std::max(1.0f, dominance_scale_);
   debug_arrow_length_ = std::max(0.1f, debug_arrow_length_);
 
   auto node = parent_.lock();
@@ -95,6 +101,20 @@ float PotentialFieldCritic::rawCostAt(float x, float y) const
     return static_cast<float>(nav2_costmap_2d::LETHAL_OBSTACLE);
   }
   return static_cast<float>(raw);
+}
+
+float PotentialFieldCritic::maxSampledRawCostAt(float x, float y) const
+{
+  float m = rawCostAt(x, y);
+  if (activation_sample_radius_ <= 0.0f) {
+    return m;
+  }
+  const float r = activation_sample_radius_;
+  m = std::max(m, rawCostAt(x + r, y));
+  m = std::max(m, rawCostAt(x - r, y));
+  m = std::max(m, rawCostAt(x, y + r));
+  m = std::max(m, rawCostAt(x, y - r));
+  return m;
 }
 
 float PotentialFieldCritic::obstacleDistanceFromCost(float cost) const
@@ -155,6 +175,14 @@ void PotentialFieldCritic::score(CriticData & data)
     return;
   }
 
+  const float rx = static_cast<float>(data.state.pose.pose.position.x);
+  const float ry = static_cast<float>(data.state.pose.pose.position.y);
+  if (maxSampledRawCostAt(rx, ry) < activation_cost_threshold_) {
+    return;
+  }
+
+  const float eff_weight = weight_ * dominance_scale_;
+
   const size_t batch = data.trajectories.x.shape(0);
   const size_t traj_len = data.trajectories.x.shape(1);
   if (traj_len < 2) {
@@ -203,7 +231,7 @@ void PotentialFieldCritic::score(CriticData & data)
       const float nearby_gain = 1.0f + std::max(0.0f, preferred_distance_ - obstacleDistanceFromCost(raw_cost));
       traj_cost += direction_weight_ * nearby_gain * toward_obstacle;
     }
-    dir_cost[i] = std::min(traj_cost * weight_, max_force_cost_);
+    dir_cost[i] = std::min(traj_cost * eff_weight, max_force_cost_);
   }
 
   data.costs += xt::pow(dir_cost / static_cast<float>(traj_len), power_);
@@ -268,6 +296,10 @@ void PotentialFieldCritic::onDebugTimer()
 
   const float x = static_cast<float>(tf_msg.transform.translation.x);
   const float y = static_cast<float>(tf_msg.transform.translation.y);
+  if (maxSampledRawCostAt(x, y) < activation_cost_threshold_) {
+    publishDebugArrow(frame_id, x, y, 0.0f, 0.0f, false);
+    return;
+  }
   float fx = 0.0f;
   float fy = 0.0f;
   const bool has_force = computeRepulsionForce(x, y, fx, fy);

@@ -30,7 +30,7 @@ Back to root guide: [`../../AGENTS.md`](../../AGENTS.md)
 - Configured in this repository via:
   - `src/omni_robot/config/omni_nav2_params.yaml` under `controller_server.FollowPath`.
   - camera-centering weights and timeout are tuned under `FollowPath.TargetCameraCritic`.
-  - potential-field force/direction tuning is under `FollowPath.PotentialFieldCritic`.
+  - potential-field tuning is under `FollowPath.PotentialFieldCritic`: `activation_cost_threshold` / `activation_sample_radius` gate scoring so the critic runs only when the robot samples high costmap cost (obstacle proximity); `dominance_scale` multiplies `cost_weight` in that regime so avoidance dominates other objectives; remaining knobs include `influence_distance`, `preferred_distance`, `max_force_cost`, `near_goal_distance`.
 
 ## Tests and Benchmarks
 - Unit/integration tests in `test/*.cpp`.

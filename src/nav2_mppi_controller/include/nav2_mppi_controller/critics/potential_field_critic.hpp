@@ -30,6 +30,7 @@ protected:
   inline float rawCostAt(float x, float y) const;
   inline bool computeRepulsionForce(float x, float y, float & fx, float & fy) const;
   inline float obstacleDistanceFromCost(float cost) const;
+  float maxSampledRawCostAt(float x, float y) const;
   void onDebugTimer();
   void publishDebugArrow(
     const std::string & frame_id, float x, float y, float fx, float fy, bool has_force);
@@ -49,6 +50,9 @@ protected:
   float inflation_radius_{0.55f};
   float near_goal_distance_{0.5f};
   float max_force_cost_{50.0f};
+  float activation_cost_threshold_{30.0f};
+  float activation_sample_radius_{0.0f};
+  float dominance_scale_{8.0f};
   bool publish_debug_markers_{true};
   std::string debug_markers_topic_{"/potential_field_critic/markers"};
   double debug_publish_rate_hz_{10.0};
