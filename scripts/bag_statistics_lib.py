@@ -6,6 +6,7 @@ Requires messages on `/target_nav_mode`, `/target_visible`, `/scan`, `/cmd_vel`.
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -47,8 +48,8 @@ class Config:
     topic_cmd_vel: str = '/cmd_vel'
     topic_scan: str = '/scan'
 
-    d_collision_m: float = 0.30
-    d_potential_m: float = 0.55
+    d_collision_m: float = 0.3
+    d_potential_m: float = 0.5
     event_release_seconds: float = 0.5
 
     figure_dpi: int = 140
@@ -57,8 +58,8 @@ class Config:
 
     mode_labels_ru: dict = field(default_factory=lambda: {
         'Chase target': 'Сопровождение цели',
-        "Go to last target's pose": 'Движение к последней позе',
-        'Spining': 'Поиск (Spin)',
+        "Go to last target's pose": 'К последней позиции цели',
+        'Spining': 'Поиск',
     })
     mode_palette: dict = field(default_factory=lambda: {
         'Chase target': '#2ca02c',
@@ -76,6 +77,14 @@ def _ns_to_s(ns: int, t0_ns: int) -> float:
 
 def _is_valid_rosbag2_dir(path: Path) -> bool:
     return path.is_dir() and (path / 'metadata.yaml').is_file()
+
+
+def _bag_sort_key(path: Path) -> Tuple[int, int, str]:
+    """Sort runs: ``run1``, ``run2``, … (numeric) first; then other dirs (e.g. ``run_YYYYMMDD_…``)."""
+    m = re.match(r'^run(\d+)$', path.name)
+    if m:
+        return (0, int(m.group(1)), '')
+    return (1, 0, path.name)
 
 
 def _resolve_bag_path(arg_path: Optional[str]) -> Path:
@@ -106,10 +115,12 @@ def _resolve_bag_path(arg_path: Optional[str]) -> Path:
             raise FileNotFoundError(
                 f'No complete rosbag2 under {bag_root} '
                 f'(found {len(any_dirs)} folder(s) without metadata.yaml). '
-                'Stop recording with Ctrl+C in the bag pane or exit tmux '
-                'normally so ros2 bag can finalize metadata.yaml.'
+                'After make run, detach with Ctrl+b d so the container can stop '
+                'the recorder and write metadata.yaml; or stop ros2 bag record '
+                'with Ctrl+C in the bag pane.'
             )
         raise FileNotFoundError(f'No bag runs found under {bag_root}.')
+    # Latest finished recording: ``run_*`` from interactive ``make run`` or ``runN`` from ``make stats``.
     return max(candidates, key=lambda p: p.stat().st_mtime)
 
 
@@ -216,8 +227,14 @@ def _read_bag(bag_path: Path) -> BagData:
 def _setup_mpl():
     mpl.rcParams.update({
         'font.size': CFG.font_size,
+        'font.family': 'serif',
+        'font.serif': ['DejaVu Serif', 'STIXGeneral', 'Times New Roman', 'Times'],
+        'mathtext.fontset': 'stix',
+        'mathtext.default': 'it',
+        'axes.unicode_minus': False,
         'axes.titlesize': CFG.font_size + 1,
         'axes.labelsize': CFG.font_size,
+        'legend.fontsize': CFG.font_size - 1,
         'figure.dpi': CFG.figure_dpi,
         'savefig.dpi': CFG.figure_dpi,
         'savefig.bbox': 'tight',
@@ -255,7 +272,7 @@ def plot_mode_timeline(data: BagData, out_dir: Path) -> dict:
 
     ax.set_yticks(list(rank.values()))
     ax.set_yticklabels([CFG.mode_labels_ru.get(m, m) for m in unique_modes])
-    ax.set_xlabel('Время, с')
+    ax.set_xlabel(r'$t$, с')
     ax.set_title('Временная диаграмма режимов сопровождения')
     ax.set_xlim(0, max(data.t_end_s, intervals[-1][1]))
     fig.tight_layout()
@@ -283,10 +300,10 @@ def plot_visibility(data: BagData, out_dir: Path) -> dict:
     ax.fill_between(t, 0, v, step='post', alpha=0.25, color='#1f77b4')
     ax.set_ylim(-0.1, 1.1)
     ax.set_yticks([0, 1])
-    ax.set_yticklabels(['не видна', 'видна'])
-    ax.set_xlabel('Время, с')
+    ax.set_yticklabels(['Вне кадра', 'В кадре'])
+    ax.set_xlabel(r'$t$, с')
     ax.set_title(
-        r'Видимость цели $\nu_k$. Доля времени видимости: %.1f %%' % (ratio * 100.0)
+        'Видимость цели $\\nu(t)$; $\\bar{\\nu}=%.1f\\%%$' % (ratio * 100.0)
     )
     fig.tight_layout()
     _save(fig, out_dir, '02_visibility')
@@ -312,28 +329,43 @@ def _count_events(t: np.ndarray, below: np.ndarray, release_s: float) -> int:
     return events
 
 
+def _scan_after_first_clear(t: np.ndarray, r: np.ndarray, d_clear_m: float) -> Tuple[np.ndarray, np.ndarray]:
+    if t.size == 0:
+        return t, r
+    first_clear = np.flatnonzero(r > d_clear_m)
+    if first_clear.size == 0:
+        return np.array([]), np.array([])
+    s = int(first_clear[0])
+    return t[s:], r[s:]
+
+
 def plot_safety(data: BagData, out_dir: Path) -> dict:
     t = data.scan_t
     r = data.scan_min_r
-    coll_mask = r <= CFG.d_collision_m
-    pot_mask = r <= CFG.d_potential_m
+    t_c, r_c = _scan_after_first_clear(t, r, CFG.d_potential_m)
+    coll_mask = r_c <= CFG.d_collision_m
+    pot_mask = r_c <= CFG.d_potential_m
 
-    n_coll = _count_events(t, coll_mask, CFG.event_release_seconds)
-    n_pot = _count_events(t, pot_mask, CFG.event_release_seconds)
+    n_coll = _count_events(t_c, coll_mask, CFG.event_release_seconds)
+    n_pot = _count_events(t_c, pot_mask, CFG.event_release_seconds)
     n_prev = max(0, n_pot - n_coll)
     ratio_prev = (n_prev / n_pot) if n_pot > 0 else 1.0
 
+    t_plot, r_plot = _scan_after_first_clear(t, r, CFG.d_collision_m)
+
     fig, ax = plt.subplots(figsize=CFG.figure_size)
-    ax.plot(t, r, color='#17becf', linewidth=1.0, label=r'$\min(\mathrm{scan})$')
+    ax.plot(t_plot, r_plot, color='#17becf', linewidth=1.0,
+            label=r'$d^{\mathrm{lid}}_{\min}(t)$')
     ax.axhline(CFG.d_potential_m, color='#ff7f0e', linestyle='--',
-               label=f'Зона риска ({CFG.d_potential_m:.2f} м)')
+               label=rf'$d_\mathrm{{pot}}={CFG.d_potential_m:.2f}\,$м')
     ax.axhline(CFG.d_collision_m, color='#d62728', linestyle='--',
-               label=f'$d_{{\\min}}$ ({CFG.d_collision_m:.2f} м)')
-    ax.set_xlabel('Время, с')
-    ax.set_ylabel('Расстояние до ближайшего препятствия, м')
+               label=rf'$d_\mathrm{{col}}={CFG.d_collision_m:.2f}\,$м')
+    ax.set_xlabel(r'$t$, с')
+    ax.set_ylabel(r'$d_{\min}^{\mathrm{obs}}$, м')
     ax.set_title(
-        f'Безопасность: конфликтов = {n_pot}, столкновений = {n_coll}, '
-        f'предотвращено = {n_prev} ({ratio_prev * 100.0:.0f} %)'
+        r'Безопасность: '
+        rf'$N_\mathrm{{c}}={n_coll}$, $N_\mathrm{{r}}={n_pot}$, '
+        rf'$N_\mathrm{{p}}={n_prev}$, $\rho={ratio_prev:.2f}$'
     )
     ax.legend(loc='upper right')
     fig.tight_layout()
@@ -358,13 +390,10 @@ def plot_control_smoothness(data: BagData, out_dir: Path) -> dict:
     fig, ax = plt.subplots(figsize=CFG.figure_size)
     ax.plot(data.cmd_t[1:], du_norm, color='#2ca02c', linewidth=1.0)
     ax.axhline(rms, color='#333333', linestyle='--',
-               label=f'СКЗ = {rms:.3f}')
-    ax.set_xlabel('Время, с')
-    ax.set_ylabel(r'$\|\mathbf{u}_k - \mathbf{u}_{k-1}\|_2$')
-    ax.set_title(
-        'Плавность управления: '
-        f'СКЗ = {rms:.3f}, средн = {mean_abs:.3f}, пик = {peak:.3f}'
-    )
+               label=r'$\mathrm{RMS} = %.3f$' % rms)
+    ax.set_xlabel(r'$t$, с')
+    ax.set_ylabel(r'$\|\Delta\mathbf{u}_k\|_2 = \|\mathbf{u}_k - \mathbf{u}_{k-1}\|_2$')
+    ax.set_title(r'Плавность управления')
     ax.legend(loc='upper right')
     fig.tight_layout()
     _save(fig, out_dir, '04_control_smoothness')
@@ -410,10 +439,11 @@ def aggregate_metrics(data: BagData) -> dict:
 
     st = data.scan_t
     sr = data.scan_min_r
-    coll_mask = sr <= CFG.d_collision_m
-    pot_mask = sr <= CFG.d_potential_m
-    n_coll = _count_events(st, coll_mask, CFG.event_release_seconds)
-    n_pot = _count_events(st, pot_mask, CFG.event_release_seconds)
+    st_c, sr_c = _scan_after_first_clear(st, sr, CFG.d_potential_m)
+    coll_mask = sr_c <= CFG.d_collision_m
+    pot_mask = sr_c <= CFG.d_potential_m
+    n_coll = _count_events(st_c, coll_mask, CFG.event_release_seconds)
+    n_pot = _count_events(st_c, pot_mask, CFG.event_release_seconds)
     n_prev = max(0, n_pot - n_coll)
     ratio_prev = (n_prev / n_pot) if n_pot > 0 else 1.0
     m['safety'] = {
@@ -436,8 +466,10 @@ def aggregate_metrics(data: BagData) -> dict:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--bag', type=str, default=None,
-                        help='Path to a rosbag2 directory; defaults to latest under logs/rosbag.')
+    parser.add_argument(
+        '--bag', type=str, default=None,
+        help='Rosbag2 directory; default = latest complete bag under logs/rosbag (max mtime: run_… or runN).',
+    )
     args = parser.parse_args()
 
     bag_path = _resolve_bag_path(args.bag)

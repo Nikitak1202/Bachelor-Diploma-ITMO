@@ -1,0 +1,81 @@
+# Same stack as tmux-cfg.yml but no RViz and no Gazebo/VNC websockify — for collect-stats / batch runs.
+session_name: apartment_sim
+windows:
+  - window_name: control
+    panes:
+      - shell_command: bash
+
+  - window_name: gazebo
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Starting Gazebo (headless gzserver; Xvfb for camera OGRE rendering) ==='
+            source /ros2_ws/install/setup.bash
+            # Without a framebuffer, libgazebo_ros_camera often publishes blank frames → no blue target
+            # detection and the robot stays in spin. Match interactive stack: virtual :99 display.
+            export DISPLAY=:99
+            mkdir -p /tmp/.X11-unix
+            Xvfb :99 -screen 0 1920x1080x24 -nolisten tcp&
+            sleep 2
+            ros2 launch gazebo_ros gazebo.launch.py world:=/worlds/apartment.world gui:=false 2>&1 | tee -a '/ros2_ws/logs/gazebo'\${OMNI_BAG_RUN_SUFFIX:-}'.log'
+          "
+
+  - window_name: obstacles
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Starting Obstacles Controller ==='
+            source /ros2_ws/install/setup.bash
+
+            sleep 5
+            ros2 run apartment_sim obstacles_controller 2>&1 | tee -a '/ros2_ws/logs/obstacles'\${OMNI_BAG_RUN_SUFFIX:-}'.log'
+          "
+
+  - window_name: robot_spawn
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Spawning Omnidirectional Robot ==='
+            source /ros2_ws/install/setup.bash
+
+            sleep 8
+            ros2 launch omni_robot spawn_robot.launch.py 2>&1 | tee -a '/ros2_ws/logs/robot_spawn'\${OMNI_BAG_RUN_SUFFIX:-}'.log'
+          "
+
+  - window_name: robot_control
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Nav2 (A*) + MPPI + SLAM + target chase pipeline ==='
+            source /ros2_ws/install/setup.bash
+
+            sleep 14
+            ros2 launch omni_robot omni_nav2.launch.py use_composition:=False 2>&1 | tee -a '/ros2_ws/logs/nav2'\${OMNI_BAG_RUN_SUFFIX:-}'.log'
+          "
+
+  - window_name: bag_record
+    panes:
+      - shell_command: |
+          bash -c "
+            echo '=== Rosbag2 recording for offline statistics ==='
+            source /ros2_ws/install/setup.bash
+
+            BAG_ROOT=/ros2_ws/logs/rosbag
+            if [ -n \"\${OMNI_BAG_RUN_NAME:-}\" ]; then
+              BAG_DIR=\$BAG_ROOT/\${OMNI_BAG_RUN_NAME}
+            else
+              BAG_DIR=\$BAG_ROOT/run_\$(TZ=Europe/Moscow date +%Y%m%d_%H%M%S)\${OMNI_BAG_RUN_SUFFIX:-}
+            fi
+            mkdir -p \$BAG_ROOT
+
+            sleep 8
+            ros2 bag record \
+              -o \$BAG_DIR \
+              /target_nav_mode \
+              /target_visible \
+              /target_pose \
+              /cmd_vel \
+              /scan \
+              /plan \
+              2>&1 | tee -a '/ros2_ws/logs/bag_record'\${OMNI_BAG_RUN_SUFFIX:-}'.log'
+          "

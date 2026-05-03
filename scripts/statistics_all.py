@@ -36,7 +36,7 @@ def _discover_bags(mod) -> List[Path]:
     if not bag_root.is_dir():
         return []
     bags = [p for p in bag_root.iterdir() if mod._is_valid_rosbag2_dir(p)]
-    return sorted(bags, key=lambda p: p.name)
+    return sorted(bags, key=mod._bag_sort_key)
 
 
 def _save(fig, out_dir: Path, name: str, project_root: Path):
@@ -104,9 +104,9 @@ def main():
         bottom += h
     ax.set_xticks(x)
     ax.set_xticklabels(runs, rotation=35, ha='right', fontsize=max(8, cfg.font_size - 2))
-    ax.set_ylabel('Доля времени, %')
-    ax.set_title('Режимы сопровождения по запускам (нормировано на 100%)')
-    ax.legend(loc='upper left', bbox_to_anchor=(1.02, 1.0))
+    ax.set_ylabel('Доля времени по режимам')
+    ax.set_title('Режимы сопровождения по запускам')
+    ax.legend(loc='upper right')
     fig.tight_layout()
     _save(fig, out_dir, 'all_01_mode_shares', project_root)
 
@@ -117,7 +117,7 @@ def main():
     ax.bar(x, [100.0 * v for v in vis_vals], color='#1f77b4')
     ax.set_xticks(x)
     ax.set_xticklabels(runs, rotation=35, ha='right', fontsize=max(8, cfg.font_size - 2))
-    ax.set_ylabel('Доля времени видимости, %')
+    ax.set_ylabel(r'$\bar{\nu}$')
     ax.set_title('Видимость цели по запускам')
     fig.tight_layout()
     _save(fig, out_dir, 'all_02_visibility', project_root)
@@ -130,12 +130,18 @@ def main():
     x = np.arange(len(runs))
     w = 0.25
     ax.bar(x - w, cvals, w, label='Столкновения', color='#d62728')
-    ax.bar(x, pvals, w, label='Конфликты (риск)', color='#ff7f0e')
+    bars_p = ax.bar(x, pvals, w, label='Опасность', color='#ff7f0e')
     ax.bar(x + w, prvals, w, label='Предотвращено', color='#2ca02c')
+    fs = max(8, cfg.font_size - 2)
+    ax.bar_label(
+        bars_p,
+        labels=[str(int(v)) if v > 0 else '' for v in pvals],
+        fontsize=fs,
+        padding=2,
+    )
     ax.set_xticks(x)
     ax.set_xticklabels(runs, rotation=35, ha='right', fontsize=max(8, cfg.font_size - 2))
-    ax.set_ylabel('Количество событий')
-    ax.set_title('Безопасность: события по запускам')
+    ax.set_title('Опасность столкновений по запускам')
     ax.legend()
     fig.tight_layout()
     _save(fig, out_dir, 'all_03_safety_events', project_root)
@@ -147,12 +153,10 @@ def main():
     ax.bar(x, sm_rms, color='#2ca02c')
     ax.set_xticks(x)
     ax.set_xticklabels(runs, rotation=35, ha='right', fontsize=max(8, cfg.font_size - 2))
-    ax.set_ylabel(r'СКЗ $\|\mathbf{u}_k-\mathbf{u}_{k-1}\|_2$')
+    ax.set_ylabel(r'$\mathrm{RMS}(\|\Delta\mathbf{u}_k\|_2)$')
     ax.set_title('Плавность управления по запускам')
     fig.tight_layout()
     _save(fig, out_dir, 'all_04_control_smoothness', project_root)
-
-    print('Done.')
 
 
 if __name__ == '__main__':

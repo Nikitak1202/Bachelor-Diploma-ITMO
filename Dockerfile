@@ -58,4 +58,5 @@ COPY scripts/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh /scripts/*.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["tmuxp", "load", "/scripts/tmux-cfg.yml"]
+# Detached tmux + sleep: see scripts/container_main.sh (OMNI_TMUXP_CONFIG at runtime).
+CMD ["/scripts/container_main.sh"]

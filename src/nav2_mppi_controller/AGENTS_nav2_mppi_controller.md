@@ -1,51 +1,27 @@
-# AGENTS Guide: nav2_mppi_controller
+# AGENTS: nav2_mppi_controller
 
-## Scope
-`nav2_mppi_controller` is the C++ Nav2 local planner plugin package implementing MPPI (Model Predictive Path Integral control).
+## Role
 
-It owns trajectory sampling, scoring (critics), and command selection logic for `nav2_core::Controller` integration.
+C++ package implementing the Nav2 local controller plugin `nav2_mppi_controller::MPPIController`: trajectory sampling, critic scoring, command output. No Gazebo or camera code belongs here.
 
-Back to root guide: [`../../AGENTS.md`](../../AGENTS.md)
+## Layout
 
-## Main Components
-- `src/controller.cpp`
-  - plugin entrypoint implementing `nav2_core::Controller` behavior.
-- `src/optimizer.cpp` + `include/nav2_mppi_controller/optimizer.hpp`
-  - MPPI optimization loop over sampled trajectories.
-- `src/critic_manager.cpp`
-  - critic lifecycle and scoring orchestration.
-- `src/critics/*.cpp` + `include/nav2_mppi_controller/critics/*.hpp`
-  - pluggable cost terms (goal, path, obstacles, constraints, etc.).
-  - includes `TargetCameraCritic` for target-bearing alignment against `/target_pose`.
-  - `TargetCameraCritic` can publish RViz debug arrows (`/target_camera_critic/markers`) for current vs desired heading.
-  - includes `PotentialFieldCritic` for local potential-field directional avoidance from costmap obstacles with debug arrow output (`/potential_field_critic/markers`).
-- `src/path_handler.cpp`, `src/trajectory_visualizer.cpp`, `src/noise_generator.cpp`
-  - support modules for path preparation, debug visualization, and sampling noise.
-- `mppic.xml` and `critics.xml`
-  - pluginlib exports for controller and critic plugins.
+- `src/controller.cpp` — Nav2 controller plugin entry.
+- `src/optimizer.cpp`, `include/.../optimizer.hpp` — MPPI rollouts and update step.
+- `src/critic_manager.cpp` — loads and runs critics.
+- `src/critics/*.cpp` — individual cost terms (path, obstacles, goal, custom critics such as target-bearing helpers).
+- `mppic.xml`, `critics.xml` — pluginlib registration; names here must match YAML `plugin:` entries.
 
-## Integration Contract
-- Exported plugin used by Nav2 as:
-  - `plugin: "nav2_mppi_controller::MPPIController"`
-- Configured in this repository via:
-  - `src/omni_robot/config/omni_nav2_params.yaml` under `controller_server.FollowPath`.
-  - camera-centering weights and timeout are tuned under `FollowPath.TargetCameraCritic`.
-  - potential-field tuning is under `FollowPath.PotentialFieldCritic`: `activation_cost_threshold` / `activation_sample_radius` gate scoring so the critic runs only when the robot samples high costmap cost (obstacle proximity); `dominance_scale` multiplies `cost_weight` in that regime so avoidance dominates other objectives; remaining knobs include `influence_distance`, `preferred_distance`, `max_force_cost`, `near_goal_distance`.
+## Configuration
 
-## Tests and Benchmarks
-- Unit/integration tests in `test/*.cpp`.
-- Optional performance benchmarks in `benchmark/*.cpp`.
-- Build and test are CMake-based (`ament_cmake`), unlike Python packages in this repo.
+Tuning for this repo is primarily in `omni_robot/config/omni_nav2_params.yaml` under `controller_server.ros__parameters.FollowPath` (plugin type, critic lists, numeric weights). Change YAML first; modify C++ only when behavior cannot be achieved by parameters.
 
-## Change Guidelines
-- Treat this package as algorithm/core-planner layer; keep simulator-specific topic bridging out of this package.
-- Preserve plugin ABI and exported names (`mppic.xml`, `critics.xml`) unless intentionally performing a breaking change.
-- When tuning default behavior, prefer parameter changes in `omni_nav2_params.yaml` first; modify controller internals only when tuning is insufficient.
-- For critic changes, validate interactions with costmap inflation and path-tracking critics as they are tightly coupled.
+## Rules for changes
 
-## Validation Focus
-- Package-level:
-  - `colcon build --packages-select nav2_mppi_controller`
-  - `colcon test --packages-select nav2_mppi_controller`
-- Integration-level:
-  - launch `omni_robot` Nav2 stack and verify controller stability/trajectory quality in the apartment world.
+Preserve exported plugin class names and XML unless you intentionally break ABI and update all YAML references. Keep this package free of simulator-specific topic names; bridging stays in `omni_robot`. After critic or sampling changes, run `colcon test` for this package and a short full-stack sim for regressions.
+
+## Validation
+
+`colcon build --packages-select nav2_mppi_controller` and `colcon test --packages-select nav2_mppi_controller`, then exercise `make run` and watch local plan stability near obstacles and the target.
+
+Back: `../../AGENTS.md`

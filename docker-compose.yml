@@ -1,5 +1,6 @@
 services:
   apartment_sim:
+    image: bachelor-diploma-itmo-apartment_sim
     build: .
     platform: linux/amd64
     container_name: apartment_sim

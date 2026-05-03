@@ -30,6 +30,13 @@ echo "Building Docker image..."
 docker-compose build || exit 1
 
 echo "Starting container with tmux session..."
+echo "Detach from tmux with Ctrl+b then d — recording stops, container exits (--rm), then run: make plot"
 echo "Open Gazebo in the browser: http://localhost:6080/vnc.html"
 echo "Open RViz in the browser: http://localhost:8080/vnc.html"
-docker-compose run --rm --service-ports apartment_sim || exit 1
+
+OMNI_BAG_FINALIZE_SEC="${OMNI_BAG_FINALIZE_SEC:-10}"
+docker-compose run --rm -it --service-ports \
+    -e OMNI_TMUX_ATTACH=1 \
+    -e OMNI_BAG_FINALIZE_SEC="$OMNI_BAG_FINALIZE_SEC" \
+    apartment_sim || exit 1
+docker-compose down
