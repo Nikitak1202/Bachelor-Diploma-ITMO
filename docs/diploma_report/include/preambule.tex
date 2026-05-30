@@ -1,0 +1,160 @@
+%% === Tunable parameters (all diploma-specific tunables in one place) =======
+% Основные параметры оформления согласно требованиям Университета ИТМО:
+% - формат A4, шрифт Times New Roman, размер 14 пт, межстрочный интервал 1,5;
+% - поля: левое 30 мм, правое 15 мм, верхнее 20 мм, нижнее 20 мм;
+% - абзацный отступ 1,25 см.
+% При необходимости поменять эти параметры изменяйте только этот файл.
+
+%% --- Работа с русским языком ----------------------------------------------
+\usepackage{cmap}                 % поиск в PDF
+\usepackage{mathtext}             % русские буквы в формулах
+\usepackage[T2A]{fontenc}         % кодировка шрифта
+\usepackage[utf8]{inputenc}       % кодировка исходного текста
+\usepackage[english,russian]{babel}
+
+%% --- Геометрия страницы ---------------------------------------------------
+\usepackage[a4paper,left=30mm,right=15mm,top=20mm,bottom=20mm,bindingoffset=0mm]{geometry}
+
+%% --- Шрифты и размер ------------------------------------------------------
+% Пакет fontspec и Times New Roman недоступны в обычной сборке pdflatex,
+% поэтому применяется семейство шрифтов, совместимое с русской кодировкой T2A,
+% максимально близкое к Times New Roman по начертанию.
+\usepackage{mathptmx}             % аналог Times для основного текста и формул
+
+% Базовый размер 12 pt задан в \documentclass, для основного текста задаём 14 pt.
+\usepackage{anyfontsize}
+\renewcommand{\normalsize}{\fontsize{14pt}{21pt}\selectfont}
+\normalsize
+
+%% --- Межстрочный интервал 1,5 ---------------------------------------------
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\emergencystretch}{3em}
+\sloppy
+
+%% --- Абзацный отступ 1,25 см, первый абзац тоже с отступом ----------------
+\setlength{\parindent}{1.25cm}
+\usepackage{indentfirst}
+
+%% --- Математика ------------------------------------------------------------
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{icomma}
+\usepackage{euscript}
+\usepackage{mathrsfs}
+
+%% --- Списки ---------------------------------------------------------------
+\usepackage{enumitem}
+\makeatletter
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
+\makeatother
+\setlist{nosep}
+
+%% --- Рисунки --------------------------------------------------------------
+\usepackage{graphicx}
+\graphicspath{{../images/}{images/}}
+\usepackage{caption}
+\captionsetup{justification=centering,labelsep=endash,font=normalsize}
+\captionsetup[figure]{name=Рисунок}
+\captionsetup[table]{name=Таблица}
+\usepackage{float}
+\usepackage{wrapfig}
+\setlength\fboxsep{3pt}
+\setlength\fboxrule{1pt}
+
+%% --- Таблицы --------------------------------------------------------------
+\usepackage{array,tabularx,tabulary,booktabs}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{hhline}
+
+%% --- Колонтитулы и нумерация страниц --------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% --- Плавающий знак в формулах (правило Львовского) ----------------------
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%% --- Дополнительное оформление --------------------------------------------
+\usepackage{gensymb}
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=flexible,
+    breaklines=true,
+    keepspaces=true
+}
+
+%% --- Гиперссылки ----------------------------------------------------------
+\usepackage[unicode,pdftex,hidelinks]{hyperref}
+
+%% --- Оформление заголовков секций (ГОСТ / ИТМО) ---------------------------
+\usepackage{titlesec}
+% Разделы (нумерованные главы) — прописными буквами, полужирным, по центру.
+\titleformat{\section}
+  {\normalfont\fontsize{14pt}{18pt}\bfseries\MakeUppercase}
+  {\thesection}{1em}{}
+\titlespacing*{\section}{\parindent}{2\baselineskip}{1\baselineskip}
+
+% Подразделы — полужирным, строчными с прописной.
+\titleformat{\subsection}
+  {\normalfont\fontsize{14pt}{18pt}\bfseries}
+  {\thesubsection}{1em}{}
+\titlespacing*{\subsection}{\parindent}{1\baselineskip}{0.5\baselineskip}
+
+% Подпункты
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{14pt}{18pt}\bfseries}
+  {\thesubsubsection}{1em}{}
+\titlespacing*{\subsubsection}{\parindent}{0.75\baselineskip}{0.25\baselineskip}
+
+% После номеров разделов/подразделов в ГОСТ 7.32 точка не ставится.
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+%% --- Нумерация рисунков, таблиц, формул в пределах раздела ----------------
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\counterwithin{equation}{section}
+
+%% --- Оформление неномерованных структурных элементов ----------------------
+% Команда для оформления «СОДЕРЖАНИЕ», «ВВЕДЕНИЕ», «ЗАКЛЮЧЕНИЕ» и т.п.:
+% центр, прописные, без нумерации, с добавлением в оглавление.
+\newcommand{\structuralelement}[1]{%
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{section}{\MakeUppercase{#1}}%
+    \begin{center}
+        {\normalfont\fontsize{14pt}{18pt}\bfseries\MakeUppercase{#1}}
+    \end{center}
+    \vspace{0.5\baselineskip}%
+}
+
+%% --- Настройка оглавления -------------------------------------------------
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\hfill\normalfont\fontsize{14pt}{18pt}\bfseries\MakeUppercase}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftsecfont}{\normalfont\normalsize}
+\renewcommand{\cftsecpagefont}{\normalfont\normalsize}
+\renewcommand{\cftsubsecfont}{\normalfont\normalsize}
+\renewcommand{\cftsubsecpagefont}{\normalfont\normalsize}
+\renewcommand{\cftdotsep}{1.5}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftbeforesecskip}{4pt}
+
+%% --- Макрос для вставки рисунков с защитой от отсутствия файла ------------
+\newcommand{\reportfig}[4][0.8]{%
+    % #1 -- ширина (опц., доля от \textwidth), #2 -- имя файла,
+    % #3 -- подпись, #4 -- метка.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#1\textwidth]{#2}%
+        \caption{#3}\label{#4}
+    \end{figure}
+}

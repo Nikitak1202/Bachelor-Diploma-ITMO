@@ -1,0 +1,66 @@
+\documentclass[a4paper,openany,12pt]{article}
+
+%% Стиль библиографии (ГОСТ 7.1-2003 / ГОСТ Р 7.0.5-2008).
+\bibliographystyle{gost71u}
+
+%% Преамбула: шрифты, размер, отступы, пакеты, макросы.
+\input{include/preambule.tex}
+
+\begin{document}
+
+    %% --- Титульный лист ---------------------------------------------------
+    \input{include/title-page.tex}
+    \clearpage
+
+    %% С титульной страницы нумерация не отображается (thispagestyle=empty),
+    %% далее — сквозная арабская нумерация.
+    \setcounter{page}{2}
+
+    %% --- Аннотация --------------------------------------------------------
+    \input{parts/Annotation.tex}
+    \clearpage
+
+    %% --- Содержание -------------------------------------------------------
+    \renewcommand{\contentsname}{\hfill СОДЕРЖАНИЕ \hfill}
+    \tableofcontents
+    \clearpage
+
+    %% --- Список сокращений и условных обозначений -------------------------
+    \input{parts/Abbreviations.tex}
+    \clearpage
+
+    %% --- Термины и определения -------------------------------------------
+    \input{parts/Terms.tex}
+    \clearpage
+
+    %% --- Введение ---------------------------------------------------------
+    \input{parts/Introduction.tex}
+    \clearpage
+
+    %% --- Основная часть ---------------------------------------------------
+    \input{parts/Chapter1_Problem.tex}
+    \clearpage
+    \input{parts/Chapter2_Review.tex}
+    \clearpage
+    \input{parts/Chapter3_Solution.tex}
+    \clearpage
+    \input{parts/Chapter4_Implementation.tex}
+    \clearpage
+    \input{parts/Chapter5_Experiments.tex}
+    \clearpage
+
+    %% --- Заключение -------------------------------------------------------
+    \input{parts/Conclusion.tex}
+    \clearpage
+
+    %% --- Список использованных источников ---------------------------------
+    \renewcommand{\refname}{\hfill СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ \hfill}
+    \addcontentsline{toc}{section}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
+    \bibliography{references}
+    \clearpage
+
+    %% --- Список иллюстративного материала ---------------------------------
+    \input{parts/Illustrations.tex}
+    \clearpage
+    
+\end{document}

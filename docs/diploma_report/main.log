@@ -1,0 +1,2883 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.14)  4 MAY 2026 16:33
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/Users/nikitak/Desktop/Study/Bachelor-Diploma-ITMO/docs/diploma_report/main.tex
+(/Users/nikitak/Desktop/Study/Bachelor-Diploma-ITMO/docs/diploma_report/main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+) (./include/preambule.tex (/usr/local/texlive/2026basic/texmf-dist/tex/latex/cmap/cmap.sty
+Package: cmap 2021/02/06 v1.0j CMap support: searchable PDF
+) (/Users/nikitak/Library/texmf/tex/latex/t2/mathtext.sty
+Package: mathtext 2018/04/14 v1.0 transparent text-and-math defs
+LaTeX Info: Redefining \halign on input line 121.
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+ (/Users/nikitak/Library/texmf/tex/latex/cyrillic/t2aenc.def
+File: t2aenc.def 2023/11/07 v1.0k Cyrillic encoding definition file
+Now handling font encoding T2A ...
+... processing UTF-8 mapping file for font encoding T2A
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/base/t2aenc.dfu
+File: t2aenc.dfu 2022/06/07 v1.3c UTF-8 support
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0237 (decimal 567)
+   defining Unicode char U+0400 (decimal 1024)
+   defining Unicode char U+0401 (decimal 1025)
+   defining Unicode char U+0402 (decimal 1026)
+   defining Unicode char U+0403 (decimal 1027)
+   defining Unicode char U+0404 (decimal 1028)
+   defining Unicode char U+0405 (decimal 1029)
+   defining Unicode char U+0406 (decimal 1030)
+   defining Unicode char U+0407 (decimal 1031)
+   defining Unicode char U+0408 (decimal 1032)
+   defining Unicode char U+0409 (decimal 1033)
+   defining Unicode char U+040A (decimal 1034)
+   defining Unicode char U+040B (decimal 1035)
+   defining Unicode char U+040C (decimal 1036)
+   defining Unicode char U+040D (decimal 1037)
+   defining Unicode char U+040E (decimal 1038)
+   defining Unicode char U+040F (decimal 1039)
+   defining Unicode char U+0410 (decimal 1040)
+   defining Unicode char U+0411 (decimal 1041)
+   defining Unicode char U+0412 (decimal 1042)
+   defining Unicode char U+0413 (decimal 1043)
+   defining Unicode char U+0414 (decimal 1044)
+   defining Unicode char U+0415 (decimal 1045)
+   defining Unicode char U+0416 (decimal 1046)
+   defining Unicode char U+0417 (decimal 1047)
+   defining Unicode char U+0418 (decimal 1048)
+   defining Unicode char U+0419 (decimal 1049)
+   defining Unicode char U+041A (decimal 1050)
+   defining Unicode char U+041B (decimal 1051)
+   defining Unicode char U+041C (decimal 1052)
+   defining Unicode char U+041D (decimal 1053)
+   defining Unicode char U+041E (decimal 1054)
+   defining Unicode char U+041F (decimal 1055)
+   defining Unicode char U+0420 (decimal 1056)
+   defining Unicode char U+0421 (decimal 1057)
+   defining Unicode char U+0422 (decimal 1058)
+   defining Unicode char U+0423 (decimal 1059)
+   defining Unicode char U+0424 (decimal 1060)
+   defining Unicode char U+0425 (decimal 1061)
+   defining Unicode char U+0426 (decimal 1062)
+   defining Unicode char U+0427 (decimal 1063)
+   defining Unicode char U+0428 (decimal 1064)
+   defining Unicode char U+0429 (decimal 1065)
+   defining Unicode char U+042A (decimal 1066)
+   defining Unicode char U+042B (decimal 1067)
+   defining Unicode char U+042C (decimal 1068)
+   defining Unicode char U+042D (decimal 1069)
+   defining Unicode char U+042E (decimal 1070)
+   defining Unicode char U+042F (decimal 1071)
+   defining Unicode char U+0430 (decimal 1072)
+   defining Unicode char U+0431 (decimal 1073)
+   defining Unicode char U+0432 (decimal 1074)
+   defining Unicode char U+0433 (decimal 1075)
+   defining Unicode char U+0434 (decimal 1076)
+   defining Unicode char U+0435 (decimal 1077)
+   defining Unicode char U+0436 (decimal 1078)
+   defining Unicode char U+0437 (decimal 1079)
+   defining Unicode char U+0438 (decimal 1080)
+   defining Unicode char U+0439 (decimal 1081)
+   defining Unicode char U+043A (decimal 1082)
+   defining Unicode char U+043B (decimal 1083)
+   defining Unicode char U+043C (decimal 1084)
+   defining Unicode char U+043D (decimal 1085)
+   defining Unicode char U+043E (decimal 1086)
+   defining Unicode char U+043F (decimal 1087)
+   defining Unicode char U+0440 (decimal 1088)
+   defining Unicode char U+0441 (decimal 1089)
+   defining Unicode char U+0442 (decimal 1090)
+   defining Unicode char U+0443 (decimal 1091)
+   defining Unicode char U+0444 (decimal 1092)
+   defining Unicode char U+0445 (decimal 1093)
+   defining Unicode char U+0446 (decimal 1094)
+   defining Unicode char U+0447 (decimal 1095)
+   defining Unicode char U+0448 (decimal 1096)
+   defining Unicode char U+0449 (decimal 1097)
+   defining Unicode char U+044A (decimal 1098)
+   defining Unicode char U+044B (decimal 1099)
+   defining Unicode char U+044C (decimal 1100)
+   defining Unicode char U+044D (decimal 1101)
+   defining Unicode char U+044E (decimal 1102)
+   defining Unicode char U+044F (decimal 1103)
+   defining Unicode char U+0450 (decimal 1104)
+   defining Unicode char U+0451 (decimal 1105)
+   defining Unicode char U+0452 (decimal 1106)
+   defining Unicode char U+0453 (decimal 1107)
+   defining Unicode char U+0454 (decimal 1108)
+   defining Unicode char U+0455 (decimal 1109)
+   defining Unicode char U+0456 (decimal 1110)
+   defining Unicode char U+0457 (decimal 1111)
+   defining Unicode char U+0458 (decimal 1112)
+   defining Unicode char U+0459 (decimal 1113)
+   defining Unicode char U+045A (decimal 1114)
+   defining Unicode char U+045B (decimal 1115)
+   defining Unicode char U+045C (decimal 1116)
+   defining Unicode char U+045D (decimal 1117)
+   defining Unicode char U+045E (decimal 1118)
+   defining Unicode char U+045F (decimal 1119)
+   defining Unicode char U+0490 (decimal 1168)
+   defining Unicode char U+0491 (decimal 1169)
+   defining Unicode char U+0492 (decimal 1170)
+   defining Unicode char U+0493 (decimal 1171)
+   defining Unicode char U+0496 (decimal 1174)
+   defining Unicode char U+0497 (decimal 1175)
+   defining Unicode char U+0498 (decimal 1176)
+   defining Unicode char U+0499 (decimal 1177)
+   defining Unicode char U+049A (decimal 1178)
+   defining Unicode char U+049B (decimal 1179)
+   defining Unicode char U+049C (decimal 1180)
+   defining Unicode char U+049D (decimal 1181)
+   defining Unicode char U+04A0 (decimal 1184)
+   defining Unicode char U+04A1 (decimal 1185)
+   defining Unicode char U+04A2 (decimal 1186)
+   defining Unicode char U+04A3 (decimal 1187)
+   defining Unicode char U+04A4 (decimal 1188)
+   defining Unicode char U+04A5 (decimal 1189)
+   defining Unicode char U+04AA (decimal 1194)
+   defining Unicode char U+04AB (decimal 1195)
+   defining Unicode char U+04AE (decimal 1198)
+   defining Unicode char U+04AF (decimal 1199)
+   defining Unicode char U+04B0 (decimal 1200)
+   defining Unicode char U+04B1 (decimal 1201)
+   defining Unicode char U+04B2 (decimal 1202)
+   defining Unicode char U+04B3 (decimal 1203)
+   defining Unicode char U+04B6 (decimal 1206)
+   defining Unicode char U+04B7 (decimal 1207)
+   defining Unicode char U+04B8 (decimal 1208)
+   defining Unicode char U+04B9 (decimal 1209)
+   defining Unicode char U+04BA (decimal 1210)
+   defining Unicode char U+04BB (decimal 1211)
+   defining Unicode char U+04C0 (decimal 1216)
+   defining Unicode char U+04C1 (decimal 1217)
+   defining Unicode char U+04C2 (decimal 1218)
+   defining Unicode char U+04D0 (decimal 1232)
+   defining Unicode char U+04D1 (decimal 1233)
+   defining Unicode char U+04D2 (decimal 1234)
+   defining Unicode char U+04D3 (decimal 1235)
+   defining Unicode char U+04D4 (decimal 1236)
+   defining Unicode char U+04D5 (decimal 1237)
+   defining Unicode char U+04D6 (decimal 1238)
+   defining Unicode char U+04D7 (decimal 1239)
+   defining Unicode char U+04D8 (decimal 1240)
+   defining Unicode char U+04D9 (decimal 1241)
+   defining Unicode char U+04DA (decimal 1242)
+   defining Unicode char U+04DB (decimal 1243)
+   defining Unicode char U+04DC (decimal 1244)
+   defining Unicode char U+04DD (decimal 1245)
+   defining Unicode char U+04DE (decimal 1246)
+   defining Unicode char U+04DF (decimal 1247)
+   defining Unicode char U+04E2 (decimal 1250)
+   defining Unicode char U+04E3 (decimal 1251)
+   defining Unicode char U+04E4 (decimal 1252)
+   defining Unicode char U+04E5 (decimal 1253)
+   defining Unicode char U+04E6 (decimal 1254)
+   defining Unicode char U+04E7 (decimal 1255)
+   defining Unicode char U+04E8 (decimal 1256)
+   defining Unicode char U+04E9 (decimal 1257)
+   defining Unicode char U+04EC (decimal 1260)
+   defining Unicode char U+04ED (decimal 1261)
+   defining Unicode char U+04EE (decimal 1262)
+   defining Unicode char U+04EF (decimal 1263)
+   defining Unicode char U+04F0 (decimal 1264)
+   defining Unicode char U+04F1 (decimal 1265)
+   defining Unicode char U+04F2 (decimal 1266)
+   defining Unicode char U+04F3 (decimal 1267)
+   defining Unicode char U+04F4 (decimal 1268)
+   defining Unicode char U+04F5 (decimal 1269)
+   defining Unicode char U+04F8 (decimal 1272)
+   defining Unicode char U+04F9 (decimal 1273)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+3008 (decimal 12296)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+3009 (decimal 12297)
+   defining Unicode char U+2423 (decimal 9251)
+   defining Unicode char U+27E8 (decimal 10216)
+   defining Unicode char U+27E9 (decimal 10217)
+   defining Unicode char U+FB00 (decimal 64256)
+   defining Unicode char U+FB01 (decimal 64257)
+   defining Unicode char U+FB02 (decimal 64258)
+   defining Unicode char U+FB03 (decimal 64259)
+   defining Unicode char U+FB04 (decimal 64260)
+   defining Unicode char U+FB05 (decimal 64261)
+   defining Unicode char U+FB06 (decimal 64262)
+)
+\symT2Aletters=\mathgroup4
+)
+LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 116.
+ (/Users/nikitak/Library/texmf/tex/latex/cyrillic/t2acmr.fd
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)<<t2a.cmap>>) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+) (/usr/local/texlive/2026basic/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2026/02/14 v26.3 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
+\babel@savecnt=\count283
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2078.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2080.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2082.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2083.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2084.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2086.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2111.
+\U@D=\dimen149
+\l@unhyphenated=\language23
+ (/usr/local/texlive/2026basic/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count284
+ (/usr/local/texlive/2026basic/texmf-dist/tex/generic/babel/locale/en/babel-english.tex) (/usr/local/texlive/2026basic/texmf-dist/tex/generic/babel/locale/ru/babel-russian.tex)
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 4330.
+ (/usr/local/texlive/2026basic/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language7). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language7). Reported on input line 108.
+)
+Package babel Info: Importing font and identification data for russian
+(babel)             from babel-ru.ini. Reported on input line 4330.
+ (/Users/nikitak/Library/texmf/tex/generic/babel-russian/russianb.ldf
+File: russianb.ldf 2021/01/10 1.3m Russian support for the Babel system
+Language: russian 2020/09/09 1.3k Russian support for the Babel system
+
+
+Package babel Warning: No hyphenation patterns were preloaded for
+(babel)                the language 'Russian' into the format.
+(babel)                Please, configure your TeX system to add them and
+(babel)                rebuild the format. Now I will use the patterns
+(babel)                preloaded for \language=0 instead on input line 32.
+
+Package babel Info: Hyphen rules for 'russian' set to \l@english
+(babel)             (\language0). Reported on input line 33.
+Package babel Info: Making " an active character on input line 124.
+Package babel Info: Default for \cyrdash is provided on input line 163.
+)) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+) (/usr/local/texlive/2026basic/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (/usr/local/texlive/2026basic/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count285
+\Gm@cntv=\count286
+\c@Gm@tempcnt=\count287
+\Gm@bindingoffset=\dimen150
+\Gm@wd@mp=\dimen151
+\Gm@odd@mp=\dimen152
+\Gm@even@mp=\dimen153
+\Gm@layoutwidth=\dimen154
+\Gm@layoutheight=\dimen155
+\Gm@layouthoffset=\dimen156
+\Gm@layoutvoffset=\dimen157
+\Gm@dimlist=\toks20
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/psnfss/mathptmx.sty
+Package: mathptmx 2020/03/25 PSNFSS-v9.3 Times w/ Math, improved (SPQR, WaS) 
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/ztmcm/m/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ztmcm/m/n on input line 28.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 29.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/ztmcm/m/it on input line 29.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/ztmcm/m/it on input line 29.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 30.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/ztmcm/m/n on input line 30.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/ztmcm/m/n on input line 30.
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 31.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
+\symbold=\mathgroup5
+\symitalic=\mathgroup6
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
+LaTeX Info: Redefining \hbar on input line 50.
+) (/Users/nikitak/Library/texmf/tex/latex/anyfontsize/anyfontsize.sty
+Package: anyfontsize 2007/11/22 anyfontsize.sty by pts
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen158
+)) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen159
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count288
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count289
+\leftroot@=\count290
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count291
+\DOTSCASE@=\count292
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen160
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+\symOMLletters=\mathgroup7
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\symOMSletters=\mathgroup8
+\macc@depth=\count293
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count294
+\dotsspace@=\muskip17
+\c@parentequation=\count295
+\dspbrk@lvl=\count296
+\tag@help=\toks22
+\row@=\count297
+\column@=\count298
+\maxfields@=\count299
+\andhelp@=\toks23
+\eqnshift@=\dimen161
+\alignsep@=\dimen162
+\tagshift@=\dimen163
+\tagwidth@=\dimen164
+\totwidth@=\dimen165
+\lineht@=\dimen166
+\@envbody=\toks24
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup9
+\symAMSb=\mathgroup10
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks26
+\thm@bodyfont=\toks27
+\thm@headfont=\toks28
+\thm@notefont=\toks29
+\thm@headpunct=\toks30
+\thm@preskip=\skip54
+\thm@postskip=\skip55
+\thm@headsep=\skip56
+\dth@everypar=\toks31
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count300
+\calc@Bcount=\count301
+\calc@Adimen=\dimen167
+\calc@Bdimen=\dimen168
+\calc@Askip=\skip57
+\calc@Bskip=\skip58
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count302
+\calc@Cskip=\skip59
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count303
+\l_MT_multwidth_dim=\dimen169
+\origjot=\skip60
+\l_MT_shortvdotswithinadjustabove_dim=\dimen170
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen171
+\l_MT_above_intertext_sep=\dimen172
+\l_MT_below_intertext_sep=\dimen173
+\l_MT_above_shortintertext_sep=\dimen174
+\l_MT_below_shortintertext_sep=\dimen175
+\xmathstrut@box=\box55
+\xmathstrut@dim=\dimen176
+) (/Users/nikitak/Library/texmf/tex/latex/was/icomma.sty
+Package: icomma 2002/03/10 v2.0 (WaS)
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/euscript.sty
+Package: euscript 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup11
+) (/Users/nikitak/Library/texmf/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip61
+\enit@outerparindent=\dimen177
+\enit@toks=\toks32
+\enit@inbox=\box56
+\enit@count@id=\count304
+\enitdp@description=\count305
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen178
+\Gin@req@width=\dimen179
+) (/Users/nikitak/Library/texmf/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (/Users/nikitak/Library/texmf/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen180
+\captionmargin=\dimen181
+\caption@leftmargin=\dimen182
+\caption@rightmargin=\dimen183
+\caption@width=\dimen184
+\caption@indent=\dimen185
+\caption@parindent=\dimen186
+\caption@hangindent=\dimen187
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count306
+\c@continuedfloat=\count307
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count308
+\float@exts=\toks33
+\float@box=\box57
+\@float@everytoks=\toks34
+\@floatcapt=\box58
+) (/Users/nikitak/Library/texmf/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen188
+\WF@size=\dimen189
+\c@WF@wrappedlines=\count309
+\WF@box=\box59
+\WF@everypar=\toks35
+Package: wrapfig 2003/01/31  v 3.6
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/tools/array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen190
+\ar@mcellbox=\box60
+\extrarowheight=\dimen191
+\NC@list=\toks36
+\extratabsurround=\skip62
+\backup@length=\skip63
+\ar@cellbox=\box61
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen192
+\TX@old@table=\dimen193
+\TX@old@col=\dimen194
+\TX@target=\dimen195
+\TX@delta=\dimen196
+\TX@cols=\count310
+\TX@ftn=\toks37
+) (/Users/nikitak/Library/texmf/tex/latex/tabulary/tabulary.sty
+Package: tabulary 2024/06/04 v0.11 tabulary package (DPC)
+\TY@count=\count311
+\TY@linewidth=\dimen197
+\tymin=\dimen198
+\tymax=\dimen199
+\TY@tablewidth=\dimen256
+) (/Users/nikitak/Library/texmf/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen257
+\lightrulewidth=\dimen258
+\cmidrulewidth=\dimen259
+\belowrulesep=\dimen260
+\belowbottomsep=\dimen261
+\aboverulesep=\dimen262
+\abovetopsep=\dimen263
+\cmidrulesep=\dimen264
+\cmidrulekern=\dimen265
+\defaultaddspace=\dimen266
+\@cmidla=\count312
+\@cmidlb=\count313
+\@aboverulesep=\dimen267
+\@belowrulesep=\dimen268
+\@thisruleclass=\count314
+\@lastruleclass=\count315
+\@thisrulewidth=\dimen269
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
+\LTleft=\skip64
+\LTright=\skip65
+\LTpre=\skip66
+\LTpost=\skip67
+\LTchunksize=\count316
+\LTcapwidth=\dimen270
+\LT@head=\box62
+\LT@firsthead=\box63
+\LT@foot=\box64
+\LT@lastfoot=\box65
+\LT@gbox=\box66
+\LT@cols=\count317
+\LT@rows=\count318
+\c@LT@tables=\count319
+\c@LT@chunks=\count320
+\LT@p@ftn=\toks38
+) (/Users/nikitak/Library/texmf/tex/latex/multirow/multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip68
+\multirow@cntb=\count321
+\multirow@dima=\skip69
+\bigstrutjot=\dimen271
+) (/Users/nikitak/Library/texmf/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen272
+\c@nlinenum=\count322
+\TeXr@lab=\toks39
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/tools/hhline.sty
+Package: hhline 2020/01/04 v2.04 Table rule package (DPC)
+) (/Users/nikitak/Library/texmf/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+\f@nch@headwidth=\skip70
+\f@nch@offset@elh=\skip71
+\f@nch@offset@erh=\skip72
+\f@nch@offset@olh=\skip73
+\f@nch@offset@orh=\skip74
+\f@nch@offset@elf=\skip75
+\f@nch@offset@erf=\skip76
+\f@nch@offset@olf=\skip77
+\f@nch@offset@orf=\skip78
+\f@nch@height=\skip79
+\f@nch@footalignment=\skip80
+\f@nch@widthL=\skip81
+\f@nch@widthC=\skip82
+\f@nch@widthR=\skip83
+\@temptokenb=\toks40
+) (/Users/nikitak/Library/texmf/tex/latex/gensymb/gensymb.sty
+Package: gensymb 2022/10/17 v1.0.2 (KJH)
+) (/Users/nikitak/Library/texmf/tex/latex/listings/listings.sty
+\lst@mode=\count323
+\lst@gtempboxa=\box67
+\lst@token=\toks41
+\lst@length=\count324
+\lst@currlwidth=\dimen273
+\lst@column=\count325
+\lst@pos=\count326
+\lst@lostspace=\dimen274
+\lst@width=\dimen275
+\lst@newlines=\count327
+\lst@lineno=\count328
+\lst@maxwidth=\dimen276
+ (/Users/nikitak/Library/texmf/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+) (/Users/nikitak/Library/texmf/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count329
+\lst@skipnumbers=\count330
+\lst@framebox=\box68
+) (/Users/nikitak/Library/texmf/tex/latex/listings/listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+(/Users/nikitak/Library/texmf/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (/usr/local/texlive/2026basic/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (/usr/local/texlive/2026basic/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/local/texlive/2026basic/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/Users/nikitak/Library/texmf/tex/latex/hyperref/nameref.sty
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/usr/local/texlive/2026basic/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count331
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count332
+) (/usr/local/texlive/2026basic/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen277
+\Hy@linkcounter=\count333
+\Hy@pagecounter=\count334
+ (/Users/nikitak/Library/texmf/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+\symPD1letters=\mathgroup12
+) (/usr/local/texlive/2026basic/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count335
+ (/Users/nikitak/Library/texmf/tex/latex/hyperref/puenc.def
+File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+\symPUletters=\mathgroup13
+)
+Package hyperref Info: Option `unicode' set `true' on input line 3166.
+Package hyperref Info: Option `unicode' set `true' on input line 4072.
+Package hyperref Info: Hyper figures OFF on input line 4201.
+Package hyperref Info: Link nesting OFF on input line 4206.
+Package hyperref Info: Hyper index ON on input line 4209.
+Package hyperref Info: Plain pages OFF on input line 4216.
+Package hyperref Info: Backreferencing OFF on input line 4221.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4468.
+\c@Hy@tempcnt=\count336
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4807.
+\XeTeXLinkMargin=\dimen278
+ (/usr/local/texlive/2026basic/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (/usr/local/texlive/2026basic/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count337
+\Field@Width=\dimen279
+\Fld@charsize=\dimen280
+Package hyperref Info: Hyper figures OFF on input line 6084.
+Package hyperref Info: Link nesting OFF on input line 6089.
+Package hyperref Info: Hyper index ON on input line 6092.
+Package hyperref Info: backreferencing OFF on input line 6099.
+Package hyperref Info: Link coloring OFF on input line 6104.
+Package hyperref Info: Link coloring with OCG OFF on input line 6109.
+Package hyperref Info: PDF/A mode OFF on input line 6114.
+\Hy@abspage=\count338
+\c@Item=\count339
+\c@Hfootnote=\count340
+)
+Package hyperref Info: Driver: hpdftex.
+ (/Users/nikitak/Library/texmf/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
+\Fld@listcount=\count341
+\c@bookmark@seq@number=\count342
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+ (/usr/local/texlive/2026basic/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+)
+\Hy@SectionHShift=\skip84
+) (/Users/nikitak/Library/texmf/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box69
+\beforetitleunit=\skip85
+\aftertitleunit=\skip86
+\ttl@plus=\dimen281
+\ttl@minus=\dimen282
+\ttl@toksa=\toks42
+\titlewidth=\dimen283
+\titlewidthlast=\dimen284
+\titlewidthfirst=\dimen285
+) (/Users/nikitak/Library/texmf/tex/latex/chngcntr/chngcntr.sty
+Package: chngcntr 2018/04/09 v1.1a change counter resetting
+Package chngcntr Info: \counterwithout already defined.
+(chngcntr)             Quitting chngcntr on input line 21.
+) (/Users/nikitak/Library/texmf/tex/latex/tocloft/tocloft.sty
+Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
+Package tocloft Info: The document has section divisions on input line 51.
+\cftparskip=\skip87
+\cftbeforetoctitleskip=\skip88
+\cftaftertoctitleskip=\skip89
+\cftbeforepartskip=\skip90
+\cftpartnumwidth=\skip91
+\cftpartindent=\skip92
+\cftbeforesecskip=\skip93
+\cftsecindent=\skip94
+\cftsecnumwidth=\skip95
+\cftbeforesubsecskip=\skip96
+\cftsubsecindent=\skip97
+\cftsubsecnumwidth=\skip98
+\cftbeforesubsubsecskip=\skip99
+\cftsubsubsecindent=\skip100
+\cftsubsubsecnumwidth=\skip101
+\cftbeforeparaskip=\skip102
+\cftparaindent=\skip103
+\cftparanumwidth=\skip104
+\cftbeforesubparaskip=\skip105
+\cftsubparaindent=\skip106
+\cftsubparanumwidth=\skip107
+\cftbeforeloftitleskip=\skip108
+\cftafterloftitleskip=\skip109
+\cftbeforefigskip=\skip110
+\cftfigindent=\skip111
+\cftfignumwidth=\skip112
+\c@lofdepth=\count343
+\c@lotdepth=\count344
+\cftbeforelottitleskip=\skip113
+\cftafterlottitleskip=\skip114
+\cftbeforetabskip=\skip115
+\cfttabindent=\skip116
+\cfttabnumwidth=\skip117
+))
+LaTeX Font Info:    Trying to load font information for T2A+ptm on input line 9.
+LaTeX Font Info:    No file T2Aptm.fd. on input line 9.
+
+
+LaTeX Font Warning: Font shape `T2A/ptm/m/n' undefined
+(Font)              using `T2A/cmr/m/n' instead on input line 9.
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count345
+)
+
+LaTeX Warning: Unused global option(s):
+    [openany].
+
+(./main.aux
+Package babel Info: 'russian' activates 'russian' shorthands.
+(babel)             Reported on input line 9.
+)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Info: Redefining \th on input line 9.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(85.35826pt, 469.47049pt, 42.67912pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=469.47049pt
+* \textheight=731.23584pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count346
+\scratchdimen=\dimen286
+\scratchbox=\box70
+\nofMPsegments=\count347
+\nofMParguments=\count348
+\everyMPshowfont=\toks43
+\MPscratchCnt=\count349
+\MPscratchDim=\dimen287
+\MPnumerator=\count350
+\makeMPintoPDFobject=\count351
+\everyMPtoPDFconversion=\toks44
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+ (/Users/nikitak/Library/texmf/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Info: Redefining \celsius on input line 9.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 9.
+
+
+Package gensymb Warning: Not defining \perthousand.
+
+LaTeX Info: Redefining \ohm on input line 9.
+Package gensymb Info: Using \upOmega for \ohm on input line 9.
+
+Package gensymb Warning: Not defining \micro.
+
+\c@lstlisting=\count352
+Package hyperref Info: Link coloring OFF on input line 9.
+(./main.out) (./main.out)
+\@outlinefile=\write3
+\openout3 = `main.out'.
+
+ (./include/title-page.tex
+
+LaTeX Font Warning: Font shape `T2A/ptm/b/n' undefined
+(Font)              using `T2A/ptm/m/n' instead on input line 9.
+
+) [1
+
+{/Users/nikitak/Library/texlive/2026basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}] (./parts/Annotation.tex
+Underfull \hbox (badness 10000) in paragraph at lines 6--18
+\T2A/ptm/b/n/14.4 В работе решается задача разработки программного обеспечения
+ []
+
+
+Underfull \hbox (badness 3189) in paragraph at lines 6--18
+\T2A/ptm/b/n/14.4 автономного мобильного омни-робота, обеспечивающего сопровождение
+ []
+
+
+Underfull \hbox (badness 1496) in paragraph at lines 6--18
+\T2A/ptm/b/n/14.4 пользователя в типовой квартирной среде при наличии динамических
+ []
+
+
+Underfull \hbox (badness 8019) in paragraph at lines 6--18
+\T2A/ptm/b/n/14.4 препятствий. Описан полный контур системы: от воспроизводимой
+ []
+
+
+Underfull \hbox (badness 1831) in paragraph at lines 6--18
+\T2A/ptm/b/n/14.4 реализации модельного прогнозирующего управления (Mod-el Pre-dic-tive
+ []
+
+LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 22.
+(/Users/nikitak/Library/texmf/tex/latex/cyrillic/t2acmtt.fd
+File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+))
+Underfull \hbox (badness 10000) in paragraph at lines 19--21
+\T2A/ptm/b/n/14.4 комплекса, реализации двух пользовательских критиков MPPI-
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 19--21
+\T2A/ptm/b/n/14.4 и направленного штрафа поля препятствий (\T2A/cmtt/m/n/14.4 PotentialFieldCritic\T2A/ptm/b/n/14.4 ) ---
+ []
+
+
+Underfull \hbox (badness 7888) in paragraph at lines 19--21
+\T2A/ptm/b/n/14.4 а также автоматизированной серии из 40 безголовых запусков с
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--21
+\T2A/ptm/b/n/14.4 количественной оценкой режимов сопровождения, видимости цели,
+ []
+
+[2
+
+
+] (./main.toc
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1.
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)<<ot1.cmap>>
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 2.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 2.
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
+File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 2.
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/psnfss/omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 2.
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/psnfss/omsztmcm.fd
+File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 2.
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/psnfss/omxztmcm.fd
+File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+)
+
+LaTeX Font Warning: Font shape `T2A/cmr/m/up' undefined
+(Font)              using `T2A/cmr/m/n' instead on input line 2.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.36008> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8.40009> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+LaTeX Font Info:    Trying to load font information for OML+ptm on input line 2.
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/psnfss/omlptm.fd
+File: omlptm.fd 
+)
+
+LaTeX Font Warning: Font shape `OML/ptm/m/up' undefined
+(Font)              using `OML/ptm/m/it' instead on input line 2.
+
+LaTeX Font Info:    Font shape `OML/ptm/m/it' in size <14> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 2.
+LaTeX Font Info:    Font shape `OML/ptm/m/up' in size <10.36008> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 2.
+LaTeX Font Info:    Font shape `OML/ptm/m/up' in size <8.40009> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 2.
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 2.
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+
+LaTeX Font Warning: Font shape `OMS/ptm/m/up' undefined
+(Font)              using `OMS/ptm/m/n' instead on input line 2.
+
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <14> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2.
+LaTeX Font Info:    Font shape `OMS/ptm/m/up' in size <10.36008> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2.
+LaTeX Font Info:    Font shape `OMS/ptm/m/up' in size <8.40009> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 2.
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Trying to load font information for PD1+ptm on input line 2.
+LaTeX Font Info:    No file PD1ptm.fd. on input line 2.
+
+
+LaTeX Font Warning: Font shape `PD1/ptm/m/up' undefined
+(Font)              using `PD1/pdf/m/n' instead on input line 2.
+
+LaTeX Font Info:    Trying to load font information for PU+ptm on input line 2.
+LaTeX Font Info:    No file PUptm.fd. on input line 2.
+
+LaTeX Font Warning: Font shape `PU/ptm/m/up' undefined
+(Font)              using `PU/pdf/m/n' instead on input line 2.
+
+[3
+
+] [4])
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+ [5] (./parts/Abbreviations.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+[]|\T2A/ptm/b/n/14.4 Model Pre-dic-tive Path In-te-gral, стохастическая
+ []
+
+
+Underfull \hbox (badness 5091) in paragraph at lines 6--7
+[]|\T2A/ptm/b/n/14.4 Robot Op-er-at-ing Sys-tem, фреймворк программных
+ []
+
+
+Underfull \hbox (badness 1472) in paragraph at lines 8--9
+[]|\T2A/ptm/b/n/14.4 Unified Robot De-scrip-tion For-mat, формат описания
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+[]|\T2A/ptm/b/n/14.4 Red-Green-Blue, трјхканальная цветовая модель
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+[]|\T2A/ptm/b/n/14.4 Hue-Saturation-Value, цветовая модель оттенок-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+[]|\T2A/ptm/b/n/14.4 Virtual Net-work Com-put-ing, протокол удалјнного
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 2--30
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--30
+
+ []
+
+[6
+
+
+] (./parts/Terms.tex
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+[]|\T2A/ptm/b/n/14.4 Скалярный функционал, подлежащий
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+\T2A/ptm/b/n/14.4 минимизации оптимизатором на горизонте
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+[]|\T2A/ptm/b/n/14.4 Горизонт
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+[]|\T2A/ptm/b/n/14.4 Число шагов вперјд, на которое модель
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+[]|\T2A/ptm/b/n/14.4 Двумерная карта стоимости перемещения,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+\T2A/ptm/b/n/14.4 формируемая на основе карты занятости
+ []
+
+
+Underfull \hbox (badness 5245) in paragraph at lines 9--10
+\T2A/ptm/b/n/14.4 и расширенная штрафом за приближение к
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 3--34
+
+ []
+
+[7
+
+
+] (./parts/Introduction.tex
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 4.
+
+
+Underfull \hbox (badness 1728) in paragraph at lines 6--14
+\T2A/ptm/b/n/14.4 персональных ассистентов, сопровождающих пользователя в домашних
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 6--14
+\T2A/ptm/b/n/14.4 безопасность движения, устойчивость поведения при временной потере
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--14
+\T2A/ptm/b/n/14.4 наблюдаемости цели и учјт динамически меняющейся обстановки
+ []
+
+
+Underfull \hbox (badness 2573) in paragraph at lines 6--14
+\T2A/ptm/b/n/14.4 (перемещаемые предметы быта, домашние животные, другие люди в
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--25
+[]\T2A/ptm/b/n/14.4 Классические подходы к управлению мобильными роботами,
+ []
+
+
+Underfull \hbox (badness 3138) in paragraph at lines 15--25
+\T2A/ptm/b/n/14.4 и простых реактивных алгоритмах типа Dy-nam-ic Win-dow Ap-proach,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--25
+\T2A/ptm/b/n/14.4 плохо справляются с одновременной формализацией нескольких
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--25
+\T2A/ptm/b/n/14.4 разнородных требований --- удержание дистанции и центрирование
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--25
+\T2A/ptm/b/n/14.4 цели, избежание столкновений, сохранение плавности управления.
+ []
+
+
+Underfull \hbox (badness 5924) in paragraph at lines 15--25
+\T2A/ptm/b/n/14.4 оптимизации сделало практически применимыми методы модельного
+ []
+
+
+Underfull \hbox (badness 1845) in paragraph at lines 15--25
+\T2A/ptm/b/n/14.4 прогнозирующего управления (MPC), в том числе их стохастическую
+ []
+
+
+Underfull \hbox (badness 1342) in paragraph at lines 26--29
+\T2A/ptm/b/n/14.4 непосредственно отражает современные тренды и является актуальной
+ []
+
+
+Underfull \hbox (badness 1642) in paragraph at lines 33--41
+\T2A/ptm/b/n/14.4 в литературе известны соотношения, связывающие скорости вращения
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--41
+\T2A/ptm/b/n/14.4 исполнительных механизмов [[]]. Применение MPC для Mecanum-
+ []
+
+
+Underfull \hbox (badness 1377) in paragraph at lines 33--41
+\T2A/ptm/b/n/14.4 роботов в задачах обхода препятствий рассматривалось в ряде работ,
+ []
+
+[8
+
+
+]
+Underfull \hbox (badness 4060) in paragraph at lines 42--48
+\T2A/ptm/b/n/14.4 реализация соответствующего локального планировщика. Параллельно
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--56
+[]\T2A/ptm/b/n/14.4 Вместе с тем целостное решение, объединяющее в одной
+ []
+
+
+Underfull \hbox (badness 5077) in paragraph at lines 49--56
+\T2A/ptm/b/n/14.4 воспроизводимой среде задачу сопровождения пользователя (трекинг
+ []
+
+
+Underfull \hbox (badness 4441) in paragraph at lines 49--56
+\T2A/ptm/b/n/14.4 цели по камере + позиционирование в карте), MPPI-контроллер с
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 49--56
+\T2A/ptm/b/n/14.4 центрирование, обход динамических препятствий, устойчивое поведение
+ []
+
+
+Underfull \hbox (badness 2970) in paragraph at lines 60--66
+\T2A/ptm/b/n/14.4 комплекса автономного мобильного омни-робота, который в условиях
+ []
+
+
+Underfull \hbox (badness 7522) in paragraph at lines 60--66
+\T2A/ptm/b/n/14.4 типовой квартирной среды с подвижными препятствиями способен
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--66
+\T2A/ptm/b/n/14.4 удерживать подвижного пользователя в рабочей зоне камеры и
+ []
+
+
+Underfull \hbox (badness 2181) in paragraph at lines 60--66
+\T2A/ptm/b/n/14.4 поддерживать заданную дистанцию, избегая столкновений и сохраняя
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 70--75
+\T2A/ptm/b/n/14.4 программного обеспечения автономного мобильного омни-робота,
+ []
+
+
+Underfull \hbox (badness 3179) in paragraph at lines 70--75
+\T2A/ptm/b/n/14.4 обеспечивающего сопровождение пользователя в условиях квартирной
+ []
+
+
+Underfull \hbox (badness 2269) in paragraph at lines 79--81
+[]\T2A/ptm/b/n/14.4 Для достижения поставленной цели сформулированы следующие
+ []
+
+
+Underfull \hbox (badness 6428) in paragraph at lines 85--88
+\T2A/ptm/b/n/14.4 Mecanum, включая кинематические соотношения и ограничения
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+[]\T2A/ptm/b/n/14.4 Автоматизировать процесс сбора статистики и визуализации
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 110.
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 113--116
+[]\T2A/ptm/b/n/14.4 как воспроизводимый программно-симуляционный стенд для
+ []
+
+
+Underfull \hbox (badness 1048) in paragraph at lines 113--116
+\T2A/ptm/b/n/14.4 исследования и настройки алгоритмов локального планирования и
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--120
+[]\T2A/ptm/b/n/14.4 для сравнения различных конфигураций критиков MP-PI и
+ []
+
+
+Underfull \hbox (badness 1043) in paragraph at lines 116--120
+\T2A/ptm/b/n/14.4 подтверждения того, что декомпозиция составной функции потерь
+ []
+
+) [11{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/base/8r.enc}] (./parts/Chapter1_Problem.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--7
+\T2A/ptm/b/n/14.4 постановка задачи, определяются объект и предмет исследования,
+ []
+
+
+Underfull \hbox (badness 4242) in paragraph at lines 4--7
+\T2A/ptm/b/n/14.4 описываются требования к разрабатываемой системе и ограничения,
+ []
+
+
+Underfull \hbox (badness 2080) in paragraph at lines 10--15
+\T2A/ptm/b/n/14.4 в условиях типовой квартирной среды с подвижными препятствиями
+ []
+
+
+Underfull \hbox (badness 1817) in paragraph at lines 15--17
+[]\T2A/ptm/b/n/14.4 автономное обнаружение подвижного пользователя в поле зрения
+ []
+
+
+Underfull \hbox (badness 2753) in paragraph at lines 23--25
+[]\T2A/ptm/b/n/14.4 безопасное поведение при временной потере наблюдаемости цели
+ []
+
+
+Underfull \hbox (badness 2512) in paragraph at lines 27--30
+[]\T2A/ptm/b/n/14.4 Среда эксплуатации --- квартира с характерными габаритами и
+ []
+
+
+Underfull \hbox (badness 4072) in paragraph at lines 27--30
+\T2A/ptm/b/n/14.4 типичным набором бытовых препятствий. Среда считается частично
+ []
+
+[12
+
+]
+LaTeX Font Info:    Freeze math alphabet allocation in version normal.
+(Font)              Allocated math groups: 14 (local: 2) on input line 46.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 46.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 46.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 46.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 48.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 48.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 49.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 50.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 50.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 54.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 54.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 54.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 54.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 55.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 55.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 55.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 57.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 57.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 58.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 59.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 59.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 64.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 64.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 64.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 64.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 65.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 65.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 67.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 67.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 69.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 70.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 70.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 72.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 74.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 74.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 74.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 74.
+ [13]
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 78.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 78.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 79.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 80.
+
+Underfull \hbox (badness 1783) in paragraph at lines 78--82
+\T2A/ptm/b/n/14.4 при ограничениях модели движения $\OT1/ptm/b/n/14 x[] \OT1/ztmcm/m/n/14 = \OML/ztmcm/m/it/14 f\OT1/ztmcm/m/n/14 (\OT1/ptm/b/n/14 x[]\OML/ztmcm/m/it/14 ;\OT1/ptm/b/n/14 u[]\OT1/ztmcm/m/n/14 )$\T2A/ptm/b/n/14.4 , ограничениях на
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 82.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 82.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 82.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 82.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 83.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 85.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 85.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 86.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 86.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 86.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 86.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 87.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 89.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 90.
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
+[]\T2A/ptm/b/n/14.4 Разрабатываемая система должна удовлетворять следующим
+ []
+
+
+Underfull \hbox (badness 2142) in paragraph at lines 99--102
+[]\T2A/ptm/b/n/14.4 Автономное обнаружение цели в кадре камеры по характерному
+ []
+
+
+Underfull \hbox (badness 4792) in paragraph at lines 102--104
+[]\T2A/ptm/b/n/14.4 Пересчјт положения обнаруженной цели в карту помещения с
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 104.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 109.
+
+Underfull \hbox (badness 4505) in paragraph at lines 108--110
+[]\T2A/ptm/b/n/14.4 Обход статических и динамических препятствий с соблюдением
+ []
+
+[14]
+Underfull \hbox (badness 4621) in paragraph at lines 118--120
+[]\T2A/ptm/b/n/14.4 Модульность архитектуры: перенос алгоритмических модулей на
+ []
+
+
+Underfull \hbox (badness 2671) in paragraph at lines 132--137
+[]\T2A/ptm/b/n/14.4 Пользователь представлен моделью подвижного цветного объекта
+ []
+
+
+Underfull \hbox (badness 4060) in paragraph at lines 132--137
+\T2A/ptm/b/n/14.4 (синий цилиндр), что позволяет сконцентрироваться на контуре
+ []
+
+
+Underfull \hbox (badness 6141) in paragraph at lines 132--137
+\T2A/ptm/b/n/14.4 управления; замена детектора цели на промышленное решение
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--148
+[]\T2A/ptm/b/n/14.4 Качество разработанного решения оценивается следующими
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 148.
+
+LaTeX Font Warning: Font shape `T2A/ptm/m/it' undefined
+(Font)              using `T2A/ptm/m/n' instead on input line 149.
+
+[15]
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 152.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 156.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 156.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 157.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 157.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 158.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 158.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 158.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 161.
+) [16] (./parts/Chapter2_Review.tex
+Underfull \hbox (badness 8113) in paragraph at lines 4--10
+\T2A/ptm/b/n/14.4 поставленной задачи. Обзор структурирован по трјм независимым
+ []
+
+
+Underfull \hbox (badness 7133) in paragraph at lines 4--10
+\T2A/ptm/b/n/14.4 составляющим: методы локального планирования движения, методы
+ []
+
+
+Underfull \hbox (badness 7308) in paragraph at lines 25--32
+[]\T2A/ptm/b/n/14.4 Модельное прогнозирующее управление [[]] представляет собой
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 25--32
+\T2A/ptm/b/n/14.4 класс методов оптимального управления, в котором на каждом шаге
+ []
+
+
+Underfull \hbox (badness 1968) in paragraph at lines 25--32
+\T2A/ptm/b/n/14.4 предсказательной модели объекта и составной функции потерь. MPC
+ []
+
+
+Underfull \hbox (badness 4416) in paragraph at lines 25--32
+\T2A/ptm/b/n/14.4 естественным образом формализует произвольное число разнородных
+ []
+
+[17
+
+]
+Underfull \hbox (badness 3179) in paragraph at lines 43--50
+\T2A/ptm/b/n/14.4 стохастическая реализация MPC. В каждом такте MP-PI формирует
+ []
+
+
+Underfull \hbox (badness 6396) in paragraph at lines 43--50
+\T2A/ptm/b/n/14.4 набор сэмплов управления путјм добавления гауссовского шума к
+ []
+
+
+Underfull \hbox (badness 1565) in paragraph at lines 43--50
+\T2A/ptm/b/n/14.4 номинальному управлению, прогнозирует траектории с использованием
+ []
+
+
+Underfull \hbox (badness 1939) in paragraph at lines 43--50
+\T2A/ptm/b/n/14.4 обновление номинального управления как экспоненциально взвешенное
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--60
+[]\T2A/ptm/b/n/14.4 естественная параллелизация по независимым траекториям,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--62
+[]\T2A/ptm/b/n/14.4 устойчивость к локальным минимумам за счјт случайного
+ []
+
+
+Underfull \hbox (badness 4048) in paragraph at lines 64--67
+[]\T2A/ptm/b/n/14.4 Недостатки MP-PI: необходимость тонкой настройки параметров
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--67
+\T2A/ptm/b/n/14.4 сэмплирования (число сэмплов, дисперсия шума, температура) и
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--74
+[]\T2A/ptm/b/n/14.4 В закрытых помещениях, где отсутствует надјжный сигнал
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 70--74
+\T2A/ptm/b/n/14.4 глобального позиционирования, навигация строится на методах SLAM.
+ []
+
+[18]
+Underfull \hbox (badness 7379) in paragraph at lines 76--78
+[]\T2A/ptm/b/n/14.4 Hector SLAM --- сопоставление сканов на основе градиентной
+ []
+
+
+Underfull \hbox (badness 3168) in paragraph at lines 84--91
+[]\T2A/ptm/b/n/14.4 Сравнительные исследования [[], []] показывают, что для задач
+ []
+
+
+Underfull \hbox (badness 2343) in paragraph at lines 84--91
+\T2A/ptm/b/n/14.4 tog-ra-pher обеспечивают лучший баланс точности карты, стабильности
+ []
+
+
+Underfull \hbox (badness 1540) in paragraph at lines 84--91
+\T2A/ptm/b/n/14.4 локализации и вычислительной нагрузки. Hec-tor SLAM выигрывает в
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--97
+\T2A/ptm/b/n/14.4 навигационных стеков, обеспечивающих интеграцию планировщиков,
+ []
+
+[19]
+Underfull \hbox (badness 1983) in paragraph at lines 108--111
+[]\T2A/ptm/b/n/14.4 Сопоставление рассмотренных подходов с требованиями главы []1[]
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 129--44
+\T2A/ptm/b/n/14.4 требования задачи в части одновременного удержания дистанции,
+ []
+
+
+Underfull \hbox (badness 2512) in paragraph at lines 129--44
+\T2A/ptm/b/n/14.4 центрирования цели и обхода подвижных препятствий с устойчивым
+ []
+
+
+Underfull \hbox (badness 1043) in paragraph at lines 129--44
+\T2A/ptm/b/n/14.4 поведением при потере цели, поэтому в рамках ВКР в состав MPPI-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--44
+\T2A/ptm/b/n/14.4 контроллера добавлены пользовательские критики, формализующие
+ []
+
+[20] (./parts/Chapter3_Solution.tex
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 11.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 12.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 12.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 12.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 13.
+
+Underfull \hbox (badness 1137) in paragraph at lines 10--15
+[]\T2A/ptm/b/n/14.4 Робот представляет собой платформу с четырьмя колјсами типа
+ []
+
+<../images/omni_scheme.png, id=486, 1042.89626pt x 844.15375pt>
+File: ../images/omni_scheme.png Graphic file (type png)
+<use ../images/omni_scheme.png>
+Package pdftex.def Info: ../images/omni_scheme.png  used on input line 16.
+(pdftex.def)             Requested size: 328.6279pt x 266.0pt.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 21.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 22.
+
+Underfull \hbox (badness 2126) in paragraph at lines 21--23
+[]$\OML/ztmcm/m/it/14 G$ \T2A/ptm/b/n/14.4 --- геометрический центр платформы, совпадающий с центром
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 23.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 23.
+[21
+
+ <../images/omni_scheme.png>]
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 25.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 26.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 27.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 28.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 29.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 29.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 31.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 36.
+<../images/omni wheel principle.png, id=497, 994.71625pt x 1253.68375pt>
+File: ../images/omni wheel principle.png Graphic file (type png)
+<use ../images/omni wheel principle.png>
+Package pdftex.def Info: ../images/omni wheel principle.png  used on input line 41.
+(pdftex.def)             Requested size: 305.15294pt x 384.6016pt.
+ [22]
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 45.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 45.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 46.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 48.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 48.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 48.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 48.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 51.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 52.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 52.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 52.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 52.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 55.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 55.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 56.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 56.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 56.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 56.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 59.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 59.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 60.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 60.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 60.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 60.
+ [23 <../images/omni wheel principle.png>]
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 63.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 63.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 66.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 66.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 66.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 66.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 70.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 70.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 70.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 71.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 71.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 71.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 72.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 72.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 73.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 75.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 75.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 79.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 79.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 80.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 81.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 81.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 83.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 83.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 83.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 83.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 85.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 86.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 87.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 89.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 93.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 93.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 93.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 94.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 94.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 94.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 95.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 95.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 95.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 96.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 96.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 97.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 99.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 99.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 100.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 102.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 102.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 105.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 105.
+
+Underfull \hbox (badness 1137) in paragraph at lines 107--109
+[]\T2A/ptm/b/n/14.4 Обратное соотношение, используемое для проверки достижимости
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 109.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 109.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 109.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 109.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 110.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 110.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 110.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 113.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 113.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 113.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 113.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 114.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 114.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 114.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 114.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 115.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 115.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 115.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 116.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 118.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 118.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 118.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 119.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 121.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 121.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 126.
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--127
+[]\T2A/ptm/b/n/14.4 Для цифровой реализации контроллера непрерывная модель
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 127.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 127.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 127.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 127.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 128.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 128.
+[24]
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 130.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 130.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 131.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 131.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 131.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 131.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 132.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 132.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 134.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 134.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 135.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 135.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 135.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 135.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 138.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 138.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 141.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 141.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 141.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 141.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 144.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 144.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 149.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 149.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 149.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 149.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 152.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 152.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 153.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 153.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 153.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 153.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 156.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 156.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 159.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 159.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 159.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 159.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 160.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 161.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 163.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 163.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 167.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 169.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 169.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 169.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 169.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 178.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 178.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 179.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 181.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 181.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 181.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 181.
+ [25]
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 185.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 185.
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--189
+[]\T2A/ptm/b/n/14.4 Оптимизируемый функционал представляет сумму этапных и
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 189.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 189.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 189.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 189.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 191.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 191.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 192.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 192.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 194.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 194.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 197.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 204.
+
+Underfull \hbox (badness 1917) in paragraph at lines 202--206
+\T2A/ptm/b/n/14.4 Nav2 [[]]. Для каждого сэмпла $\OML/ztmcm/m/it/14 m \OT1/ztmcm/m/n/14 = 1\OML/ztmcm/m/it/14 ; [] ;M$ \T2A/ptm/b/n/14.4 генерируется возмущение
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 206.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 206.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 206.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 206.
+LaTeX Font Info:    Font shape `OML/ptm/m/up' in size <14> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 207.
+LaTeX Font Info:    Font shape `OMS/ptm/m/up' in size <14> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 207.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 207.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 207.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 207.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 207.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 207.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 207.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 210.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 210.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 211.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 212.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 212.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 212.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 212.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 213.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 213.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 213.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 213.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 213.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 213.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 215.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 215.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 216.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 216.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 218.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 219.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 219.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 219.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 219.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 221.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 221.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 222.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 222.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 224.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 224.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 227.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 227.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 227.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 227.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 230.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 230.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 230.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 230.
+[26]
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 232.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 232.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 233.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 238.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 238.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 238.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 238.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 239.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 240.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 240.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 240.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 240.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 240.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 240.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 242.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 242.
+
+Underfull \hbox (badness 1308) in paragraph at lines 246--249
+[]\T2A/cmr/m/up/14.4 Согласно требованиям задачи (глава []1[]) функция потерь должна
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 256.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 257.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 257.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 257.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 257.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 260.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 260.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 261.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 261.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 261.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 261.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 263.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 263.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 265.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 265.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 266.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 266.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 267.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 275.
+[27]
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 275.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 277.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 277.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 277.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 277.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 278.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 279.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 280.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 283.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 283.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 284.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 284.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 284.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 284.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 285.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 287.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 287.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 288.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 289.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 289.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 293.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 293.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 293.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 293.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 298.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 298.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 305.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 305.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 309.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 309.
+
+Underfull \hbox (badness 2213) in paragraph at lines 303--310
+[]\T2A/ptm/m/it/14.4 Изотропный барьер [] штрафует только сам факт близости
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 311.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 312.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 312.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 313.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 315.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 315.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 315.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 315.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 319.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 319.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 321.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 323.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 323.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 326.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 326.
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--327
+[]\T2A/ptm/m/it/14.4 Слагаемое $\OT1/ztmcm/m/n/14 	[]$ \T2A/ptm/m/it/14.4 строится как сумма двух неотрицательных
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--327
+\T2A/ptm/m/it/14.4 составляющих: проксимальной и направленной. Проксимальная
+ []
+
+[28]
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 327.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 327.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 327.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 327.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 328.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 328.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 328.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 330.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 330.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 333.
+
+Underfull \hbox (badness 1412) in paragraph at lines 330--335
+\T2A/ptm/m/it/14.4 проекцию единичного вектора скорости $[] \OT1/ztmcm/m/n/14 = \OT1/ptm/b/n/14 v[]\OML/ztmcm/m/it/14 =\OMS/ztmcm/m/n/14 k\OT1/ptm/b/n/14 v[]\OMS/ztmcm/m/n/14 k[]$ \T2A/ptm/m/it/14.4 на направление,
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 335.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 335.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 335.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 335.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 336.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 336.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 339.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 339.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 341.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 341.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 341.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 341.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 342.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 342.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 342.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 342.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 343.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 343.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 345.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 345.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 346.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 347.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 347.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 347.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 347.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 350.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 350.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 353.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 353.
+
+Underfull \hbox (badness 1448) in paragraph at lines 350--356
+\T2A/ptm/m/it/14.4 что делает его локальным регуляризатором поведения и не искажает
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 359.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 362.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 362.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 362.
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--364
+[]$\OML/ztmcm/m/it/14 w[]; w[] \OMS/ztmcm/m/n/14 ^^] \OML/ztmcm/m/it/14 w[]; w[]$ \T2A/ptm/m/it/14.4 --- приоритет безопасности над точностью
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 364.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 365.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 366.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 366.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 366.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 367.
+[29]
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 368.
+
+Underfull \hbox (badness 3861) in paragraph at lines 368--371
+[]\T2A/ptm/m/it/14.4 внутренний $\OML/ztmcm/m/it/14 w[]$ \T2A/ptm/m/it/14.4 в [] подавляет движение в препятствие на
+ []
+
+
+Underfull \hbox (badness 4995) in paragraph at lines 368--371
+\T2A/ptm/m/it/14.4 голономных направлениях, не мешая движению вдоль границы
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 377.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 377.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 377.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 377.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 380.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 380.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 381.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 381.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 381.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 381.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 384.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 384.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 385.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 385.
+
+Underfull \hbox (badness 10000) in paragraph at lines 394--396
+[]\T2A/ptm/m/it/14.4 Соответствие слагаемых функции [] критикам реализации
+ []
+
+
+Underfull \hbox (badness 1917) in paragraph at lines 399--404
+[]\T2A/ptm/m/it/14.4 Для связи функции потерь с измерениями сенсоров необходимо
+ []
+
+
+Underfull \hbox (badness 7099) in paragraph at lines 399--404
+\T2A/ptm/m/it/14.4 пересчитать положение обнаруженной цели в то же координатное
+ []
+
+
+Underfull \hbox (badness 4752) in paragraph at lines 399--404
+\T2A/ptm/m/it/14.4 пространство, в котором формируются прогнозы траектории. Схема
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--406
+[]\T2A/ptm/m/it/14.4 детектирование цели по цветовой сегментации изображения с
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 406--409
+[]\T2A/ptm/m/it/14.4 вычисление углового направления на цель по положению центра
+ []
+
+[30]
+Underfull \hbox (badness 2600) in paragraph at lines 409--412
+[]\T2A/ptm/m/it/14.4 оценка дальности до цели по данным 2D-лидара в окрестности
+ []
+
+) [31] (./parts/Chapter4_Implementation.tex
+Underfull \hbox (badness 2111) in paragraph at lines 9--12
+[]\T2A/ptm/m/it/14.4 В качестве среды разработки выбраны следующие программные
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--12
+\T2A/ptm/m/it/14.4 компоненты, обеспечивающие необходимую воспроизводимость и
+ []
+
+
+Underfull \hbox (badness 3108) in paragraph at lines 22--25
+[]\T2A/ptm/m/it/14.4 Navigation 2 (Nav2). Навигационный стек ROS 2, используемый
+ []
+
+
+Underfull \hbox (badness 1642) in paragraph at lines 22--25
+\T2A/ptm/m/it/14.4 для серверов глобального планировщика, локального контроллера,
+ []
+
+
+Underfull \hbox (badness 1721) in paragraph at lines 26--28
+[]\T2A/ptm/m/it/14.4 OpenCV и \T2A/cmtt/m/n/14.4 cv_bridge \T2A/ptm/m/it/14.4 --- для обработки изображений и цветовой
+ []
+
+
+Underfull \hbox (badness 1946) in paragraph at lines 31--34
+[]\T2A/ptm/m/it/14.4 Xvfb, x11vnc, noVNC --- для удалјнного доступа к графическим
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 65.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 65.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 65.
+[32
+
+]
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 74.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 74.
+
+Underfull \hbox (badness 2961) in paragraph at lines 72--75
+[]\T2A/ptm/m/it/14.4 базовое тело \T2A/cmtt/m/n/14.4 base_link \T2A/ptm/m/it/14.4 в виде параллелепипеда с задаваемыми
+ []
+
+
+Underfull \hbox (badness 5893) in paragraph at lines 72--75
+\T2A/ptm/m/it/14.4 габаритами для аппроксимации корпуса робота (по умолчанию
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 75.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 79.
+[33]
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 83.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 83.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 83.
+
+Underfull \hbox (badness 6725) in paragraph at lines 87--90
+[]\T2A/ptm/m/it/14.4 Параметры модели вынесены в описание робота и меняются
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--90
+\T2A/ptm/m/it/14.4 без изменения логики контроллера, что соответствует принципу
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--106
+[]\T2A/ptm/m/it/14.4 Подвижные сущности создаются пакетом \T2A/cmtt/m/n/14.4 apartment_sim
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--106
+\T2A/ptm/m/it/14.4 в виде цилиндрических моделей с плагином движения
+ []
+
+<../images/house.png, id=606, 2193.19376pt x 1082.0425pt>
+File: ../images/house.png Graphic file (type png)
+<use ../images/house.png>
+Package pdftex.def Info: ../images/house.png  used on input line 107.
+(pdftex.def)             Requested size: 445.99553pt x 220.037pt.
+<../images/house_up.png, id=607, 2498.33376pt x 1261.71375pt>
+File: ../images/house_up.png Graphic file (type png)
+<use ../images/house_up.png>
+Package pdftex.def Info: ../images/house_up.png  used on input line 108.
+(pdftex.def)             Requested size: 445.99553pt x 225.23122pt.
+[34]
+Underfull \hbox (badness 3482) in paragraph at lines 112--116
+[]\T2A/ptm/m/it/14.4 Узел \T2A/cmtt/m/n/14.4 target_detector \T2A/ptm/m/it/14.4 реализован на Python с использованием
+ []
+
+
+Underfull \hbox (badness 5446) in paragraph at lines 117--121
+\T2A/cmtt/m/n/14.4 hsv_blue_upper\T2A/ptm/m/it/14.4 ) с дополнительными критериями доминирования
+ []
+
+[35 <../images/house.png> <../images/house_up.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 123--126
+[]\T2A/ptm/m/it/14.4 оценка горизонтального углового направления на цель по
+ []
+
+
+Underfull \hbox (badness 2253) in paragraph at lines 123--126
+\T2A/ptm/m/it/14.4 нормированной координате центра цели и горизонтальному полю
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--140
+[]\T2A/cmtt/m/n/14.4 /target_marker \T2A/ptm/m/it/14.4 (vi-su-al-iza-tion_msgs/Marker) --- маркер для
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
+[]\T2A/cmtt/m/n/14.4 /omni_robot/camera/image_raw/target_status \T2A/ptm/m/it/14.4 --- аннотированный
+ []
+
+
+Underfull \hbox (badness 2126) in paragraph at lines 153--156
+[]\T2A/ptm/m/it/14.4 при наличии актуальной позы цели и отличии еј от последней
+ []
+
+
+Underfull \hbox (badness 3601) in paragraph at lines 156--160
+\T2A/ptm/m/it/14.4 контуру довести движение до последней известной позы, затем
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 169--175
+[]\T2A/ptm/m/it/14.4 Локальным контроллером в стеке Nav2 служит плагин
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--175
+\T2A/cmtt/m/n/14.4 nav2_mppi_controller::MPPIController\T2A/ptm/m/it/14.4 , работающий в режиме
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 175.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 176.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 177.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 179.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 179.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 179.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 179.
+
+Underfull \hbox (badness 3375) in paragraph at lines 178--180
+[]\T2A/ptm/m/it/14.4 стандартные отклонения возмущений по $\OML/ztmcm/m/it/14 v[]; v[]; !$\T2A/ptm/m/it/14.4 : $\OT1/ztmcm/m/n/14 0\OML/ztmcm/m/it/14 ;\OT1/ztmcm/m/n/14 24$\T2A/ptm/m/it/14.4 , $\OT1/ztmcm/m/n/14 0\OML/ztmcm/m/it/14 ;\OT1/ztmcm/m/n/14 24$\T2A/ptm/m/it/14.4 , $\OT1/ztmcm/m/n/14 0\OML/ztmcm/m/it/14 ;\OT1/ztmcm/m/n/14 8$
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 181.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 181.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 182.
+
+Underfull \hbox (badness 4595) in paragraph at lines 180--183
+[]\T2A/ptm/m/it/14.4 верхние/нижние границы скоростей: $\OML/ztmcm/m/it/14 v[] \OMS/ztmcm/m/n/14 2 \OT1/ztmcm/m/n/14 [\OMS/ztmcm/m/n/14 ^^@\OT1/ztmcm/m/n/14 0\OML/ztmcm/m/it/14 ;\OT1/ztmcm/m/n/14 65; 0\OML/ztmcm/m/it/14 ;\OT1/ztmcm/m/n/14 95]$ \T2A/ptm/m/it/14.4 м/с, $\OML/ztmcm/m/it/14 v[] \OMS/ztmcm/m/n/14 2
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 183.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 194.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 194.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 196.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 196.
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--198
+[]\T2A/cmtt/m/n/14.4 PotentialFieldCritic \T2A/ptm/m/it/14.4 --- направленный штраф $\OT1/ztmcm/m/n/14 	[]$ []\T2A/ptm/m/it/14.4 ,
+ []
+
+
+Underfull \hbox (badness 6775) in paragraph at lines 198--200
+[]\T2A/cmtt/m/n/14.4 GoalCritic \T2A/ptm/m/it/14.4 --- штраф за отклонение конечной позы от цели
+ []
+
+[37]
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 202.
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--205
+[]\T2A/cmtt/m/n/14.4 PathAlignCritic\T2A/ptm/m/it/14.4 , \T2A/cmtt/m/n/14.4 PathFollowCritic \T2A/ptm/m/it/14.4 --- штрафы, удерживающие
+ []
+
+
+Underfull \hbox (badness 2582) in paragraph at lines 208--212
+\T2A/ptm/m/it/14.4 отключены: для омни-платформы желаемая ориентация в финальной
+ []
+
+LaTeX Font Info:    Font shape `T2A/cmtt/bx/n' in size <14> not available
+(Font)              Font shape `T2A/cmtt/m/n' tried instead on input line 213.
+
+Underfull \hbox (badness 2165) in paragraph at lines 217--219
+[]\T2A/ptm/m/it/14.4 получается последняя опубликованная поза цели \T2A/cmtt/m/n/14.4 /target_pose \T2A/ptm/m/it/14.4 и
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 223.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 224.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 224.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 226.
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--237
+[]\T2A/ptm/m/it/14.4 Критик автоматически отключается при устаревании топики
+ []
+
+
+Underfull \hbox (badness 2726) in paragraph at lines 233--237
+\T2A/cmtt/m/n/14.4 /target_pose\T2A/ptm/m/it/14.4 , что согласовано с логикой узла \T2A/cmtt/m/n/14.4 target_nav_bridge \T2A/ptm/m/it/14.4 и
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 241.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 241.
+
+Underfull \hbox (badness 1496) in paragraph at lines 240--246
+\T2A/ptm/m/it/14.4 ограничение изотропных штрафов \T2A/cmtt/m/n/14.4 CostCritic \T2A/ptm/m/it/14.4 и \T2A/cmtt/m/n/14.4 ObstaclesCritic \T2A/ptm/m/it/14.4 для
+ []
+
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 246--250
+[]\T2A/ptm/m/it/14.4 чтение значений costmap в точке и вокруг неј (радиус
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 250.
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--255
+\T2A/ptm/m/it/14.4 инфляционного слоя costmap (параметры \T2A/cmtt/m/n/14.4 inflation_radius\T2A/ptm/m/it/14.4 ,
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 255.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 259.
+
+Underfull \hbox (badness 10000) in paragraph at lines 255--260
+[]\T2A/ptm/m/it/14.4 оценка двухточечного градиента $\OMS/ztmcm/m/n/14 r\OML/ztmcm/m/it/14 c$ \T2A/ptm/m/it/14.4 по двум разносам
+ []
+
+
+Underfull \hbox (badness 1215) in paragraph at lines 255--260
+\T2A/cmtt/m/n/14.4 gradient_sample_distance \T2A/ptm/m/it/14.4 (с весами 0,7 и 0,3) для устойчивости
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 262.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 263.
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--265
+[]\T2A/ptm/m/it/14.4 суммирование вдоль траектории до прохождения дистанции
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--265
+\T2A/cmtt/m/n/14.4 influence_distance\T2A/ptm/m/it/14.4 : проксимальная составляющая $\OML/ztmcm/m/it/14 w[] ^^Z[]$ \T2A/ptm/m/it/14.4 и
+ []
+
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 275.
+
+Underfull \hbox (badness 3179) in paragraph at lines 272--278
+\T2A/ptm/m/it/14.4 Для отладки в топик \T2A/cmtt/m/n/14.4 /potential_field_critic/markers \T2A/ptm/m/it/14.4 публикуется
+ []
+
+
+Underfull \hbox (badness 2173) in paragraph at lines 272--278
+\T2A/ptm/m/it/14.4 визуализация направления $[]$ из текущей позы робота, что позволяет
+ []
+
+[39]
+Underfull \hbox (badness 2591) in paragraph at lines 288--292
+\T2A/ptm/m/it/14.4 планировщика и глобальной costmap) и \T2A/cmtt/m/n/14.4 odom \T2A/ptm/m/it/14.4 как локальный фрейм
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 288--292
+\T2A/ptm/m/it/14.4 (для локальной costmap и локального контроллера), что соответствует
+ []
+
+<../images/rviz screenshot.png, id=669, 1508.63625pt x 805.0075pt>
+File: ../images/rviz screenshot.png Graphic file (type png)
+<use ../images/rviz screenshot.png>
+Package pdftex.def Info: ../images/rviz screenshot.png  used on input line 308.
+(pdftex.def)             Requested size: 445.99553pt x 237.97878pt.
+) [40] [41 <../images/rviz screenshot.png>] (./parts/Chapter5_Experiments.tex
+Underfull \hbox (badness 3343) in paragraph at lines 4--7
+[]\T2A/ptm/m/it/14.4 В настоящем разделе описана методика количественной оценки
+ []
+
+
+Underfull \hbox (badness 1038) in paragraph at lines 4--7
+\T2A/ptm/m/it/14.4 разработанного решения, состав метрик, состав серии экспериментов и
+ []
+
+
+Underfull \hbox (badness 5954) in paragraph at lines 10--14
+[]\T2A/ptm/m/it/14.4 Все запуски проводятся в одинаковой сцене и с одинаковой
+ []
+
+
+Underfull \hbox (badness 4168) in paragraph at lines 10--14
+\T2A/ptm/m/it/14.4 конфигурацией Nav2/MPPI, различие между запусками определяется
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 20.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 20.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 20.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 20.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 22.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 22.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 23.
+
+Overfull \hbox (10.62022pt too wide) detected at line 25
+[][][][] \OT1/ztmcm/m/n/14 = [] [][] \OT1/ptm/b/n/14 1\OT1/ztmcm/m/n/14 [\OML/ztmcm/m/it/14 m\OT1/ztmcm/m/n/14 (\OML/ztmcm/m/it/14 t\OT1/ztmcm/m/n/14 ) = \OML/ztmcm/m/it/14 m\OT1/ztmcm/m/n/14 ] \OML/ztmcm/m/it/14 dt;  m \OMS/ztmcm/m/n/14 2 f[]\OML/ztmcm/m/it/14 ; []; []\OMS/ztmcm/m/n/14 g\OML/ztmcm/m/it/14 ;
+ []
+
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 25.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 25.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 26.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 33.
+
+Underfull \hbox (badness 4242) in paragraph at lines 33--36
+[]\T2A/ptm/m/it/14.4 По бинарному сигналу $\OML/ztmcm/m/it/14 ^^W\OT1/ztmcm/m/n/14 (\OML/ztmcm/m/it/14 t\OT1/ztmcm/m/n/14 ) \OMS/ztmcm/m/n/14 2 f\OT1/ztmcm/m/n/14 0\OML/ztmcm/m/it/14 ;\OT1/ztmcm/m/n/14 1\OMS/ztmcm/m/n/14 g$ \T2A/ptm/m/it/14.4 из темы \T2A/cmtt/m/n/14.4 /target_visible
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 36.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 36.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 36.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 36.
+[42
+
+]
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 39.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 39.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 45.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 45.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 46.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 46.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 48.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 48.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 48.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 49.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 49.
+
+Underfull \hbox (badness 6758) in paragraph at lines 43--54
+\T2A/ptm/m/it/14.4 минимальное расстояние до препятствия $\OML/ztmcm/m/it/14 d[]\OT1/ztmcm/m/n/14 (\OML/ztmcm/m/it/14 t\OT1/ztmcm/m/n/14 ) = [][] \OML/ztmcm/m/it/14 r[]\OT1/ztmcm/m/n/14 (\OML/ztmcm/m/it/14 t\OT1/ztmcm/m/n/14 )$\T2A/ptm/m/it/14.4 . Введјм
+ []
+
+
+Underfull \hbox (badness 1895) in paragraph at lines 43--54
+\T2A/ptm/m/it/14.4 два пороговых расстояния: $\OML/ztmcm/m/it/14 d[]$ \T2A/ptm/m/it/14.4 --- величина, ниже которой считается
+ []
+
+
+Underfull \hbox (badness 4543) in paragraph at lines 43--54
+\T2A/ptm/m/it/14.4 произошедшим контактом с препятствием, и $\OML/ztmcm/m/it/14 d[] > d[]$ \T2A/ptm/m/it/14.4 --- ширина
+ []
+
+
+Underfull \hbox (badness 1043) in paragraph at lines 43--54
+\T2A/ptm/m/it/14.4 зоны риска. По последовательности значений $\OML/ztmcm/m/it/14 d[]\OT1/ztmcm/m/n/14 (\OML/ztmcm/m/it/14 t\OT1/ztmcm/m/n/14 )$ \T2A/ptm/m/it/14.4 методом подсчјта
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 54.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 54.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 54.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 54.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 54.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 56.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 56.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 57.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 57.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 57.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 58.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 58.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 58.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 58.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 61.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 61.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 61.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 61.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 62.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 62.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 65.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 65.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 65.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 67.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 67.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 68.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 68.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 69.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 73.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 76.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 76.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 76.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 76.
+[43]
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 80.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 80.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 81.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 84.
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--85
+\T2A/ptm/m/it/14.4 где $\OML/ztmcm/m/it/14 K$ \T2A/ptm/m/it/14.4 --- число опубликованных управлений. Меньшие значения
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--85
+\T2A/ptm/m/it/14.4 соответствуют более плавному поведению контура управления и
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--85
+\T2A/ptm/m/it/14.4 непосредственно интерпретируются как минимизация слагаемого
+ []
+
+
+Underfull \hbox (badness 1389) in paragraph at lines 88--91
+[]\T2A/ptm/m/it/14.4 В качестве иллюстрации поведения системы на рисунках []5.1[]--[]5.4[]
+ []
+
+<../images/exp_mode_timeline_run.png, id=694, 710.82707pt x 349.47707pt>
+File: ../images/exp_mode_timeline_run.png Graphic file (type png)
+<use ../images/exp_mode_timeline_run.png>
+Package pdftex.def Info: ../images/exp_mode_timeline_run.png  used on input line 94.
+(pdftex.def)             Requested size: 469.47049pt x 230.81555pt.
+
+Underfull \hbox (badness 1661) in paragraph at lines 96--104
+\T2A/ptm/m/it/14.4 картина: робот в основном находится в режиме Сопровождение цели
+ []
+
+
+Underfull \hbox (badness 1292) in paragraph at lines 96--104
+\T2A/ptm/m/it/14.4 (зелјные интервалы), кратковременно переходя в режим Поиск, когда
+ []
+
+<../images/exp_visibility_run.png, id=696, 709.79465pt x 349.47707pt>
+File: ../images/exp_visibility_run.png Graphic file (type png)
+<use ../images/exp_visibility_run.png>
+Package pdftex.def Info: ../images/exp_visibility_run.png  used on input line 107.
+(pdftex.def)             Requested size: 469.47049pt x 231.1515pt.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 107.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 107.
+[44 <../images/exp_mode_timeline_run.png>]
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 110.
+<../images/exp_safety_distance_run.png, id=707, 709.79465pt x 349.47707pt>
+File: ../images/exp_safety_distance_run.png Graphic file (type png)
+<use ../images/exp_safety_distance_run.png>
+Package pdftex.def Info: ../images/exp_safety_distance_run.png  used on input line 118.
+(pdftex.def)             Requested size: 469.47049pt x 231.1515pt.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 118.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 118.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 118.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 118.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 118.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 118.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 118.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 118.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 121.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 121.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 123.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 123.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 123.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 123.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 123.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 123.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 123.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 125.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 125.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 126.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 126.
+ [45 <../images/exp_visibility_run.png> <../images/exp_safety_distance_run.png>]
+<../images/exp_control_smoothness_run.png, id=719, 709.79465pt x 349.47707pt>
+File: ../images/exp_control_smoothness_run.png Graphic file (type png)
+<use ../images/exp_control_smoothness_run.png>
+Package pdftex.def Info: ../images/exp_control_smoothness_run.png  used on input line 131.
+(pdftex.def)             Requested size: 469.47049pt x 231.1515pt.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 131.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 131.
+
+Underfull \hbox (badness 6188) in paragraph at lines 133--138
+[]\T2A/ptm/m/it/14.4 На графике плавности управления (рисунок []5.4[]) повышенные
+ []
+
+<../images/exp_all_mode_shares.png, id=723, 1288.98708pt x 349.47707pt>
+File: ../images/exp_all_mode_shares.png Graphic file (type png)
+<use ../images/exp_all_mode_shares.png>
+Package pdftex.def Info: ../images/exp_all_mode_shares.png  used on input line 146.
+(pdftex.def)             Requested size: 469.47049pt x 127.28343pt.
+[46 <../images/exp_control_smoothness_run.png>]
+<../images/exp_all_visibility.png, id=732, 1288.98708pt x 349.47707pt>
+File: ../images/exp_all_visibility.png Graphic file (type png)
+<use ../images/exp_all_visibility.png>
+Package pdftex.def Info: ../images/exp_all_visibility.png  used on input line 158.
+(pdftex.def)             Requested size: 469.47049pt x 127.28343pt.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 158.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 158.
+
+Underfull \hbox (badness 1810) in paragraph at lines 160--166
+\T2A/ptm/m/it/14.4 подвижные препятствия систематически закрывали цель, а единичная
+ []
+
+
+Underfull \hbox (badness 2828) in paragraph at lines 160--166
+\T2A/ptm/m/it/14.4 помещения и удерживалась там подвижным препятствием в течение
+ []
+
+<../images/exp_all_safety_events.png, id=734, 1433.52707pt x 349.47707pt>
+File: ../images/exp_all_safety_events.png Graphic file (type png)
+<use ../images/exp_all_safety_events.png>
+Package pdftex.def Info: ../images/exp_all_safety_events.png  used on input line 171.
+(pdftex.def)             Requested size: 469.47049pt x 114.45323pt.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 171.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 171.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 171.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 171.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 171.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 171.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 171.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 171.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 171.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 171.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 171.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 171.
+[47 <../images/exp_all_mode_shares.png> <../images/exp_all_visibility.png>]
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 177.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 177.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 178.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 178.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 181.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 181.
+
+Underfull \hbox (badness 1337) in paragraph at lines 177--182
+\T2A/ptm/m/it/14.4 контактов $\OML/ztmcm/m/it/14 N[]$ \T2A/ptm/m/it/14.4 практически в каждом запуске; это и есть прямой
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 183.
+<../images/exp_all_control_smoothness.png, id=744, 1288.98708pt x 349.47707pt>
+File: ../images/exp_all_control_smoothness.png Graphic file (type png)
+<use ../images/exp_all_control_smoothness.png>
+Package pdftex.def Info: ../images/exp_all_control_smoothness.png  used on input line 189.
+(pdftex.def)             Requested size: 469.47049pt x 127.28343pt.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 189.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 189.
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--204
+\T2A/ptm/m/it/14.4 режимов: средняя доля видимости цели превышает 80%, а
+ []
+
+[48 <../images/exp_all_safety_events.png> <../images/exp_all_control_smoothness.png>]
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 204.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 204.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 205.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 205.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 206.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 206.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 208.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 208.
+
+Underfull \hbox (badness 2409) in paragraph at lines 204--210
+\OML/ztmcm/m/it/14 N[]$ \T2A/ptm/m/it/14.4 систематически меньше числа заходов в зону риска $\OML/ztmcm/m/it/14 N[]$\T2A/ptm/m/it/14.4 , что
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 210.
+
+Underfull \hbox (badness 2103) in paragraph at lines 210--213
+[]\T2A/ptm/m/it/14.4 приемлемую плавность управления: $[]$ приращений управления
+ []
+
+) [49] (./parts/Conclusion.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--8
+[]\T2A/ptm/m/it/14.4 В ходе выполнения выпускной квалификационной работы
+ []
+
+
+Underfull \hbox (badness 4995) in paragraph at lines 3--8
+\T2A/ptm/m/it/14.4 поставленная цель достигнута: разработано программное обеспечение
+ []
+
+
+Underfull \hbox (badness 6016) in paragraph at lines 3--8
+\T2A/ptm/m/it/14.4 автономного мобильного омни-робота, обеспечивающее сопровождение
+ []
+
+
+Underfull \hbox (badness 1496) in paragraph at lines 11--16
+\T2A/ptm/m/it/14.4 MP-PI как основного локального контроллера и slam_toolbox как
+ []
+
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 18.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 18.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 18.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 18.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 18.
+
+Underfull \hbox (badness 7081) in paragraph at lines 16--23
+[]\T2A/ptm/m/it/14.4 Построена математическая модель омни-платформы с колјсами
+ []
+
+
+Underfull \hbox (badness 2717) in paragraph at lines 16--23
+\T2A/ptm/m/it/14.4 корпуса и угловых скоростей колјс, зафиксированы ограничения
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--30
+\T2A/ptm/m/it/14.4 потерь, отражающая одновременные требования по удержанию
+ []
+
+
+Underfull \hbox (badness 1990) in paragraph at lines 23--30
+\T2A/ptm/m/it/14.4 дистанции до цели, центрированию цели в поле зрения камеры,
+ []
+
+
+Underfull \hbox (badness 1596) in paragraph at lines 23--30
+\T2A/ptm/m/it/14.4 при потере цели; показана эквивалентность построенной функции
+ []
+
+[50
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 38--44
+\T2A/cmtt/m/n/14.4 nav2_mppi_controller\T2A/ptm/m/it/14.4 , непосредственно реализующий слагаемое
+ []
+
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 47.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 47.
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--52
+[]\T2A/ptm/m/it/14.4 Реализован пользовательский критик \T2A/cmtt/m/n/14.4 PotentialFieldCritic\T2A/ptm/m/it/14.4 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--52
+\T2A/ptm/m/it/14.4 формирующий направленный (анизотропный) штраф вдоль
+ []
+
+
+Underfull \hbox (badness 2245) in paragraph at lines 44--52
+\T2A/ptm/m/it/14.4 градиента поля препятствий (слагаемое $\OT1/ztmcm/m/n/14 	[]$ \T2A/ptm/m/it/14.4 функции потерь) с
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--62
+[]\T2A/ptm/m/it/14.4 Автоматизирована серия запусков в безголовой конфигурации
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--62
+\T2A/ptm/m/it/14.4 (\T2A/cmtt/m/n/14.4 make stats\T2A/ptm/m/it/14.4 ) и постобработка записанных ros-bag2 (\T2A/cmtt/m/n/14.4 make plot\T2A/ptm/m/it/14.4 ,
+ []
+
+
+Underfull \hbox (badness 1436) in paragraph at lines 52--62
+\T2A/cmtt/m/n/14.4 make plot-all\T2A/ptm/m/it/14.4 ); проведена серия из 40 запусков, в ходе которой
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--72
+[]\T2A/ptm/m/it/14.4 Таким образом, поставленная задача разработки программно-
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 64--72
+\T2A/ptm/m/it/14.4 алгоритмического комплекса для омни-робота в задаче сопровождения
+ []
+
+
+Underfull \hbox (badness 1852) in paragraph at lines 64--72
+\T2A/ptm/m/it/14.4 пользователя в квартирной среде решена в объјме, достаточном для
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--72
+\T2A/ptm/m/it/14.4 устойчивая и модульная архитектура, пригодная для дальнейшего
+ []
+
+
+Underfull \hbox (badness 4242) in paragraph at lines 64--72
+\T2A/ptm/m/it/14.4 расширения: замены цветового детектора на более общий алгоритм
+ []
+
+[51]
+Underfull \hbox (badness 1735) in paragraph at lines 81--85
+\T2A/ptm/m/it/14.4 платформе Mecanum-типа с последующим переопределением весов
+ []
+
+) [52] (./main.bbl) [53
+
+] (./parts/Illustrations.tex
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 10.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 11.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 11.
+LaTeX Font Info:    Nested math: keeping math alphabet allocation in version normal on input line 11.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 11.
+) [54
+
+
+] (./main.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 5A5902628559DB2651DF1B1C96265D1D;17316.
+ ) 
+Here is how much of TeX's memory you used:
+ 19516 strings out of 469006
+ 311835 string characters out of 5454813
+ 726807 words of memory out of 5000000
+ 47551 multiletter control sequences out of 15000+600000
+ 668773 words of font info for 137 fonts, out of 8000000 for 9000
+ 319 hyphenation exceptions out of 8191
+ 80i,12n,103p,612b,674s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/nikitak/Library/texmf/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (54 pages, 5488435 bytes).
+PDF statistics:
+ 944 PDF objects out of 1000 (max. 8388607)
+ 824 compressed objects within 9 object streams
+ 254 named destinations out of 1000 (max. 500000)
+ 594 words of extra memory for PDF output out of 10000 (max. 10000000)
+

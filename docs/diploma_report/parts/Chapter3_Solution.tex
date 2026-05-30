@@ -1,0 +1,418 @@
+\section{Исследование и построение решения задачи}
+\label{sec:solution}
+
+Построена математическая модель омни-платформы, формализован
+принцип MPPI-управления и сформирована составная функция потерь,
+отражающая прикладные требования из главы~\ref{sec:problem}.
+
+\subsection{Кинематическая схема омни-платформы}
+
+Робот представляет собой платформу с четырьмя колёсами типа Mecanum,
+расположенными по углам прямоугольника со сторонами $2L$ (вдоль оси
+$x_B$) и $2l$ (вдоль оси $y_B$) (рисунок~\ref{fig:omni_scheme}).
+Ориентация роликов колёс составляет угол $\pm 45\degree{}$ к продольной оси платформы и
+зеркально противоположна у соседних колёс.
+
+\reportfig[0.7]{omni_scheme.png}{Кинематическая схема омни-платформы с колёсами Mecanum}{fig:omni_scheme}
+
+Обозначения, используемые далее (в соответствии с
+рисунком~\ref{fig:omni_scheme}):
+\begin{itemize}
+    \item $G$~--- геометрический центр платформы, совпадающий с центром
+          связанной системы координат $x_B y_B$;
+    \item $\psi$~--- угол ориентации корпуса относительно оси $x$
+          глобальной системы координат;
+    \item $L$~--- половина колёсной базы (расстояние от центра до оси
+          колеса по оси $x_B$);
+    \item $l$~--- половина колёсной колеи (расстояние от центра до оси
+          колеса по оси $y_B$);
+    \item $\dot{\varphi}_i$, $i = 1,\dots,4$~--- угловые скорости
+          соответствующих колёс;
+    \item $r$~--- радиус колеса.
+\end{itemize}
+
+Принцип работы колеса Mecanum показан на
+рисунке~\ref{fig:omni_principle}: за счёт расположения свободно
+вращающихся роликов под углом $45\degree{}$ к оси вращения колеса
+сила реакции опоры создаёт составляющую как в продольном, так и в
+поперечном направлении, что позволяет платформе с четырьмя такими
+колёсами совершать голономное перемещение в плоскости~\cite{MorenoCaireta2020MPC}.
+
+\reportfig[0.65]{omni wheel principle.png}{Принцип действия колеса Mecanum и формирование результирующей реакции опоры}{fig:omni_principle}
+
+\subsection{Кинематика в непрерывном времени}
+
+Пусть $v_x$, $v_y$~--- продольная и поперечная линейные скорости
+корпуса в связанной системе координат, $\omega = \dot{\psi}$~--- угловая
+скорость. Полный вектор обобщённых скоростей корпуса имеет вид
+$\mathbf{u} = \begin{bmatrix} v_x & v_y & \omega \end{bmatrix}^{\top}$.
+
+Связь между скоростью в связанной системе и производной глобальных
+координат задаётся поворотом на угол $\psi$:
+\begin{equation}
+\dot{x} = v_x \cos\psi - v_y \sin\psi,
+\label{eq:kin_x}
+\end{equation}
+\begin{equation}
+\dot{y} = v_x \sin\psi + v_y \cos\psi,
+\label{eq:kin_y}
+\end{equation}
+\begin{equation}
+\dot{\psi} = \omega.
+\label{eq:kin_psi}
+\end{equation}
+
+В матричной форме
+\begin{equation}
+\dot{\mathbf{x}} = R(\psi)\,\mathbf{u},\qquad
+R(\psi) =
+\begin{bmatrix}
+\cos\psi & -\sin\psi & 0\\
+\sin\psi & \cos\psi & 0\\
+0 & 0 & 1
+\end{bmatrix}.
+\label{eq:kin_matrix}
+\end{equation}
+
+\subsection{Связь с угловыми скоростями колёс}
+
+Для четырёхколёсной омни-платформы с радиусом колеса $r$, полубазой $L$
+и полуколеёй $l$ прямая кинематика связывает обобщённые скорости
+корпуса $\mathbf{u}$ с угловыми скоростями колёс $\dot{\varphi}_i$
+следующим образом~\cite{MorenoCaireta2020MPC}:
+\begin{equation}
+\begin{bmatrix}
+\dot{\varphi}_1\\[2pt]
+\dot{\varphi}_2\\[2pt]
+\dot{\varphi}_3\\[2pt]
+\dot{\varphi}_4
+\end{bmatrix}
+=
+\frac{1}{r}
+\begin{bmatrix}
+1 & -1 & -(L+l)\\
+1 &  1 &  (L+l)\\
+1 &  1 & -(L+l)\\
+1 & -1 &  (L+l)
+\end{bmatrix}
+\begin{bmatrix}
+v_x\\ v_y\\ \omega
+\end{bmatrix},
+\label{eq:jacobian}
+\end{equation}
+где строки матрицы соответствуют колёсам 1--4 в нумерации
+рисунка~\ref{fig:omni_scheme} с учётом знаков ориентации роликов
+($+45\degree{}$ для колёс 1 и 4, $-45\degree{}$ для колёс 2 и 3).
+
+Обратное соотношение, используемое для проверки достижимости
+управления, записывается как
+\begin{equation}
+\begin{bmatrix} v_x\\ v_y\\ \omega \end{bmatrix}
+= \frac{r}{4}
+\begin{bmatrix}
+1 & 1 & 1 & 1\\
+-1 & 1 & 1 & -1\\
+-\frac{1}{L+l} & \frac{1}{L+l} & -\frac{1}{L+l} & \frac{1}{L+l}
+\end{bmatrix}
+\begin{bmatrix}
+\dot{\varphi}_1\\ \dot{\varphi}_2\\ \dot{\varphi}_3\\ \dot{\varphi}_4
+\end{bmatrix}.
+\label{eq:inverse_jacobian}
+\end{equation}
+
+\subsection{Дискретная модель}
+
+Для цифровой реализации контроллера непрерывная модель дискретизируется
+с шагом $\Delta t$ методом Эйлера:
+\begin{equation}
+x_{k+1} = x_k + \Delta t\,\bigl(v_{x,k}\cos\psi_k - v_{y,k}\sin\psi_k\bigr),
+\label{eq:disc_x}
+\end{equation}
+\begin{equation}
+y_{k+1} = y_k + \Delta t\,\bigl(v_{x,k}\sin\psi_k + v_{y,k}\cos\psi_k\bigr),
+\label{eq:disc_y}
+\end{equation}
+\begin{equation}
+\psi_{k+1} = \psi_k + \Delta t\,\omega_k.
+\label{eq:disc_psi}
+\end{equation}
+
+В компактной форме
+\begin{equation}
+\mathbf{x}_{k+1} = f(\mathbf{x}_k, \mathbf{u}_k).
+\label{eq:disc_model}
+\end{equation}
+
+\subsection{Ограничения}
+
+Физические ограничения на скорости и ускорения корпуса имеют вид
+\begin{equation}
+|v_{x,k}| \le v_x^{\max},\quad |v_{y,k}| \le v_y^{\max},\quad |\omega_k| \le \omega^{\max},
+\label{eq:vel_limits}
+\end{equation}
+\begin{equation}
+|\dot{v}_{x,k}| \le a_x^{\max},\quad |\dot{v}_{y,k}| \le a_y^{\max},\quad |\dot{\omega}_k| \le \alpha^{\max}.
+\label{eq:acc_limits}
+\end{equation}
+
+Условие безопасности относительно препятствий записывается как
+\begin{equation}
+d_{i,k} = \|\mathbf{p}_k - \mathbf{p}^{\text{obs}}_{i,k}\|_2 \ge d_{\min},
+\quad i = 1,\dots,n_{\text{obs}}.
+\label{eq:safety_constraint}
+\end{equation}
+
+\subsection{Принцип модельного прогнозирующего управления}
+
+На шаге $k$ модельное прогнозирующее управление (MPC) формирует
+последовательность управляющих воздействий
+\begin{equation}
+\mathbf{U}_k^{\star} =
+\left\{
+\mathbf{u}_{k|k}^{\star},
+\mathbf{u}_{k+1|k}^{\star},
+\dots,
+\mathbf{u}_{k+N-1|k}^{\star}
+\right\},
+\label{eq:mpc_sequence}
+\end{equation}
+где $N$~--- горизонт прогнозирования. Прогноз состояния строится
+рекурсивно с использованием модели~\eqref{eq:disc_model}:
+\begin{equation}
+\mathbf{x}_{k+j+1|k} = f(\mathbf{x}_{k+j|k}, \mathbf{u}_{k+j|k}),
+\quad j = 0,\dots,N-1.
+\label{eq:mpc_rollout}
+\end{equation}
+
+Оптимизируемый функционал представляет сумму этапных и терминальных
+затрат:
+\begin{equation}
+J_k = \sum_{j=0}^{N-1}
+\ell\bigl(\mathbf{x}_{k+j|k}, \mathbf{u}_{k+j|k}\bigr)
++ \ell_f\bigl(\mathbf{x}_{k+N|k}\bigr).
+\label{eq:mpc_cost}
+\end{equation}
+
+По принципу receding horizon применяется только первое управление
+$\mathbf{u}_k = \mathbf{u}_{k|k}^{\star}$, после чего горизонт сдвигается,
+измеряется новое состояние и задача оптимизации решается заново.
+
+\subsection{Стохастическая реализация MPPI}
+
+В работе используется стохастическая реализация MPC --- MPPI, имеющаяся
+в составе пакета \texttt{nav2\_mppi\_controller} навигационного стека
+Nav2~\cite{Alkhaddad2023MPC}. Для каждого сэмпла $m = 1,\dots,M$
+генерируется возмущение управления
+\begin{equation}
+\boldsymbol{\epsilon}_{j}^{(m)} \sim \mathcal{N}(0,\Sigma),
+\quad m = 1,\dots,M,\quad j = 0,\dots,N-1,
+\label{eq:mppi_noise}
+\end{equation}
+и формируется траектория $m$-го сэмпла с управлением
+\begin{equation}
+\mathbf{u}_{k+j}^{(m)} = \bar{\mathbf{u}}_{k+j} + \boldsymbol{\epsilon}_{j}^{(m)},
+\label{eq:mppi_u}
+\end{equation}
+где $\bar{\mathbf{u}}_{k+j}$~--- номинальное управление на шаге $j$.
+
+Суммарная стоимость $m$-й траектории
+\begin{equation}
+S^{(m)} = \sum_{j=0}^{N-1}
+\ell\bigl(\mathbf{x}_{k+j}^{(m)}, \mathbf{u}_{k+j}^{(m)}\bigr)
++ \ell_f\bigl(\mathbf{x}_{k+N}^{(m)}\bigr).
+\label{eq:mppi_S}
+\end{equation}
+
+Вес траектории формируется экспоненциальным правилом
+\begin{equation}
+w^{(m)} =
+\frac{\exp\bigl(-\tfrac{1}{\lambda} S^{(m)}\bigr)}
+     {\sum\limits_{q=1}^{M} \exp\bigl(-\tfrac{1}{\lambda} S^{(q)}\bigr)},
+\label{eq:mppi_weights}
+\end{equation}
+где $\lambda > 0$~--- температурный параметр (в реализации Nav2~MPPI
+обозначается \texttt{temperature}).
+
+Обновление номинального управления происходит по взвешенному среднему
+возмущений:
+\begin{equation}
+\bar{\mathbf{u}}_{k+j}^{\text{new}} =
+\bar{\mathbf{u}}_{k+j} + \sum_{m=1}^{M} w^{(m)}\,\boldsymbol{\epsilon}_{j}^{(m)}.
+\label{eq:mppi_update}
+\end{equation}
+
+\subsection{Архитектура функции потерь}
+
+Согласно требованиям задачи (глава~\ref{sec:problem}) функция потерь
+должна одновременно обеспечивать:
+\begin{itemize}
+    \item поддержание целевой дистанции до пользователя;
+    \item центрирование цели в поле зрения камеры по горизонтали;
+    \item безопасность относительно препятствий;
+    \item плавность управляющих воздействий;
+    \item корректное поведение при потере наблюдаемости цели.
+\end{itemize}
+
+Введём следующие отклонения на шаге $k$:
+\begin{equation}
+e^{d}_{k} = \|\mathbf{p}_k - \mathbf{x}^{t}_k\|_2 - d^{\star},
+\label{eq:err_dist}
+\end{equation}
+\begin{equation}
+e^{\phi}_{k} =
+\operatorname{atan2}\bigl(y^{t}_k - y_k,\; x^{t}_k - x_k\bigr) - \psi_k,
+\label{eq:err_bearing}
+\end{equation}
+где $d^{\star}$~--- желаемая дистанция, а $e^{\phi}_{k}$ приводится к
+$(-\pi,\pi]$.
+
+Этапная функция потерь принимается в виде взвешенной суммы
+\begin{align}
+      \ell_k = &\; w_d\,(e^{d}_{k})^{2} + w_{\phi}\,(e^{\phi}_{k})^{2} + w_{u}\,\|\mathbf{u}_k\|_2^{2} \nonumber \\
+      &+ w_{\Delta u}\,\|\mathbf{u}_k - \mathbf{u}_{k-1}\|_2^{2} + w_{\text{obs}}\,\Psi_{\text{obs},k} \nonumber \\
+      &+ w_{\text{pf}}\,\Psi_{\text{pf},k} + w_{\text{hold}}\,\Psi_{\text{hold},k},
+      \label{eq:stage_cost}
+      \end{align}
+где
+\begin{equation}
+\Psi_{\text{obs},k} =
+\sum_{i=1}^{n_{\text{obs}}}
+\frac{1}{(d_{i,k} - d_{\text{safe}})^{2} + \varepsilon},
+\quad \varepsilon > 0,
+\label{eq:psi_obs}
+\end{equation}
+\begin{equation}
+\Psi_{\text{hold},k} = (1 - \nu_k)\,\|\mathbf{u}_k\|_2^{2},
+\label{eq:psi_hold}
+\end{equation}
+а $\nu_k \in \{0,1\}$~--- бинарный индикатор видимости цели.
+Слагаемое $\Psi_{\text{pf},k}$ задаёт направленный (анизотропный) штраф
+вдоль градиента поля препятствий и определено в
+подразделе~\ref{sec:pf_cost}.
+Терминальная стоимость имеет вид
+\begin{equation}
+\ell_f =
+w_f^{d}\,(e^{d}_{k+N})^{2}
++ w_f^{\phi}\,(e^{\phi}_{k+N})^{2}.
+\label{eq:terminal_cost}
+\end{equation}
+
+\subsection{Направленный штраф поля препятствий}
+\label{sec:pf_cost}
+
+Изотропный барьер~\eqref{eq:psi_obs} штрафует только сам факт
+близости препятствия и не различает направления движения, что для
+голономной омни-платформы (свободный выбор $v_x$, $v_y$) недостаточно:
+сэмплы, идущие \emph{вдоль} края препятствия, и сэмплы, направленные
+\emph{в} препятствие, получают одинаковый штраф. Для устранения этого
+эффекта в функцию потерь дополнительно вводится направленный (потенциального
+поля) штраф $\Psi_{\text{pf},k}$.
+
+Пусть $c(x,y) \in [0,1]$~--- нормированное на максимум значение
+costmap в точке $(x,y)$, $\nabla c$~--- его конечно-разностный градиент.
+Введём внутреннее расстояние до препятствия $\tilde{d}(c)$,
+восстанавливаемое из инфляционной модели costmap. Тогда
+\begin{equation}
+\hat{\mathbf{f}}_k =
+-\frac{\nabla c(\mathbf{p}_k)}{\|\nabla c(\mathbf{p}_k)\|_2}
+\label{eq:pf_dir}
+\end{equation}
+~--- единичное направление отталкивания от препятствия в точке
+$\mathbf{p}_k$.
+
+Слагаемое $\Psi_{\text{pf},k}$ строится как сумма двух
+неотрицательных составляющих: проксимальной и направленной.
+Проксимальная составляющая активна, когда восстановленное расстояние
+до препятствия меньше $d^{\star}_{\text{pf}}$:
+\begin{equation}
+\rho_k = \max\bigl(0,\; d^{\star}_{\text{pf}} - \tilde{d}(c(\mathbf{p}_k))\bigr).
+\label{eq:pf_prox}
+\end{equation}
+Направленная составляющая штрафует движение
+\emph{в~сторону} препятствия~--- проекцию единичного вектора
+скорости $\hat{\mathbf{v}}_k = \mathbf{v}_k / \|\mathbf{v}_k\|_2$ на
+направление, противоположное отталкиванию:
+\begin{equation}
+\sigma_k = \max\bigl(0,\; -\langle \hat{\mathbf{v}}_k,\, \hat{\mathbf{f}}_k \rangle\bigr)
+\,(1 + \rho_k).
+\label{eq:pf_dir_score}
+\end{equation}
+Полное слагаемое имеет вид
+\begin{equation}
+\Psi_{\text{pf},k} = \mathbf{1}\!\bigl[c(\mathbf{p}_k) \ge c_{\text{act}}\bigr]\,
+\bigl(w_{\rho}\,\rho_k + w_{\sigma}\,\sigma_k\bigr),
+\label{eq:psi_pf}
+\end{equation}
+где $\mathbf{1}[\cdot]$~--- индикатор активации по порогу costmap
+$c_{\text{act}}$, а $w_{\rho}$, $w_{\sigma}$~--- внутренние веса
+проксимальной и направленной составляющих.
+
+Активация по порогу $c_{\text{act}}$ выключает штраф вдали от
+препятствий, что делает его локальным регуляризатором поведения и
+не искажает преследование цели в свободном пространстве. На
+расстоянии до текущей цели меньше $d_{\text{ng}}$ слагаемое также
+обнуляется, чтобы исключить конфликт с подходом к финальной
+позе~\cite{Alkhaddad2023MPC}.
+
+\subsection{Интерпретация весовых коэффициентов}
+
+Веса $w_{(\cdot)}$ регулируют относительную значимость слагаемых
+функции потерь. Характерные соотношения:
+\begin{itemize}
+    \item $w_{\text{obs}}, w_{\text{pf}} \gg w_{d}, w_{\phi}$~---
+          приоритет безопасности над точностью сопровождения;
+    \item увеличение $w_{\Delta u}$ уменьшает рывки управления:
+          $\|\mathbf{u}_k - \mathbf{u}_{k-1}\|_2 \to 0$;
+    \item $w_{\text{hold}} \gg 0$ при $\nu_k = 0$ заставляет робот
+          остановиться: $\mathbf{u}_k \to \mathbf{0}$;
+    \item внутренний $w_{\sigma}$ в~\eqref{eq:pf_dir_score} подавляет
+          движение в препятствие на голономных направлениях, не
+          мешая движению вдоль границы препятствия.
+\end{itemize}
+
+\subsection{Декомпозиция на критики Nav2/MPPI}
+
+Любое слагаемое функции потерь в \eqref{eq:stage_cost} представляется
+независимым модулем~--- критиком траектории. Формально
+\begin{equation}
+\ell_k = \sum_{r=1}^{R} \ell_k^{(r)},
+\label{eq:decomp_stage}
+\end{equation}
+\begin{equation}
+S^{(m)} = \sum_{j=0}^{N-1} \sum_{r=1}^{R} \ell_{k+j}^{(r,m)},
+\label{eq:decomp_S}
+\end{equation}
+где $\ell_k^{(r)}$~--- вклад $r$-го критика. Такая декомпозиция
+обеспечивает:
+\begin{itemize}
+    \item независимую параметрическую настройку каждого требования;
+    \item интерпретируемость поведения в терминах отдельных целей;
+    \item модульное расширение системы при добавлении новых требований
+          к управлению.
+\end{itemize}
+
+Соответствие слагаемых функции~\eqref{eq:stage_cost} критикам
+реализации Nav2~MPPI приведено в главе~\ref{sec:implementation}.
+
+\subsection{Контур восприятия цели}
+
+Для связи функции потерь с измерениями сенсоров необходимо пересчитать
+положение обнаруженной цели в то же координатное пространство, в котором
+формируются прогнозы траектории. Схема пересчёта включает следующие
+этапы:
+\begin{enumerate}
+    \item детектирование цели по цветовой сегментации изображения с
+          фронтальной камеры;
+    \item вычисление углового направления на цель по положению центра
+          ограничивающего прямоугольника и известному горизонтальному
+          углу поля зрения камеры;
+    \item оценка дальности до цели по данным 2D-лидара в окрестности
+          полученного направления (медиана допустимых значений в
+          заданном окне индексов);
+    \item преобразование точки из связанной с роботом системы координат
+          в глобальную карту через дерево преобразований TF.
+\end{enumerate}
+
+Такая схема обеспечивает согласованность математической модели и
+измерений, а также позволяет использовать один и тот же кадр карты
+для всех слагаемых функции потерь.
