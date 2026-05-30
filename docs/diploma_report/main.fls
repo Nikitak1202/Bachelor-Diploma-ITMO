@@ -1,8 +1,8 @@
-PWD /Users/nikitak/Desktop/Study/Bachelor-Diploma-ITMO/docs/diploma_report
+PWD /Users/nikitak/Desktop/Bachelor-Diploma-ITMO/docs/diploma_report
 INPUT /usr/local/texlive/2026basic/texmf.cnf
 INPUT /usr/local/texlive/2026basic/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2026basic/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/nikitak/Desktop/Study/Bachelor-Diploma-ITMO/docs/diploma_report/main.tex
+INPUT main.tex
 OUTPUT main.log
 INPUT /usr/local/texlive/2026basic/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2026basic/texmf-dist/tex/latex/base/article.cls

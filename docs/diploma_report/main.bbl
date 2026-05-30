@@ -9,27 +9,38 @@
 
 \bibitem{MorenoCaireta2020MPC}
 \selectlanguageifdefined{english}
-\BibEmph{Moreno-Caireta,~I.} Model Predictive Control for a Mecanum-wheeled Robot Navigating among Obstacles~/ I.~Moreno-Caireta, E.~Celaya, L.~Ros~// \BibEmph{IFAC-PapersOnLine}. ---
+\BibEmph{Moreno-Caireta,~I.} Model Predictive Control for a Mecanum-wheeled
+  Robot Navigating among Obstacles~/ I.~Moreno-Caireta, E.~Celaya, L.~Ros~//
+  \BibEmph{IFAC-PapersOnLine}. ---
 \newblock 2021. ---
 \newblock Vol.~54, no.~6. ---
 \newblock Pp.~119--125.
 
 \bibitem{Alkhaddad2023MPC}
 \selectlanguageifdefined{english}
-Локальное планирование траектории колесного робота в ограниченной среде на основе модельного прогнозирующего управления~/ М.~Алхаддад, К.В.~Миронов, С.А.~Дергачев et~al.~// \BibEmph{Робототехника и техническая кибернетика}. ---
+Локальное планирование траектории
+  колесного робота в ограниченной среде на
+  основе модельного прогнозирующего
+  управления~/ М.~Алхаддад, К.В.~Миронов,
+  С.А.~Дергачев et~al.~// \BibEmph{Робототехника и
+  техническая кибернетика}. ---
 \newblock 2023. ---
 \newblock Vol.~11, no.~3. ---
 \newblock Pp.~205--214.
 
 \bibitem{Sreerambatla2021SLAM}
 \selectlanguageifdefined{english}
-\BibEmph{Sreerambatla,~S.} Comparison of Multiple SLAM Algorithms using ROS~/ S.~Sreerambatla~// \BibEmph{International Journal of Science and Research (IJSR)}. ---
+\BibEmph{Sreerambatla,~S.} Comparison of Multiple SLAM Algorithms using ROS~/
+  S.~Sreerambatla~// \BibEmph{International Journal of Science and Research
+  (IJSR)}. ---
 \newblock 2021. ---
 \newblock Vol.~10, no.~10.
 
 \bibitem{Nguyen2022SLAM}
 \selectlanguageifdefined{english}
-\BibEmph{Nguyen,~Q.~H.} Performance Evaluation of ROS-based SLAM Algorithms for Handheld Indoor Mapping and Tracking Systems~/ Q.~H.~Nguyen, P.~Johnson, D.~Latham~// \BibEmph{IEEE Sensors Journal}. ---
+\BibEmph{Nguyen,~Q.~H.} Performance Evaluation of ROS-based SLAM Algorithms for
+  Handheld Indoor Mapping and Tracking Systems~/ Q.~H.~Nguyen, P.~Johnson,
+  D.~Latham~// \BibEmph{IEEE Sensors Journal}. ---
 \newblock 2022.
 
 \end{thebibliography}
