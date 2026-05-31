@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1780123417.86052 "main.aux" "main.bbl" "main" 1780123423.34485 0
+["bibtex main"] 1780235885.06105 "main.aux" "main.bbl" "main" 1780235890.16632 0
   "./gost71u.bst" 1780121283.08201 27039 e06be2fbfea2140180e3a53c71d4e67d ""
   "./references.bib" 1780121283.10594 3337 0582e047c8cdbc8f694511baf3ae774a ""
-  "main.aux" 1780123422.88132 22097 b074fd2dfab88b68632695a75145a4e7 "pdflatex"
+  "main.aux" 1780235889.86863 21971 0758cfe77ed8aee73e4104a99896458f "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1780123417.89123 "main.tex" "main.pdf" "main" 1780123423.34508 0
+["pdflatex"] 1780235885.10287 "/Users/nikitak/Desktop/Bachelor-Diploma-ITMO/docs/diploma_report/main.tex" "main.pdf" "main" 1780235890.16656 0
   "../images/exp_all_control_smoothness.png" 1780121283.10631 43400 5d751b9153c758e4134704bec4fee78a ""
   "../images/exp_all_mode_shares.png" 1780121283.10672 59971 b833675b8919c14b2b02372039fe70e2 ""
   "../images/exp_all_safety_events.png" 1780121283.10713 53573 8f0872f7b67a7672a2516cb936bdf9f4 ""
@@ -21,6 +21,7 @@
   "../images/omni wheel principle.png" 1780121283.11692 294642 16e98ef64126663e55c2463300d3eb30 ""
   "../images/omni_scheme.png" 1780121283.11763 116912 f7e976618e16cc6bb615c1ac04d85c8b ""
   "../images/rviz screenshot.png" 1780121283.11987 824759 aae503ff4de2be0b29cd00fc4f3f2e36 ""
+  "/Users/nikitak/Desktop/Bachelor-Diploma-ITMO/docs/diploma_report/main.tex" 1780235879.52412 2210 38a21abbea6d4510d09c75a76741dead ""
   "/Users/nikitak/Library/texlive/2026basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1777042381 278970 e4aa94bded4914ab898f116dc24de7db ""
   "/Users/nikitak/Library/texlive/2026basic/texmf-var/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1776182240.88895 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
   "/Users/nikitak/Library/texmf/fonts/tfm/lh/lh-t2a/larm0600.tfm" 1771174259 3248 7c0b9d76a2cd84ed06764a4c6eea5de4 ""
@@ -192,14 +193,12 @@
   "/usr/local/texlive/2026basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1776180480 2966196 ac271a726ef52723b2033cbb3236fe70 ""
   "/usr/local/texlive/2026basic/texmf.cnf" 1772405582 628 bbc09d6d38872d53c11bb48dc9b14e88 ""
   "include/preambule.tex" 1780121283.08234 7323 18c9ef650dbf2a6efff22f8032866c85 ""
-  "include/title-page.tex" 1780121283.08251 2238 13ec62c22e186b814e77b41b98ba9552 ""
-  "main.aux" 1780123422.88132 22097 b074fd2dfab88b68632695a75145a4e7 "pdflatex"
-  "main.bbl" 1780123417.88701 1822 6beda00f8efe887192a27305c26ed989 "bibtex main"
-  "main.out" 1780123422.88462 17316 d9c18e9631e0e0f4964a7974062082d8 "pdflatex"
-  "main.tex" 1780123410.58986 2489 0dcc1f0c104605beabc0973ff2f5af6b ""
-  "main.toc" 1780123422.88498 7549 156b45b0254565b790d708d3cff3a1c0 "pdflatex"
+  "main.aux" 1780235889.86863 21971 0758cfe77ed8aee73e4104a99896458f "pdflatex"
+  "main.bbl" 1780235885.09942 1800 603bf023c3a7778abbd48fbad3897fe1 "bibtex main"
+  "main.out" 1780235889.87183 17199 473a067e73c0acef151e9b7d63a1b92f "pdflatex"
+  "main.tex" 1780235879.52412 2210 38a21abbea6d4510d09c75a76741dead ""
+  "main.toc" 1780235889.87215 7469 b1d2b16ef9f9b66a8c1f8b960fa8f015 "pdflatex"
   "parts/Abbreviations.tex" 1780121283.10393 1703 677d2a93e867b50f24f68157a7978736 ""
-  "parts/Annotation.tex" 1780123299.84277 2147 745f074c1f7a01debaf96e3683fb664e ""
   "parts/Chapter1_Problem.tex" 1780121283.10428 11238 86740211bde59dd216319db7f851765b ""
   "parts/Chapter2_Review.tex" 1780121283.10447 11094 3e2c38592e7ea0dfd1c6e59405c1752e ""
   "parts/Chapter3_Solution.tex" 1780121283.10465 21082 94f9d0112e4cd9d9d3ec72b80c33e5d0 ""

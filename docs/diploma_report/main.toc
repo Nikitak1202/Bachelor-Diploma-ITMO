@@ -1,66 +1,65 @@
 \babel@toc {russian}{}\relax 
-\contentsline {section}{\MakeUppercase []{Аннотация}}{5}{section*.1}%
-\contentsline {section}{\MakeUppercase []{Список сокращений и условных обозначений}}{9}{section*.2}%
-\contentsline {section}{\MakeUppercase []{Термины и определения}}{10}{section*.3}%
-\contentsline {section}{\MakeUppercase []{Введение}}{11}{section*.4}%
-\contentsline {subsection}{Актуальность темы исследования}{11}{section*.5}%
-\contentsline {subsection}{Исследованность темы}{12}{section*.5}%
-\contentsline {subsection}{Решаемая проблема}{12}{section*.5}%
-\contentsline {subsection}{Цель работы}{13}{section*.5}%
-\contentsline {subsection}{Задачи работы}{13}{section*.5}%
-\contentsline {subsection}{Практическая значимость работы}{14}{Item.8}%
-\contentsline {section}{\numberline {1}Постановка задачи}{15}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Содержательная постановка задачи}{15}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Объект и предмет исследования}{16}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Формальная постановка задачи управления}{16}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Требования к системе}{17}{subsection.1.4}%
-\contentsline {subsubsection}{\numberline {1.4.1}Функциональные требования}{17}{subsubsection.1.4.1}%
-\contentsline {subsubsection}{\numberline {1.4.2}Нефункциональные требования}{18}{subsubsection.1.4.2}%
-\contentsline {subsubsection}{\numberline {1.4.3}Ограничения}{18}{subsubsection.1.4.3}%
-\contentsline {subsection}{\numberline {1.5}Критерии оценки качества решения}{18}{subsection.1.5}%
-\contentsline {section}{\numberline {2}Обзор существующих решений}{20}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Подходы к локальному планированию траектории}{20}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Реактивные методы}{20}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Классическое модельное прогнозирующее управление (MPC)}{20}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.1.3}Стохастические методы: MPPI}{21}{subsubsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.2}Методы SLAM для замкнутых помещений}{22}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Навигационные стеки}{22}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Сравнительный анализ и обоснование выбора}{23}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Исследование и построение решения задачи}{24}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Кинематическая схема омни-платформы}{24}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Кинематика в непрерывном времени}{26}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Связь с угловыми скоростями колёс}{27}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Дискретная модель}{28}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Ограничения}{28}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Принцип модельного прогнозирующего управления}{28}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Стохастическая реализация MPPI}{29}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}Архитектура функции потерь}{30}{subsection.3.8}%
-\contentsline {subsection}{\numberline {3.9}Направленный штраф поля препятствий}{31}{subsection.3.9}%
-\contentsline {subsection}{\numberline {3.10}Интерпретация весовых коэффициентов}{32}{subsection.3.10}%
-\contentsline {subsection}{\numberline {3.11}Декомпозиция на критики Nav2/MPPI}{33}{subsection.3.11}%
-\contentsline {subsection}{\numberline {3.12}Контур восприятия цели}{33}{subsection.3.12}%
-\contentsline {section}{\numberline {4}Описание практической части}{35}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Выбор средств разработки}{35}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Состав узлов и их назначение}{36}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Модель робота}{36}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Среда симуляции и подвижные сущности}{37}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Контур восприятия цели}{38}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Формирование навигационных целей}{39}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Локальное управление с MPPI}{40}{subsection.4.7}%
-\contentsline {subsubsection}{\numberline {4.7.1}Пользовательский критик \texttt {TargetCameraCritic}}{41}{subsubsection.4.7.1}%
-\contentsline {subsubsection}{\numberline {4.7.2}Пользовательский критик \texttt {PotentialFieldCritic}}{42}{subsubsection.4.7.2}%
-\contentsline {subsection}{\numberline {4.8}SLAM}{43}{subsection.4.8}%
-\contentsline {subsection}{\numberline {4.9}Пример рабочей сцены}{43}{subsection.4.9}%
-\contentsline {section}{\numberline {5}Экспериментальная часть}{45}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Методика проведения серии запусков}{45}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Метрики}{45}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Распределение режимов сопровождения}{45}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}Видимость цели}{46}{subsubsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.3}Метрики безопасности}{46}{subsubsection.5.2.3}%
-\contentsline {subsubsection}{\numberline {5.2.4}Плавность управления}{46}{subsubsection.5.2.4}%
-\contentsline {subsection}{\numberline {5.3}Результаты одного запуска}{47}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Агрегированные результаты по серии экспериментов}{49}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Обсуждение результатов}{51}{subsection.5.5}%
-\contentsline {section}{\MakeUppercase []{Заключение}}{53}{section*.20}%
-\contentsline {section}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}{56}{Item.66}%
-\contentsline {section}{\MakeUppercase []{Список иллюстративного материала}}{57}{section*.21}%
+\contentsline {section}{\MakeUppercase []{Список сокращений и условных обозначений}}{8}{section*.1}%
+\contentsline {section}{\MakeUppercase []{Термины и определения}}{9}{section*.2}%
+\contentsline {section}{\MakeUppercase []{Введение}}{10}{section*.3}%
+\contentsline {subsection}{Актуальность темы исследования}{10}{section*.4}%
+\contentsline {subsection}{Исследованность темы}{11}{section*.4}%
+\contentsline {subsection}{Решаемая проблема}{11}{section*.4}%
+\contentsline {subsection}{Цель работы}{12}{section*.4}%
+\contentsline {subsection}{Задачи работы}{12}{section*.4}%
+\contentsline {subsection}{Практическая значимость работы}{13}{Item.8}%
+\contentsline {section}{\numberline {1}Постановка задачи}{14}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Содержательная постановка задачи}{14}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Объект и предмет исследования}{15}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Формальная постановка задачи управления}{15}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Требования к системе}{16}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Функциональные требования}{16}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Нефункциональные требования}{17}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}Ограничения}{17}{subsubsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.5}Критерии оценки качества решения}{17}{subsection.1.5}%
+\contentsline {section}{\numberline {2}Обзор существующих решений}{19}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Подходы к локальному планированию траектории}{19}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Реактивные методы}{19}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Классическое модельное прогнозирующее управление (MPC)}{19}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Стохастические методы: MPPI}{20}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Методы SLAM для замкнутых помещений}{21}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Навигационные стеки}{21}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Сравнительный анализ и обоснование выбора}{22}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Исследование и построение решения задачи}{23}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Кинематическая схема омни-платформы}{23}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Кинематика в непрерывном времени}{25}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Связь с угловыми скоростями колёс}{26}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Дискретная модель}{27}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Ограничения}{27}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Принцип модельного прогнозирующего управления}{27}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Стохастическая реализация MPPI}{28}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Архитектура функции потерь}{29}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Направленный штраф поля препятствий}{30}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.10}Интерпретация весовых коэффициентов}{31}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}Декомпозиция на критики Nav2/MPPI}{32}{subsection.3.11}%
+\contentsline {subsection}{\numberline {3.12}Контур восприятия цели}{32}{subsection.3.12}%
+\contentsline {section}{\numberline {4}Описание практической части}{34}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Выбор средств разработки}{34}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Состав узлов и их назначение}{35}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Модель робота}{35}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Среда симуляции и подвижные сущности}{36}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Контур восприятия цели}{37}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Формирование навигационных целей}{38}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Локальное управление с MPPI}{39}{subsection.4.7}%
+\contentsline {subsubsection}{\numberline {4.7.1}Пользовательский критик \texttt {TargetCameraCritic}}{40}{subsubsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.2}Пользовательский критик \texttt {PotentialFieldCritic}}{41}{subsubsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.8}SLAM}{42}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.9}Пример рабочей сцены}{42}{subsection.4.9}%
+\contentsline {section}{\numberline {5}Экспериментальная часть}{44}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Методика проведения серии запусков}{44}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Метрики}{44}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Распределение режимов сопровождения}{44}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Видимость цели}{45}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Метрики безопасности}{45}{subsubsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.4}Плавность управления}{45}{subsubsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.3}Результаты одного запуска}{46}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Агрегированные результаты по серии экспериментов}{48}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Обсуждение результатов}{50}{subsection.5.5}%
+\contentsline {section}{\MakeUppercase []{Заключение}}{52}{section*.19}%
+\contentsline {section}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}{55}{Item.66}%
+\contentsline {section}{\MakeUppercase []{Список иллюстративного материала}}{56}{section*.20}%
