@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1780837387.93589 "main.tex" "main.pdf" "main" 1780837392.93608 0
+["pdflatex"] 1780842561.44472 "main.tex" "main.pdf" "main" 1780842566.50371 0
   "../images/exp_all_control_smoothness.png" 1780121283.10631 43400 5d751b9153c758e4134704bec4fee78a ""
   "../images/exp_all_mode_shares.png" 1780121283.10672 59971 b833675b8919c14b2b02372039fe70e2 ""
   "../images/exp_all_safety_events.png" 1780121283.10713 53573 8f0872f7b67a7672a2516cb936bdf9f4 ""
@@ -289,11 +289,11 @@
   "/usr/local/texlive/2026basic/texmf-dist/web2c/texmf.cnf" 1770478701 43630 e9fa012910491fe5ae08a72c3c2997a7 ""
   "/usr/local/texlive/2026basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1776180480 2966196 ac271a726ef52723b2033cbb3236fe70 ""
   "/usr/local/texlive/2026basic/texmf.cnf" 1772405582 628 bbc09d6d38872d53c11bb48dc9b14e88 ""
-  "main.aux" 1780837392.68945 4185 1c7f0f0a4086bed5be7484816a6a259b "pdflatex"
-  "main.nav" 1780837392.69113 2601 3018acbd46ce700166086348035afd52 "pdflatex"
-  "main.out" 1780837392.69083 640 8c978e4573da8d40eff023493599a863 "pdflatex"
-  "main.tex" 1780837382.62829 16271 2ceac0785f14ec7e8538dc3d2102e13b ""
-  "main.toc" 1780837392.69117 287 e970d77deef76b6c52f0906d41a89483 "pdflatex"
+  "main.aux" 1780842566.2515 4185 1c7f0f0a4086bed5be7484816a6a259b "pdflatex"
+  "main.nav" 1780842566.2531 2601 3018acbd46ce700166086348035afd52 "pdflatex"
+  "main.out" 1780842566.25283 640 8c978e4573da8d40eff023493599a863 "pdflatex"
+  "main.tex" 1780842561.16241 15975 4445d03c08bc8c29f709004e9971d4c5 ""
+  "main.toc" 1780842566.25314 287 e970d77deef76b6c52f0906d41a89483 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
