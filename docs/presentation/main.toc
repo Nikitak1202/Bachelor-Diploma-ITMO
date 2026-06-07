@@ -1,6 +1,5 @@
 \babel@toc {russian}{}\relax 
 \beamer@sectionintoc {1}{Постановка задачи}{3}{0}{1}
-\beamer@sectionintoc {2}{Модель платформы}{5}{0}{2}
-\beamer@sectionintoc {3}{MPPI и функция потерь}{6}{0}{3}
-\beamer@sectionintoc {4}{Эксперименты}{10}{0}{4}
-\beamer@sectionintoc {5}{Заключение}{18}{0}{5}
+\beamer@sectionintoc {2}{MPPI и функция потерь}{5}{0}{2}
+\beamer@sectionintoc {3}{Эксперименты}{9}{0}{3}
+\beamer@sectionintoc {4}{Заключение}{17}{0}{4}

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1780123214.46436 "main.tex" "main.pdf" "main" 1780123220.17606 0
+["pdflatex"] 1780837387.93589 "main.tex" "main.pdf" "main" 1780837392.93608 0
   "../images/exp_all_control_smoothness.png" 1780121283.10631 43400 5d751b9153c758e4134704bec4fee78a ""
   "../images/exp_all_mode_shares.png" 1780121283.10672 59971 b833675b8919c14b2b02372039fe70e2 ""
   "../images/exp_all_safety_events.png" 1780121283.10713 53573 8f0872f7b67a7672a2516cb936bdf9f4 ""
@@ -11,7 +11,6 @@
   "../images/house.png" 1780121283.11013 1116185 da5139f78a7d247ea00fc61bdad01253 ""
   "../images/house_up.png" 1780121283.11553 1690416 c922fc3026fe75eebc2c9c1e2019a473 ""
   "../images/manufactory.png" 1780122658.72769 2409756 4037022b6481e8a95a4f3ef2c30c6d9e ""
-  "../images/omni_scheme.png" 1780121283.11763 116912 f7e976618e16cc6bb615c1ac04d85c8b ""
   "../images/rviz screenshot.png" 1780121283.11987 824759 aae503ff4de2be0b29cd00fc4f3f2e36 ""
   "/Users/nikitak/Library/texlive/2026basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1777042381 278970 e4aa94bded4914ab898f116dc24de7db ""
   "/Users/nikitak/Library/texlive/2026basic/texmf-var/fonts/tfm/lh/lh-t2a/latt1200.tfm" 1776182241.67478 1272 bf3bb5cc29880b269c8bcb412a1ac6e2 ""
@@ -290,11 +289,11 @@
   "/usr/local/texlive/2026basic/texmf-dist/web2c/texmf.cnf" 1770478701 43630 e9fa012910491fe5ae08a72c3c2997a7 ""
   "/usr/local/texlive/2026basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1776180480 2966196 ac271a726ef52723b2033cbb3236fe70 ""
   "/usr/local/texlive/2026basic/texmf.cnf" 1772405582 628 bbc09d6d38872d53c11bb48dc9b14e88 ""
-  "main.aux" 1780123219.85149 4778 aa83f4886dc600d03f97f9faf6008150 "pdflatex"
-  "main.nav" 1780123219.85333 2982 55a4e84c2363427832ec2cda07440d16 "pdflatex"
-  "main.out" 1780123219.85302 811 ce5827b31a0876b0f792a37d308d8965 "pdflatex"
-  "main.tex" 1780123206.8695 18285 36c3cc21b2cc6e86aed1fa7a6da4daa7 ""
-  "main.toc" 1780123219.85338 355 64057610fa85eda8555cb9ac4c4cc1f1 "pdflatex"
+  "main.aux" 1780837392.68945 4185 1c7f0f0a4086bed5be7484816a6a259b "pdflatex"
+  "main.nav" 1780837392.69113 2601 3018acbd46ce700166086348035afd52 "pdflatex"
+  "main.out" 1780837392.69083 640 8c978e4573da8d40eff023493599a863 "pdflatex"
+  "main.tex" 1780837382.62829 16271 2ceac0785f14ec7e8538dc3d2102e13b ""
+  "main.toc" 1780837392.69117 287 e970d77deef76b6c52f0906d41a89483 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
